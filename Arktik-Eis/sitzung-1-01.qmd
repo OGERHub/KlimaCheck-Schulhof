@@ -3,6 +3,7 @@ title: "Arktisches Eis"
 subtitle: "Schwanken oder Schmelzen"
 author: "Rieke Ammoneit"
 date: "2026-04-28"
+order: 20
 title-block-banner: ../images/arctic.png
 title-block-banner-color: black
 page-layout: full

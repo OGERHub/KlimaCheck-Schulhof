@@ -3,6 +3,7 @@ title: "KlimaCheck-Schulhof"
 subtitle: "Interaktives Schulhofklima-Modell"
 author: "Rieke Ammoneit und Chris Reudenbach"
 date: "2026-04-28"
+order: 30
 title-block-banner: ../images/netlogo-sp.png
 title-block-banner-color: black
 page-layout: full
