@@ -1,6 +1,6 @@
 ---
 title: "Kontakt"
-title-block-banner: ../images/diffusion-sp.jpg # keine pngs
+title-block-banner: ../images/kontakt.jpg # keine pngs
 title-block-banner-color: black 
 format-links: [html]   # Link-Namen müssen den Formatkeys entsprechen
 format:
