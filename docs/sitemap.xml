@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://OGERHub.github.io/KlimaCheck-Schulhof/impressum.html</loc>
+    <loc>https://OGERHub.github.io/KlimaCheck-Schulhof/Über/impressum.html</loc>
     <lastmod>2026-04-28T08:45:15.621Z</lastmod>
   </url>
   <url>
-    <loc>https://OGERHub.github.io/KlimaCheck-Schulhof/index.html</loc>
-    <lastmod>2026-04-28T10:39:03.605Z</lastmod>
-  </url>
-  <url>
-    <loc>https://OGERHub.github.io/KlimaCheck-Schulhof/03-KlimaCheck-Schulhof/sitzung-1-01.html</loc>
-    <lastmod>2026-04-28T11:16:53.201Z</lastmod>
+    <loc>https://OGERHub.github.io/KlimaCheck-Schulhof/01-Treibhaus-to-Go/sitzung-1-01.html</loc>
+    <lastmod>2026-04-28T11:12:12.992Z</lastmod>
   </url>
   <url>
     <loc>https://OGERHub.github.io/KlimaCheck-Schulhof/02-Arktik-Eis/sitzung-1-01.html</loc>
     <lastmod>2026-04-28T11:11:54.169Z</lastmod>
   </url>
   <url>
-    <loc>https://OGERHub.github.io/KlimaCheck-Schulhof/01-Treibhaus-to-Go/sitzung-1-01.html</loc>
-    <lastmod>2026-04-28T11:12:12.992Z</lastmod>
+    <loc>https://OGERHub.github.io/KlimaCheck-Schulhof/03-KlimaCheck-Schulhof/sitzung-1-01.html</loc>
+    <lastmod>2026-04-28T11:16:53.201Z</lastmod>
+  </url>
+  <url>
+    <loc>https://OGERHub.github.io/KlimaCheck-Schulhof/index.html</loc>
+    <lastmod>2026-04-28T10:39:03.605Z</lastmod>
+  </url>
+  <url>
+    <loc>https://OGERHub.github.io/KlimaCheck-Schulhof/Über/kontakt.html</loc>
+    <lastmod>2026-04-28T11:43:28.759Z</lastmod>
   </url>
 </urlset>

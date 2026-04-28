@@ -1,0 +1,41 @@
+---
+title: "Kontakt"
+title-block-banner: ../images/diffusion-sp.jpg # keine pngs
+title-block-banner-color: black 
+format-links: [html]   # Link-Namen müssen den Formatkeys entsprechen
+format:
+  html: { toc: true, toc-depth: 2, code-fold: true, number-sections: false }
+---
+
+
+> **Geographiedidaktik mit dem Schwerpunkt Physische Geographie**
+>
+> Gronewaldstr. 2
+>
+> 50931 Köln
+>
+> Raum 1.123
+
+
+```{=html}
+<a href="#" id="mail-link-ammoneir">Mail an: Jun.-Prof. Rieke Ammoneit</a>
+
+<script>
+(function () {
+  const user = "rammoneit";
+  const domain = "uni-koeln";
+  const tld = "de";
+  const subject = "Anfrage Schülerlabor-2026";
+
+  const link = document.getElementById("mail-link-ammoneir");
+
+  link.addEventListener("click", function (e) {
+    e.preventDefault();
+    window.location.href =
+      "mailto:" + user + "@" + domain + "." + tld +
+      "?subject=" + encodeURIComponent(subject);
+  });
+})();
+</script>
+
+```

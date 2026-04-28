@@ -19,7 +19,7 @@ website:
   page-footer:
     center: |
       Geographiedidaktik - Schwerpunkt Physische Geographie (<span class="year"></span>) —
-      <a class="impressum-link" href="impressum.html">Impressum</a>
+      <a class="impressum-link" href="Über/impressum.html">Impressum</a>
 
   search:
     location: navbar
