@@ -18,7 +18,7 @@ format:
 # Die Modellsimulation – den Schulhof optimieren
 
 ::: question-box
-**Gruppenname:** 
+**Teamname:** 
 :::
 
 ::: {.callout-tip appearance="minimal"}
