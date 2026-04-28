@@ -33,8 +33,11 @@ In dieser Aufgabe überprüft ihr deshalb selbst: Stimmt die Aussage, dass das a
 :::
 
 
-![Arktisches Meer-Eis](../images/arctic-ice-panel.png)
+![1979-2025 Auswahl Arktisches Meer-Eis Beseckung ](../images/arctic-ice-panel.png)
+
+
 # Fragestellung
+
 
 ::: question-box
 **Wird das arktische Meereis langfristig weniger, oder schwankt es nur von Jahr zu Jahr?**
