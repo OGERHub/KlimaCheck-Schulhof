@@ -186,4 +186,3 @@ target="_blank">webadress impressum uni koeln</a></p>
 
 <p class="seal"><a href="https://datenschutz-generator.de/?l=de" rel="noopener noreferrer nofollow" target="_blank" title="Rechtstext von Dr. Schwenke - für weitere Informationen bitte anklicken.">Created with free Datenschutz-Generator.de by Dr. Thomas Schwenke</a></p>
 
-## Comments & Suggestions  
