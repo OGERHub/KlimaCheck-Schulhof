@@ -1,6 +1,6 @@
 # Schulhof KlimaLab
 
-**Schulhof KlimaLab** ist ein vereinfachtes, physikalisch basiertes Vergleichsmodell für das Klima auf einem Schulhof. Es zeigt, wie Flächen, Gebäude, Bäume, Schatten, Dächer und Fassadenbegrünung auf Wärme, Abkühlung und Hitzelast wirken.
+[**Schulhof KlimaLab**](https://ogerhub.github.io/KlimaCheck-Schulhof/) ist ein vereinfachtes, physikalisch basiertes Vergleichsmodell für das Klima auf einem Schulhof. Es zeigt, wie Flächen, Gebäude, Bäume, Schatten, Dächer und Fassadenbegrünung auf Wärme, Abkühlung und Hitzelast wirken.
 
 Das Modell ist **kein Vorhersagemodell** für reale Temperaturen. Es dient dazu, Unterschiede zwischen Varianten sichtbar zu machen und Maßnahmen vergleichend zu untersuchen.
 
