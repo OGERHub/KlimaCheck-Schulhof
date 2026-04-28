@@ -1,5 +1,5 @@
 ---
-title: "Schülerlabor-2026 "
+title: "Klimalab Schülerlabor 2026"
 ---
 <style>
   body {
@@ -14,7 +14,7 @@ title: "Schülerlabor-2026 "
 
 ![](images/header.png)
 
-Willkommen zur Kurs-Website **Schülerlabor-2026** — gisma spatial science ressources.
+Willkommen zur Website **Klimalab Schülerlabor 2026** - Geographiedidaktik mit dem Schwerpunkt Physische Geographie
 
 
 
