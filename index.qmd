@@ -14,7 +14,24 @@ title: "Klimalab Schülerlabor 2026"
 
 ![](images/header.png)
 
-Willkommen zur Website **Klimalab Schülerlabor 2026** - Geographiedidaktik mit dem Schwerpunkt Physische Geographie
+# Willkommen im KlimaLab Schülerlabor 2026
+
+Das KlimaLab Schülerlabor 2026 ist ein Angebot der Geographiedidaktik - Physischen Geographie an der Universität zu Köln.
+
+## Klimawandel verstehen – aber wie eigentlich?
+
+## Stationslernen mit kritischer Reflexion von KI-gestütztem Lernen
+
+Dass sich die Erde erwärmt, ist gut belegt – und wird dennoch infrage gestellt. Das lenkt den Blick auf zwei zentrale Fragen: Wie entstehen wissenschaftliche Fakten? Und wie erwerben wir verlässliches Wissen, wenn KI-Antworten liefert, bevor eigenes Verstehen entsteht?
+
+Im Schülerlabor werden diese Fragen auf zwei Zielebenen bearbeitet:
+
+- Klimawandel fachlich verstehen: An abwechslungsreichen Stationen erarbeiten die Schüler*innen ein methodisches Grundverständnis dafür, wie Klimawandel gemessen, analysiert und modelliert wird.
+- KI im Lernprozess reflektieren: Parallel dazu wird der Einsatz von KI bei der Bearbeitung komplexer Aufgaben gezielt erprobt und kritisch eingeordnet.
+
+## Ablauf
+
+Nach einer kurzen Einführung bearbeiten die Schüler*innen die Stationen abwechselnd mit und ohne KI-Unterstützung. Unterschiede im Arbeitsprozess, im Verständnis und in der Ergebnisqualität werden dadurch direkt vergleichbar. Zum Abschluss werden neben den fachlichen Ergebnissen auch die Lernwege reflektiert – insbesondere, wann KI unterstützt und wann sie eigenes Verstehen eher ersetzt.
 
 
 
