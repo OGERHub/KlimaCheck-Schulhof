@@ -2,8 +2,9 @@
 ---
 title: "Laufzettel Schülerlabor"
 subtitle: "Start Experiment"
-author: ""
+author: "Rieke Ammoneit"
 date: ""
+format-links: [html, pdf, docx]
 format:
   html:
     toc: false
@@ -13,7 +14,7 @@ format:
   docx: default
 ---
 
-## Gruppenname
+## Teamname
 
 ________________________________________________________
 

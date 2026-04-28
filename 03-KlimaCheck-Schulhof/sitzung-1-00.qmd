@@ -6,13 +6,16 @@ date: "2026-04-28"
 order: 30
 title-block-banner: ../images/netlogo-sp.png
 title-block-banner-color: black
-page-layout: full
-
+#page-layout: full
+format-links: [html, pdf, docx]
 format:
   html:
     toc: false
     code-fold: false
     number-sections: false
+  pdf:
+    pdf-engine: lualatex
+  docx: default     
 ---
 
 # Die Modellsimulation – den Schulhof optimieren
