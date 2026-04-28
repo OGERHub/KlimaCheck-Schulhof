@@ -1,0 +1,44 @@
+# site-config.yaml — Projektkonfiguration für Quarto-Kurswebsite
+# Fülle in Ruhe aus
+
+# --- Kurs Infos
+course_code: "Schülerlabor-2026"                                      # Potentieller Code LV-yyyy-yyy wird nur auf der Index Seite eingetragen
+contact_email: "ammoneir@uni-koeln.de"                                 # kann abweichend oder gleich zu Impressum sein in der Regel Dozen*in wird nur auf der Index Seite eingetragen    
+site_title: "your title"                                     # Name der Seite in der Titelleiste
+org_name: "gisma spatial science ressources"                                # erscheint im Gegensatz zu chair_name etc im Footer  Header usw            
+site_url: "https://OGERHub.github.io/KlimaCheck-Schulhof"
+repo_url: "https://github.com/OGERHub/KlimaCheck-Schulhof"    
+logo_path: "images/your-logo.png"                            # Logo obere Ecke Navbar
+
+# Navbar rechts
+portal_text: "Ilias"                     # z.B. Interne Lernplattform
+portal_url: "https://www.ilias.uni-koeln.de/ilias/lognplattformin.php?client_id=uk&cmd=force_login&lang=de"                      # 
+
+# Footer / Impressum-Link im Footer
+impressum_href: "base/impressum.qmd"   # Script macht automatisch .html daraus
+
+# --- Branding ---
+# --- Vanilla = original theme ---
+brand_hex: ""          # leer lassen
+brand_hex_dark: ""     # leer lassen
+
+# --- Auskommentieren um Branding Color zu aktivieren 
+#brand_hex: "#008BFF"             # Light
+#brand_hex_dark: "yes"            # optional (leer = wie Light)
+
+
+brand_font: "system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, sans-serif"
+dark_theme: "yes"             # "yes" oder "no"
+
+# --- Impressum / Datenschutz ---
+responsible_name: "Jun-Prof. Dr. Rieke Ammoneit"                                        # z. B. "Prof. Dr. …"
+responsible_address: "Gronewaldstr. 2 <br/> 50931 Köln"  # HTML-Zeilenumbruch mit <br />
+responsible_email: "rammoneit@uni-koeln.de"                     # email der Impressum verantworlichen Person
+uni_name: "Universität zu Köln"                                                # Name der Uni/Institution               
+uni_url: "https://www.uni-koeln.de/"                                                 # Hompage der Uni/Institution
+institute_name: "Institut für Geographiedidaktik"                                          # Name der Abteilung/Institut/Unterorganisation
+institute_url: "https://geodidaktik.uni-koeln.de/mitarbeiter-innen/hochschullehrer-innen/jun-prof-dr-rieke-ammoneit"                                           # Hompage der Abteilung/Institut/Unterorganisation
+chair_name: "Geographiedidaktik mit dem Schwerpunkt Physische Geographie"                                              # Name der AG
+chair_url: "https://geodidaktik.uni-koeln.de/mitarbeiter-innen/hochschullehrer-innen/jun-prof-dr-rieke-ammoneit"                                               # Hompage der AG
+imprint_url: "https://uni-koeln.de/impressum"                                             # offizielles Impressum der Organisation
+
