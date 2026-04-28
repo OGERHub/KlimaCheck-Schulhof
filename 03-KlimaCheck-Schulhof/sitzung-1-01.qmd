@@ -1,6 +1,6 @@
 ---
-title: "Wo Hitze entsteht – und wie man sie wieder los wird"
-subtitle: "Interaktives Schulhofklima-Modell"
+title: "Interaktives Schulhofklima-Modell"
+subtitle: "Wo Hitze entsteht – und wie man sie wieder los wird"
 author: "Rieke Ammoneit"
 date: "2026-04-28"
 order: 30
