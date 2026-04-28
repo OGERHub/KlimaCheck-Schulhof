@@ -1,6 +1,6 @@
 ---
-title: "Arktisches Eis"
-subtitle: "Schwanken oder Schmelzen"
+title: "Schwanken oder Schmelzen"
+subtitle: ""
 author: "Rieke Ammoneit"
 date: "2026-04-28"
 order: 20

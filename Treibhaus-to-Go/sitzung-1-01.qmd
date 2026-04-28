@@ -1,6 +1,6 @@
 ---
-title: "Treibhaus to Go"
-subtitle: "Treibhausklima in der Flasche"
+title: "Treibhausklima in der Flasche"
+subtitle: ""
 author: "Rieke Ammoneit"
 date: "2026-04-28"
 order: 10

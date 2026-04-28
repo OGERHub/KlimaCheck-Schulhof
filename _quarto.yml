@@ -29,10 +29,6 @@ website:
     background: primary
     foreground: light
     logo: images/your-logo.png
-    left:
-      - icon: question-square-fill
-        text: FAQ
-        href: base/faq.qmd
     right:
       - icon: chat-left-text-fill
         text: "Ilias"
