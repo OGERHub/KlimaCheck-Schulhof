@@ -1,0 +1,179 @@
+
+---
+title: "Laufzettel Schülerlabor"
+subtitle: "Start Experiment"
+author: ""
+date: ""
+format:
+  html:
+    toc: false
+    number-sections: false
+  pdf:
+    pdf-engine: lualatex
+  docx: default
+---
+
+## Gruppenname
+
+________________________________________________________
+
+# Klimawandel
+
+**Gibt es einen menschengemachten Klimawandel?**
+
+☐ ja  ☐ nein  ☐ weiß ich nicht
+
+**Interessierst du dich für Wissenschaft?**
+
+☐ ja  ☐ nein  ☐ unentschieden
+
+**Bist du ein**
+
+☐ Mädchen  ☐ Junge  ☐ Divers
+
+# Künstliche Intelligenz
+
+**Hast du schon mal KI, zum Beispiel ChatGPT, benutzt?**
+
+☐ ja  ☐ nein  ☐ weiß nicht
+
+**Wozu?**
+
+>______________________________________________________________________
+>
+>
+>______________________________________________________________________
+
+**Welche KI kennst du?**
+
+>______________________________________________________________________
+>
+>
+>______________________________________________________________________
+
+**Welche KI benutzt du?**
+
+>______________________________________________________________________
+>
+>
+>______________________________________________________________________
+
+**Wie findest du KI?**
+
+>______________________________________________________________________
+>
+>
+>______________________________________________________________________
+
+
+# Ablauf
+
+| Station | Thema | Unterstützung |
+|---:|---|---|
+| 1 | Experiment | keine |
+| 2 | Satellit | CPC |
+| 3 | Modell | ChatGPT |
+
+# Station 1 – Experiment
+
+**Kannst du mit deinem Experiment etwas über die echte Erderwärmung sagen?**
+
+Wenn ja: Was habt ihr gelernt?
+
+Wenn nein: Warum nicht?
+
+**Antwort:**
+
+>______________________________________________________________________
+>
+>
+>______________________________________________________________________
+>
+>
+>______________________________________________________________________
+>
+>
+>______________________________________________________________________
+
+
+# Station 2 – Satellit
+
+Um zu prüfen, ob das Meereis weniger wird, reichen einzelne Bilder oder einzelne Jahre nicht aus.
+
+**Erkläre: Warum sind Trends, also Entwicklungen über eine längere Zeit, wichtiger als einzelne auffällige Jahre?**
+
+**Antwort:**
+
+>______________________________________________________________________
+>
+>
+>______________________________________________________________________
+>
+>
+>______________________________________________________________________
+>
+>
+>______________________________________________________________________
+
+**Hat euch die KI bei der Arbeit geholfen?**
+
+☐ ja  ☐ nein
+
+**Wofür habt ihr die KI benutzt?**
+
+>______________________________________________________________________
+>
+>
+>______________________________________________________________________
+>
+>
+>______________________________________________________________________
+>
+>
+>______________________________________________________________________
+
+# Station 3 – Modell
+
+Modellsimulationen werden genutzt, um Anpassungen zu planen.
+
+**Erkläre: Warum ist es sinnvoll, verschiedene Maßnahmen in einer Simulation zu vergleichen, bevor man den Schulhof umbaut?**
+
+**Antwort:**
+
+>______________________________________________________________________
+>
+>
+>______________________________________________________________________
+>
+>
+>______________________________________________________________________
+>
+>
+>______________________________________________________________________
+
+**Hat euch ChatGPT bei der Arbeit geholfen?**
+
+☐ ja  ☐ nein
+
+**Wofür habt ihr die KI benutzt?**
+
+>______________________________________________________________________
+>
+>
+>______________________________________________________________________
+>
+>
+>______________________________________________________________________
+>
+>
+>______________________________________________________________________
+
+# Abschluss
+
+**Welche Station hat dir am meisten Spaß gemacht?**
+
+☐ Experiment  ☐ Modell  ☐ Satellit
+
+**Wie hast du am liebsten gearbeitet?**
+
+☐ mit ChatGPT  ☐ mit CPC  ☐ ganz ohne
