@@ -1,37 +1,37 @@
 [
   {
-    "objectID": "KlimaCheck-Web/sitzung-1-01.html",
-    "href": "KlimaCheck-Web/sitzung-1-01.html",
+    "objectID": "KlimaCheck-Schulhof/sitzung-1-01.html",
+    "href": "KlimaCheck-Schulhof/sitzung-1-01.html",
     "title": "KlimaCheck-Schulhof",
     "section": "",
     "text": "KlimaCheck-Schulhof ist ein vereinfachtes, physikalisch basiertes Vergleichsmodell für das Klima auf einem Schulhof. Es zeigt, wie sich Flächen, Gebäude, Bäume, Schatten und Begrünung auf Wärme, Abkühlung und Hitzelast auswirken.\nDas Modell ist kein exaktes Vorhersagemodell. Es dient dazu, Unterschiede sichtbar zu machen: zum Beispiel zwischen Asphalt und Rasen, zwischen offenen und verschatteten Bereichen oder zwischen einem normalen Gebäude und einem begrünten Gebäude.\n Modell in eigenem Tab öffnen",
     "crumbs": [
       "FAQ",
-      "KlimaCheck Web",
+      "KlimaCheck Schulhof",
       "KlimaCheck-Schulhof"
     ]
   },
   {
-    "objectID": "KlimaCheck-Web/sitzung-1-01.html#interaktives-modell",
-    "href": "KlimaCheck-Web/sitzung-1-01.html#interaktives-modell",
+    "objectID": "KlimaCheck-Schulhof/sitzung-1-01.html#interaktives-modell",
+    "href": "KlimaCheck-Schulhof/sitzung-1-01.html#interaktives-modell",
     "title": "KlimaCheck-Schulhof",
     "section": "",
     "text": "KlimaCheck-Schulhof ist ein vereinfachtes, physikalisch basiertes Vergleichsmodell für das Klima auf einem Schulhof. Es zeigt, wie sich Flächen, Gebäude, Bäume, Schatten und Begrünung auf Wärme, Abkühlung und Hitzelast auswirken.\nDas Modell ist kein exaktes Vorhersagemodell. Es dient dazu, Unterschiede sichtbar zu machen: zum Beispiel zwischen Asphalt und Rasen, zwischen offenen und verschatteten Bereichen oder zwischen einem normalen Gebäude und einem begrünten Gebäude.\n Modell in eigenem Tab öffnen",
     "crumbs": [
       "FAQ",
-      "KlimaCheck Web",
+      "KlimaCheck Schulhof",
       "KlimaCheck-Schulhof"
     ]
   },
   {
-    "objectID": "KlimaCheck-Web/sitzung-1-01.html#arbeiten-mit-dem-modell",
-    "href": "KlimaCheck-Web/sitzung-1-01.html#arbeiten-mit-dem-modell",
+    "objectID": "KlimaCheck-Schulhof/sitzung-1-01.html#arbeiten-mit-dem-modell",
+    "href": "KlimaCheck-Schulhof/sitzung-1-01.html#arbeiten-mit-dem-modell",
     "title": "KlimaCheck-Schulhof",
     "section": "Arbeiten mit dem Modell",
     "text": "Arbeiten mit dem Modell\nFür einen einfachen Vorher/Nachher-Vergleich wird zuerst der Ausgangszustand vollständig simuliert. Danach wird mit Massnahme aktivieren der Vergleichszustand vorbereitet. Anschließend kann eine Maßnahme gesetzt werden, zum Beispiel Rasen, Bäume, Hecken oder Gebäudebegrünung. Nach dem zweiten Tageslauf zeigt die Ansicht Hitzelast Änderung, wo sich die Belastung verbessert oder verschlechtert hat.\nMit Gebiet-auswählen kann zusätzlich eine konkrete Aufenthaltsfläche markiert werden. Der Button Auswahlgebiet vergleichen wertet dann nur diese Fläche aus.",
     "crumbs": [
       "FAQ",
-      "KlimaCheck Web",
+      "KlimaCheck Schulhof",
       "KlimaCheck-Schulhof"
     ]
   },
