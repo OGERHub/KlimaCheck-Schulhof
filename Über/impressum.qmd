@@ -19,7 +19,7 @@ The responsibility for the content rests with the instructors. Statements, opini
 
 
 <h1>Privacy Policy</h1>
-<p>As of 21. October 2021</p>
+<p>As of 16. March 2026</p>
 
 <h2>Introduction</h2>
 
@@ -28,10 +28,10 @@ The responsibility for the content rests with the instructors. Statements, opini
 
 <h2 id="m3">Responsible</h2>
 
-<p>Prof. Dr. Rieke Ammoneit<br />Deutschhaustr 10<br />35037 Marburg</p>
-<p>Email address: rammoneit@uni-koeln.de.</p>
-<p>Imprint: <a href="webadress impressum uni koeln" 
-target="_blank">webadress impressum uni koeln</a>.</p>
+<p>Prof. Dr. Rieke Ammoneit<br />Gronewaldstr. 2<br />50931 Köln</p>
+<p>Email address: rammoneit[at]uni-koeln.de.</p>
+<p>Imprint: <a href="https://uni-koeln.de/impressum" 
+target="_blank">webadress impressum uni koeln</a></p>
 
 
 <h2 id="mOverview">Overview of Processing</h2>
