@@ -32,6 +32,8 @@ Aber reichen einige Beobachtungen? In manchen Jahren ist mehr Eis zu sehen, in a
 In dieser Aufgabe überprüft ihr deshalb selbst: Stimmt die Aussage, dass das arktische Meereis weniger wird? Und wie kann man das überhaupt herausfinden?
 :::
 
+
+![Arktisches Meer-Eis](../images/arctic-ice-panel.png)
 # Fragestellung
 
 ::: question-box
