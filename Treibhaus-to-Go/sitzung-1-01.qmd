@@ -1,0 +1,19 @@
+---
+title: "Treibhaus to Go"
+subtitle: "Treibhausklima in der Flasche"
+author: "Rieke Ammoneit"
+date: "2026-04-28"
+title-block-banner: ../images/co2bottle.png
+title-block-banner-color: black
+page-layout: full
+
+format:
+  html:
+    toc: false
+    code-fold: false
+    number-sections: false
+
+
+---
+
+coming soon
