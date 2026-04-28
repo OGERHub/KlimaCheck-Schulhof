@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Impressum-Link relativ zum Projekt-Root setzen
   const offset = document.querySelector('meta[name="quarto:offset"]')?.getAttribute('content') || '';
   document.querySelectorAll('a.impressum-link').forEach(function (a) {
-    a.setAttribute('href', offset + 'base/impressum.html');
+    a.setAttribute('href', offset + 'Über/impressum.html');
   });
 });
 </script>

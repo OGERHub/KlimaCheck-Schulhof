@@ -62,7 +62,7 @@ Am Ende entscheidet ihr, welche Vermutung besser zu euren Messwerten passt.
 Wie müssen die beiden Flaschen vorbereitet werden, damit man sie vergleichen kann?
 
 ::: answer-box
-Aufbauszeichnung
+Versuchsaufbau-Zeichnung/Beschreibung
 :::
 
 
