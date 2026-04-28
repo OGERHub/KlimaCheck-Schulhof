@@ -1015,5 +1015,77 @@
       "Über",
       "Kontakt"
     ]
+  },
+  {
+    "objectID": "03-KlimaCheck-Schulhof/sitzung-3-02-Dokumentation.html#was-bedeutet-physikalisch-plausibel",
+    "href": "03-KlimaCheck-Schulhof/sitzung-3-02-Dokumentation.html#was-bedeutet-physikalisch-plausibel",
+    "title": "Technische Dokumentation",
+    "section": "Was bedeutet „physikalisch plausibel“?",
+    "text": "Was bedeutet „physikalisch plausibel“?\nPhysikalisch plausibel bedeutet in diesem Modell nicht, dass jede reale Luftbewegung, jeder Bodenprozess und jede Pflanze exakt berechnet wird. Es bedeutet: Die wichtigsten Wirkungsrichtungen sind physikalisch begründet und voneinander getrennt modelliert.\nEin Beispiel:\n\nAsphalt wird nicht einfach rot eingefärbt, weil Asphalt „heiß sein soll“.\nAsphalt wird heiß, weil er dunkel ist, kaum reflektiert, nicht verdunstet und wenig Kühlung durch Wasser liefert.\nRasen bleibt kühler, weil er Wasser speichern und über Verdunstung Energie abführen kann.\nBäume wirken zusätzlich über Schatten, nicht nur über eine grüne Oberfläche.\n\nDas Modell bildet also keine beliebigen Farben ab, sondern eine vereinfachte Wirklogik: Strahlung, Material, Wasser, Schatten, Luftaustausch und Vegetation greifen zusammen.",
+    "crumbs": [
+      "Ilias",
+      "03 KlimaCheck Schulhof",
+      "Technische Dokumentation"
+    ]
+  },
+  {
+    "objectID": "03-KlimaCheck-Schulhof/sitzung-3-02-Dokumentation.html#was-wird-im-modell-eigentlich-verglichen",
+    "href": "03-KlimaCheck-Schulhof/sitzung-3-02-Dokumentation.html#was-wird-im-modell-eigentlich-verglichen",
+    "title": "Technische Dokumentation",
+    "section": "Was wird im Modell eigentlich verglichen?",
+    "text": "Was wird im Modell eigentlich verglichen?\nDas Modell vergleicht immer Varianten unter denselben Randbedingungen. Das heißt: Tagesgang, Jahreszeit, Wind, Sonne und Modelllogik bleiben gleich. Verändert wird nur der Schulhofzustand, zum Beispiel Asphalt gegen Rasen oder normales Dach gegen Gründach.\nDadurch sind Aussagen dieser Art begründet:\n\nIm Modell senkt diese Maßnahme die Hitzelast stärker als jene Maßnahme.\n\nNicht begründet sind Aussagen dieser Art:\n\nDiese Maßnahme senkt auf einem realen Schulhof die Lufttemperatur exakt um 2.3 °C.\n\nDer Vergleich ist also relativ stark, aber absolut nicht kalibriert.",
+    "crumbs": [
+      "Ilias",
+      "03 KlimaCheck Schulhof",
+      "Technische Dokumentation"
+    ]
+  },
+  {
+    "objectID": "03-KlimaCheck-Schulhof/sitzung-3-02-Dokumentation.html#die-drei-temperaturbegriffe-im-modell",
+    "href": "03-KlimaCheck-Schulhof/sitzung-3-02-Dokumentation.html#die-drei-temperaturbegriffe-im-modell",
+    "title": "Technische Dokumentation",
+    "section": "Die drei Temperaturbegriffe im Modell",
+    "text": "Die drei Temperaturbegriffe im Modell\nIm Modell gibt es nicht nur „die Temperatur“. Es werden mehrere Temperaturarten unterschieden.\n\n\n\n\n\n\n\n\nBegriff\nVariable\nBedeutung\n\n\n\n\nHintergrundlufttemperatur\nair-temp\nallgemeiner Tagesgang der Lufttemperatur, also der meteorologische Antrieb\n\n\nlokale Lufttemperatur\nair-temp-local\nLufttemperatur über einem bestimmten Patch des Schulhofs\n\n\nOberflächentemperatur\nsurface-temp\nTemperatur der Oberfläche, zum Beispiel Asphalt, Rasen, Dach oder Sand\n\n\nSubstrattemperatur\nsubstrate-temp\nvereinfachter Wärmespeicher unter oder hinter der Oberfläche\n\n\n\nDiese Trennung ist zentral. Eine Oberfläche kann sehr heiß sein, ohne dass die Luft darüber genauso heiß ist. Asphalt kann zum Beispiel deutlich heißer werden als die lokale Luft. Die Luft reagiert verzögert, weil sie durch Wind, Mischung und Austausch mit der Umgebung beeinflusst wird.",
+    "crumbs": [
+      "Ilias",
+      "03 KlimaCheck Schulhof",
+      "Technische Dokumentation"
+    ]
+  },
+  {
+    "objectID": "03-KlimaCheck-Schulhof/sitzung-3-02-Dokumentation.html#patch-fläche-und-objekt",
+    "href": "03-KlimaCheck-Schulhof/sitzung-3-02-Dokumentation.html#patch-fläche-und-objekt",
+    "title": "Technische Dokumentation",
+    "section": "Patch, Fläche und Objekt",
+    "text": "Patch, Fläche und Objekt\nDer Schulhof besteht aus Rasterzellen. In NetLogo heißen diese Rasterzellen patches.\nEin Patch kann zwei unterschiedliche Dinge besitzen:\n\n\n\n\n\n\n\n\nEbene\nBeispiel\nBedeutung\n\n\n\n\nBoden\nAsphalt, Pflaster, Rasen, Sand\nDas Material der Fläche\n\n\nObjekt\nBaum, Hecke, Gebäude\nEtwas, das auf der Fläche steht oder sie ersetzt\n\n\n\nDiese Trennung ist wichtig. Ein Baum ist nicht einfach Rasen. Ein Baum hat Höhe, wirft Schatten und beeinflusst seine Umgebung. Ein Gebäude ist nicht einfach eine graue Fläche. Es besitzt Dach, Wand, Höhe und Schattenwirkung.",
+    "crumbs": [
+      "Ilias",
+      "03 KlimaCheck Schulhof",
+      "Technische Dokumentation"
+    ]
+  },
+  {
+    "objectID": "03-KlimaCheck-Schulhof/sitzung-3-02-Dokumentation.html#prozessgruppen-des-modells",
+    "href": "03-KlimaCheck-Schulhof/sitzung-3-02-Dokumentation.html#prozessgruppen-des-modells",
+    "title": "Technische Dokumentation",
+    "section": "Prozessgruppen des Modells",
+    "text": "Prozessgruppen des Modells\nDas Modell setzt sich aus mehreren Prozessgruppen zusammen.\n\n\n\n\n\n\n\n\nProzessgruppe\nEinfache Erklärung\nWirkung im Modell\n\n\n\n\nkurzwellige Strahlung\nSonnenstrahlung trifft auf eine Oberfläche\nerwärmt Oberflächen abhängig von Sonne, Schatten und Albedo\n\n\nlangwellige Strahlung\nwarme Oberflächen geben Wärmestrahlung ab\nkann Oberflächen nachts abkühlen\n\n\nWärmespeicherung\nMaterialien speichern Wärme unterschiedlich stark\nbestimmt, wie schnell Flächen warm oder kalt werden\n\n\nfühlbarer Wärmefluss\nWärmeübergang zwischen Oberfläche und Luft\nkoppelt heiße Oberflächen an die lokale Luft\n\n\nlatenter Wärmefluss\nEnergieverlust durch Verdunstung\nkühlt feuchte oder vegetationsnahe Flächen\n\n\nBodenwärmefluss\nWärme geht in einen vereinfachten Untergrundspeicher\npuffert Erwärmung und Abkühlung\n\n\nLuftmischung\nlokale Luft wird mit Nachbarschaft und Hintergrundluft gemischt\nverhindert, dass Lufttemperaturen sofort Oberflächentemperaturen werden\n\n\nSchattenwurf\nGebäude und Vegetation schirmen direkte Sonne ab\nreduziert solare Aufheizung\n\n\nHitzelast\nvereinfachte Aufenthaltsbelastung für Menschen\nfasst Luft, Sonne, Oberflächenwärme, Wind und Vegetation zusammen",
+    "crumbs": [
+      "Ilias",
+      "03 KlimaCheck Schulhof",
+      "Technische Dokumentation"
+    ]
+  },
+  {
+    "objectID": "03-KlimaCheck-Schulhof/sitzung-3-02-Dokumentation.html#harte-und-weichere-modellteile",
+    "href": "03-KlimaCheck-Schulhof/sitzung-3-02-Dokumentation.html#harte-und-weichere-modellteile",
+    "title": "Technische Dokumentation",
+    "section": "Harte und weichere Modellteile",
+    "text": "Harte und weichere Modellteile\nNicht alle Teile des Modells sind gleich hart.\n\n\n\n\n\n\n\n\nModellteil\nEinordnung\nBegründung\n\n\n\n\nMaterialunterschiede\nrelativ stark begründet\nAlbedo, Verdunstung, Wärmespeicherung und Oberfläche werden getrennt modelliert\n\n\nSchattenwirkung\nrelativ stark begründet\nSchatten reduziert direkte Einstrahlung geometrisch\n\n\nOberflächentemperatur\nstark vereinfacht, aber physikalisch strukturiert\nvereinfachte Energiebilanz mit Strahlung, Wärmefluss, Verdunstung und Speicher\n\n\nlokale Lufttemperatur\nstärker parametrisiert\nkeine echte 3D-Strömung, sondern Kopplung, Mischung und Austausch\n\n\nVegetationswirkung\nplausibel, aber parametrisiert\nSchatten und Verdunstung werden abgebildet, aber keine echte Pflanzenphysiologie\n\n\nFassadenbegrünung\nplausibel, aber stark parametrisiert\nlokale Wandwirkung und ET-Kühlung, aber keine echte Fassadenströmung\n\n\nHitzelastindex\ndidaktischer Proxy\nkein UTCI, PET oder medizinischer Grenzwert\n\n\n\nKurz gesagt: Die Modellphysik ist besonders belastbar für relative Wirkungsvergleiche, weniger für absolute Zahlenwerte.",
+    "crumbs": [
+      "Ilias",
+      "03 KlimaCheck Schulhof",
+      "Technische Dokumentation"
+    ]
   }
 ]

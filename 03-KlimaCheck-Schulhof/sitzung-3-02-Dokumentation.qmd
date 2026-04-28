@@ -37,6 +37,170 @@ Der zentrale Einsatzfall ist daher nicht die Vorhersage absoluter Temperaturen, 
 * offene Flächen gegen verschattete oder vegetationsnahe Flächen
 * flächige Maßnahmen gegen punktuelle Maßnahmen
 
+# Leseschlüssel für Lehrkräfte
+
+Diese Dokumentation beschreibt ein vereinfachtes Mikroklima-Modell. Viele Begriffe stammen aus der Physik oder aus der Mikrometeorologie, werden im Modell aber bewusst vereinfacht verwendet. Der folgende Abschnitt erklärt die wichtigsten Begriffe, damit die späteren Formeln und Tabellen lesbar werden.
+
+## Was bedeutet „physikalisch plausibel“?
+
+Physikalisch plausibel bedeutet in diesem Modell nicht, dass jede reale Luftbewegung, jeder Bodenprozess und jede Pflanze exakt berechnet wird. Es bedeutet: Die wichtigsten Wirkungsrichtungen sind physikalisch begründet und voneinander getrennt modelliert.
+
+Ein Beispiel:
+
+- Asphalt wird nicht einfach rot eingefärbt, weil Asphalt „heiß sein soll“.
+- Asphalt wird heiß, weil er dunkel ist, kaum reflektiert, nicht verdunstet und wenig Kühlung durch Wasser liefert.
+- Rasen bleibt kühler, weil er Wasser speichern und über Verdunstung Energie abführen kann.
+- Bäume wirken zusätzlich über Schatten, nicht nur über eine grüne Oberfläche.
+
+Das Modell bildet also keine beliebigen Farben ab, sondern eine vereinfachte Wirklogik: Strahlung, Material, Wasser, Schatten, Luftaustausch und Vegetation greifen zusammen.
+
+## Was wird im Modell eigentlich verglichen?
+
+Das Modell vergleicht immer Varianten unter denselben Randbedingungen. Das heißt: Tagesgang, Jahreszeit, Wind, Sonne und Modelllogik bleiben gleich. Verändert wird nur der Schulhofzustand, zum Beispiel Asphalt gegen Rasen oder normales Dach gegen Gründach.
+
+Dadurch sind Aussagen dieser Art begründet:
+
+> Im Modell senkt diese Maßnahme die Hitzelast stärker als jene Maßnahme.
+
+Nicht begründet sind Aussagen dieser Art:
+
+> Diese Maßnahme senkt auf einem realen Schulhof die Lufttemperatur exakt um 2.3 °C.
+
+Der Vergleich ist also **relativ stark**, aber **absolut nicht kalibriert**.
+
+## Die drei Temperaturbegriffe im Modell
+
+Im Modell gibt es nicht nur „die Temperatur“. Es werden mehrere Temperaturarten unterschieden.
+
+| Begriff | Variable | Bedeutung |
+|---|---|---|
+| Hintergrundlufttemperatur | `air-temp` | allgemeiner Tagesgang der Lufttemperatur, also der meteorologische Antrieb |
+| lokale Lufttemperatur | `air-temp-local` | Lufttemperatur über einem bestimmten Patch des Schulhofs |
+| Oberflächentemperatur | `surface-temp` | Temperatur der Oberfläche, zum Beispiel Asphalt, Rasen, Dach oder Sand |
+| Substrattemperatur | `substrate-temp` | vereinfachter Wärmespeicher unter oder hinter der Oberfläche |
+
+Diese Trennung ist zentral. Eine Oberfläche kann sehr heiß sein, ohne dass die Luft darüber genauso heiß ist. Asphalt kann zum Beispiel deutlich heißer werden als die lokale Luft. Die Luft reagiert verzögert, weil sie durch Wind, Mischung und Austausch mit der Umgebung beeinflusst wird.
+
+## Patch, Fläche und Objekt
+
+Der Schulhof besteht aus Rasterzellen. In NetLogo heißen diese Rasterzellen `patches`.
+
+Ein Patch kann zwei unterschiedliche Dinge besitzen:
+
+| Ebene | Beispiel | Bedeutung |
+|---|---|---|
+| Boden | Asphalt, Pflaster, Rasen, Sand | Das Material der Fläche |
+| Objekt | Baum, Hecke, Gebäude | Etwas, das auf der Fläche steht oder sie ersetzt |
+
+Diese Trennung ist wichtig. Ein Baum ist nicht einfach Rasen. Ein Baum hat Höhe, wirft Schatten und beeinflusst seine Umgebung. Ein Gebäude ist nicht einfach eine graue Fläche. Es besitzt Dach, Wand, Höhe und Schattenwirkung.
+
+## Prozessgruppen des Modells
+
+Das Modell setzt sich aus mehreren Prozessgruppen zusammen.
+
+| Prozessgruppe | Einfache Erklärung | Wirkung im Modell |
+|---|---|---|
+| kurzwellige Strahlung | Sonnenstrahlung trifft auf eine Oberfläche | erwärmt Oberflächen abhängig von Sonne, Schatten und Albedo |
+| langwellige Strahlung | warme Oberflächen geben Wärmestrahlung ab | kann Oberflächen nachts abkühlen |
+| Wärmespeicherung | Materialien speichern Wärme unterschiedlich stark | bestimmt, wie schnell Flächen warm oder kalt werden |
+| fühlbarer Wärmefluss | Wärmeübergang zwischen Oberfläche und Luft | koppelt heiße Oberflächen an die lokale Luft |
+| latenter Wärmefluss | Energieverlust durch Verdunstung | kühlt feuchte oder vegetationsnahe Flächen |
+| Bodenwärmefluss | Wärme geht in einen vereinfachten Untergrundspeicher | puffert Erwärmung und Abkühlung |
+| Luftmischung | lokale Luft wird mit Nachbarschaft und Hintergrundluft gemischt | verhindert, dass Lufttemperaturen sofort Oberflächentemperaturen werden |
+| Schattenwurf | Gebäude und Vegetation schirmen direkte Sonne ab | reduziert solare Aufheizung |
+| Hitzelast | vereinfachte Aufenthaltsbelastung für Menschen | fasst Luft, Sonne, Oberflächenwärme, Wind und Vegetation zusammen |
+
+## Harte und weichere Modellteile
+
+Nicht alle Teile des Modells sind gleich hart.
+
+| Modellteil | Einordnung | Begründung |
+|---|---|---|
+| Materialunterschiede | relativ stark begründet | Albedo, Verdunstung, Wärmespeicherung und Oberfläche werden getrennt modelliert |
+| Schattenwirkung | relativ stark begründet | Schatten reduziert direkte Einstrahlung geometrisch |
+| Oberflächentemperatur | stark vereinfacht, aber physikalisch strukturiert | vereinfachte Energiebilanz mit Strahlung, Wärmefluss, Verdunstung und Speicher |
+| lokale Lufttemperatur | stärker parametrisiert | keine echte 3D-Strömung, sondern Kopplung, Mischung und Austausch |
+| Vegetationswirkung | plausibel, aber parametrisiert | Schatten und Verdunstung werden abgebildet, aber keine echte Pflanzenphysiologie |
+| Fassadenbegrünung | plausibel, aber stark parametrisiert | lokale Wandwirkung und ET-Kühlung, aber keine echte Fassadenströmung |
+| Hitzelastindex | didaktischer Proxy | kein UTCI, PET oder medizinischer Grenzwert |
+
+Kurz gesagt: Die Modellphysik ist besonders belastbar für **relative Wirkungsvergleiche**, weniger für **absolute Zahlenwerte**.
+
+# Glossar zentraler Modellgrößen
+
+Die folgenden Begriffe tauchen in der Dokumentation mehrfach auf.
+
+| Begriff | Bedeutung im Modell |
+|---|---|
+| Albedo | Anteil der Sonnenstrahlung, der reflektiert wird. Niedrige Albedo bedeutet starke Absorption und stärkere Erwärmung. |
+| Emissivität | Fähigkeit einer Oberfläche, langwellige Wärmestrahlung abzugeben. |
+| thermische Masse | effektive Trägheit einer Oberfläche. Hohe Werte bedeuten: Die Fläche reagiert langsamer auf Erwärmung und Abkühlung. |
+| Verdunstungsfaktor | modellinterne Fähigkeit einer Fläche, über Wasserverdunstung Energie abzuführen. |
+| Wasserspeicher | vereinfachter Speicher, aus dem Verdunstung versorgt wird. Ohne Wasser keine relevante Verdunstung. |
+| Feuchtefaktor | beschreibt, wie stark eine feuchte Oberfläche tatsächlich verdunstungswirksam ist. |
+| Wasserverfügbarkeit | aktueller Zustand des Wasserspeichers. Hohe Werte bedeuten: Verdunstung ist möglich. |
+| Schattenlevel | Anteil der Abschirmung direkter Sonne auf einem Patch. |
+| Vegetationseinfluss | Wirkung von Bäumen und Hecken in der Umgebung eines Patches. |
+| Wandexposition | beschreibt, wie stark ein Patch durch benachbarte Gebäudewände beeinflusst wird. |
+| Einfassung | beschreibt, wie stark ein Ort durch Gebäude und Hecken räumlich eingeschlossen ist. |
+| Oberflächen-Footprint | Mischung aus eigener Oberfläche und Nachbaroberflächen, die auf die lokale Luft wirkt. |
+| Hitzelast | vereinfachter Belastungswert für den Aufenthalt auf dem Schulhof. |
+| Hitzedosis | über die Schulzeit aufsummierte Hitzelast. |
+| Aufenthaltsfläche | begehbare oder nutzbare Fläche ohne Gebäude, Baum oder Hecke. |
+
+# Einheiten und Skalen
+
+Viele Modellgrößen sind nicht direkt als Messwerte zu verstehen, sondern als effektive Modellgrößen. Trotzdem folgen sie einer klaren Skalenlogik.
+
+| Größe | Einheit oder Skala | Interpretation |
+|---|---|---|
+| Temperatur | °C | Luft-, Oberflächen- oder Substrattemperatur |
+| Zeit | h | Modellzeit in Stunden |
+| interner Zeitschritt | h | 0.25 h entspricht 15 Minuten |
+| Strahlungs- und Wärmeflüsse | modelllogisch W/m² | Energiefluss pro Fläche |
+| Wasserspeicher | mm | vereinfachte Wasserhöhe im Patchspeicher |
+| Albedo | 0 bis 1 | 0 = keine Reflexion, 1 = vollständige Reflexion |
+| Emissivität | 0 bis 1 | 1 = sehr gute langwellige Abstrahlung |
+| Schattenlevel | 0 bis 1 | 0 = kein Schatten, 1 = sehr starke Verschattung |
+| Vegetationseinfluss | 0 bis 1 | 0 = kein Einfluss, 1 = starker Einfluss |
+| Einfassung | 0 bis 1 | 0 = offen, 1 = stark eingefasst |
+| Hitzelastklasse | 1 bis 5 | blau bis rot, geringe bis starke Belastung |
+
+# Wie die Formeln zu lesen sind
+
+Die Formeln in dieser Dokumentation sollen die Modelllogik transparent machen. Sie sind nicht als vollständige mikrometeorologische Theorie zu lesen. Viele Terme sind bewusst einfach gehalten.
+
+Ein Beispiel:
+
+Die Oberflächenenergiebilanz lautet im Modell vereinfacht:
+
+$$
+Q_\mathrm{net} = Q_\mathrm{SW} + Q_\mathrm{wall} + Q_\mathrm{LW} - Q_H - Q_{LE} - Q_G
+$$
+
+Das bedeutet in Worten:
+
+> Die Oberfläche wird durch Sonne, Wände und langwellige Strahlung erwärmt oder abgekühlt. Gleichzeitig verliert sie Energie an die Luft, durch Verdunstung und an den Untergrund.
+
+Die Formel ist also kein Selbstzweck. Sie zeigt, welche Prozessgruppen im Modell getrennt berücksichtigt werden.
+
+# Was Lehrkräfte aus dem Modell ableiten können
+
+Das Modell erlaubt folgende fachlich sinnvolle Aussagen:
+
+- Welche Flächen werden im Modell besonders stark belastet?
+- Welche Rolle spielen Schatten, Material und Vegetation?
+- Wo wirken Maßnahmen lokal und wo flächig?
+- Welche Maßnahme verbessert die Hitzelast auf Aufenthaltsflächen stärker?
+- Warum kann eine Maßnahme an einer Stelle sinnvoll sein, an einer anderen aber wenig bringen?
+- Warum reicht es nicht, einfach „mehr Grün“ zu fordern, sondern warum Lage, Schatten, Nutzung und Material zusammen betrachtet werden müssen?
+
+Das Modell erlaubt nicht:
+
+- eine exakte Temperaturprognose für einen realen Schulhof,
+- eine belastbare Bauplanungsentscheidung ohne weitere Fachanalyse,
+- eine medizinische Bewertung von Hitzestress,
+- eine exakte Aussage über reale Grad-Celsius-Effekte einzelner Maßnahmen.
 
 # Grundstruktur
 
