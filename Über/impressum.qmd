@@ -1,11 +1,18 @@
 ---
 title: Impressum
+subtitle: ""
 author: Rieke Ammoneit
 date: '2025-05-01'
-
-
+title-block-banner: ../images/impressum.png
+title-block-banner-color: black
+format:
+  html:
+    toc: false
+    code-fold: false
+    number-sections: false
+ 
 ---
-![](/images/hinterland-sp.jpg)
+
 
 # Impressum
 
