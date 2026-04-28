@@ -84,16 +84,8 @@ Durchführungsplan und Tabelle
 -   Stoppuhr oder Timer (Tablet)
 -   Wärmelampe
 -   Essig und Backpulver, damit kann CO₂ hergestellt werden
+-   Messprotokoll
 
-## Aufgabe B – Experiment durchführen
-
-- Stellt eure Ergebnisse übersichtlich dar (z. B. Tabelle oder Diagramm) 
-- Beschreibt, was ihr beobachtet habt 
-- Entscheidet: Welche Vermutung passt besser? 
-
-Streicht die falsche Vermutung durch und macht ein Häkchen bei der richtigen.
-
-## Messprotokoll
 
 ```{=html}
 <table class="messprotokoll">
@@ -106,27 +98,38 @@ Streicht die falsche Vermutung durch und macht ein Häkchen bei der richtigen.
     </tr>
   </thead>
   <tbody>
-    <tr><td>0 min</td><td></td><td></td><td></td></tr>
-    <tr><td>1 min</td><td></td><td></td><td></td></tr>
-    <tr><td>2 min</td><td></td><td></td><td></td></tr>
-    <tr><td>3 min</td><td></td><td></td><td></td></tr>
-    <tr><td>4 min</td><td></td><td></td><td></td></tr>
-    <tr><td>5 min</td><td></td><td></td><td></td></tr>
-    <tr><td>6 min</td><td></td><td></td><td></td></tr>
-    <tr><td>7 min</td><td></td><td></td><td></td></tr>
-    <tr><td>8 min</td><td></td><td></td><td></td></tr>
-    <tr><td>9 min</td><td></td><td></td><td></td></tr>
-    <tr><td>10 min</td><td></td><td></td><td></td></tr>
-    <tr><td>11 min</td><td></td><td></td><td></td></tr>
-    <tr><td>12 min</td><td></td><td></td><td></td></tr>
-    <tr><td>13 min</td><td></td><td></td><td></td></tr>
-    <tr><td>14 min</td><td></td><td></td><td></td></tr>
-    <tr><td>15 min</td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td></tr>
   </tbody>
 </table>
 ```
 
 ![](../images/kaestchen.png)
+
+## Aufgabe B – Experiment durchführen
+
+- Stellt eure Ergebnisse übersichtlich dar (z. B. Tabelle oder Diagramm) 
+- Beschreibt, was ihr beobachtet habt 
+- Entscheidet: Welche Vermutung passt besser? 
+
+**Streicht die falsche Vermutung durch und macht ein Häkchen bei der richtigen.**
+
+
+
 
 # Zusatzfrage
 
