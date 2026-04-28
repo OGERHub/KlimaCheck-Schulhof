@@ -677,6 +677,31 @@ to lauf-neu-vorbereiten
   print "Neuer Tageslauf vorbereitet. Auswahl und Referenz wurden nicht gelöscht."
 end
 
+
+to massnahme-aktivieren
+  ;; Desktop- und Web-kompatibler Vorher/Nachher-Workflow.
+  ;; Es wird KEINE Datei geschrieben.
+  ;; Die Referenz wird nur in den ref-* Patchvariablen gemerkt.
+  ;;
+  ;; Zweck:
+  ;; 1. Nach Lauf 1 aktuellen Zustand als Vorher-Referenz merken.
+  ;; 2. Tageswerte zurücksetzen.
+  ;; 3. Geometrie, Auswahl, Stationen und Referenz behalten.
+  ;; 4. Danach kann die Maßnahme gesetzt und Lauf 2 gestartet werden.
+
+  if not ref-selection-saved? [
+    if simulationszeit < 24 - zeit-epsilon [
+      user-message "Der erste Versuch ist noch nicht vollständig bis 24:00 gelaufen. Erst 'Versuch starten' bis zum Ende laufen lassen."
+      stop
+    ]
+
+    referenz-speichern
+    print "Vorher-Zustand für den Vergleich gemerkt."
+  ]
+
+  lauf-neu-vorbereiten
+  print "Maßnahme kann jetzt gesetzt werden. Danach 'Versuch starten' erneut ausführen."
+end
 ; ----------------------------------------------------------------------------
 ; simulieren
 ; Führt den schrittweisen Tageslauf aus, inklusive Plotfortschreibung und textlicher Protokollierung voller Stunden.
@@ -5652,7 +5677,7 @@ end
   <widgets>
     <view x="5" wrappingAllowedX="false" y="15" frameRate="30.0" minPycor="-25" height="514" showTickCounter="true" patchSize="10.0" fontSize="10" wrappingAllowedY="false" width="514" tickCounterLabel="ticks" maxPycor="25" updateMode="1" maxPxcor="25" minPxcor="-25"></view>
     <button x="523" y="318" height="42" disableUntilTicks="false" forever="true" kind="Observer" width="182" display="Karte bearbeiten">interaktiv</button>
-    <chooser x="523" y="363" height="60" variable="Element" current="3" width="182" display="Element">
+    <chooser x="523" y="363" height="60" variable="Element" current="0" width="182" display="Element">
       <choice type="string" value="Gebiet-auswählen"></choice>
       <choice type="string" value="Station-setzen"></choice>
       <choice type="string" value="Station-entfernen"></choice>
@@ -5671,7 +5696,7 @@ end
     <button x="523" y="71" height="42" disableUntilTicks="false" forever="true" kind="Observer" width="187" display=" Versuch starten">simulieren</button>
     <button x="720" y="318" height="36" disableUntilTicks="false" forever="false" kind="Observer" width="185" display="Gebäude begrünen">toggle-alle-daecher
 toggle-alle-waende</button>
-    <button x="720" y="453" height="40" disableUntilTicks="false" forever="false" kind="Observer" width="185" display="Massnahme aktivieren">lauf-neu-vorbereiten</button>
+    <button x="720" y="453" height="40" disableUntilTicks="false" forever="false" kind="Observer" width="185" display="Massnahme aktivieren">massnahme-aktivieren</button>
     <button x="720" y="495" height="36" disableUntilTicks="false" forever="false" kind="Observer" width="185" display="Auswahlgebiet vergleichen">auswahl-vergleichen</button>
     <button x="810" y="356" height="40" disableUntilTicks="false" forever="false" kind="Observer" width="95" display="Sportfeld">toggle-tartanfeld</button>
     <monitor x="910" precision="17" y="420" height="60" fontSize="11" width="195" display="Fläche mittlerer Hitzebelastung">report-yellow-area comparison-patches</monitor>
@@ -5704,10 +5729,7 @@ Versuch bearbeiten</note>
       <setup>clear-plot</setup>
       <update></update>
     </plot>
-    <note x="935" y="37" backgroundDark="0" fontSize="10" width="166" markdown="true" height="30" textColorDark="-1" textColorLight="-16777216" backgroundLight="14868697">Punkte: Oberflächentemperatur
-Linie: Lufttemperatur
-</note>
-    <monitor x="1223" precision="0" y="5" height="55" fontSize="11" width="103" display="Uhrzeit">modell-uhr</monitor>
+    <monitor x="1223" precision="0" y="5" height="60" fontSize="11" width="103" display="Uhrzeit">modell-uhr</monitor>
     <input x="725" multiline="false" y="5" height="65" variable="Versuchsname" type="string" width="180">Standard</input>
     <button x="725" y="75" height="40" disableUntilTicks="false" forever="false" kind="Observer" width="180" display="Versuch speichern">szenario-speichern</button>
     <note x="720" y="425" backgroundDark="0" fontSize="10" width="186" markdown="true" height="32" textColorDark="-1" textColorLight="-16777216" backgroundLight="0">---
@@ -5716,6 +5738,9 @@ Versuche vergleichen</note>
     <note x="725" y="120" backgroundDark="0" fontSize="10" width="175" markdown="true" height="18" textColorDark="-1" textColorLight="-16777216" backgroundLight="0">Verfügbare Versuche</note>
     <note x="525" y="185" backgroundDark="0" fontSize="11" width="380" markdown="true" height="35" textColorDark="-1" textColorLight="-16777216" backgroundLight="0">---
                                            Kartenansicht wählen</note>
+    <note x="910" y="10" backgroundDark="0" fontSize="8" width="166" markdown="true" height="31" textColorDark="-1" textColorLight="-16777216" backgroundLight="14868697">Punkte: Oberflächentemperatur
+Linie: Lufttemperatur
+</note>
   </widgets>
   <info><![CDATA[# Schulhof KlimaLab
 
