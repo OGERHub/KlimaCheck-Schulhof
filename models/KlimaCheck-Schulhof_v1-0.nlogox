@@ -5677,7 +5677,7 @@ end
   <widgets>
     <view x="5" wrappingAllowedX="false" y="15" frameRate="30.0" minPycor="-25" height="514" showTickCounter="true" patchSize="10.0" fontSize="10" wrappingAllowedY="false" width="514" tickCounterLabel="ticks" maxPycor="25" updateMode="1" maxPxcor="25" minPxcor="-25"></view>
     <button x="523" y="318" height="42" disableUntilTicks="false" forever="true" kind="Observer" width="182" display="Karte bearbeiten">interaktiv</button>
-    <chooser x="523" y="363" height="60" variable="Element" current="0" width="182" display="Element">
+    <chooser x="523" y="363" height="60" variable="Element" current="3" width="182" display="Element">
       <choice type="string" value="Gebiet-auswählen"></choice>
       <choice type="string" value="Station-setzen"></choice>
       <choice type="string" value="Station-entfernen"></choice>
@@ -5701,11 +5701,6 @@ toggle-alle-waende</button>
     <button x="810" y="356" height="40" disableUntilTicks="false" forever="false" kind="Observer" width="95" display="Sportfeld">toggle-tartanfeld</button>
     <monitor x="910" precision="17" y="420" height="60" fontSize="11" width="195" display="Fläche mittlerer Hitzebelastung">report-yellow-area comparison-patches</monitor>
     <monitor x="910" precision="17" y="368" height="60" fontSize="11" width="195" display="Fläche extremer Hitzebelastung">report-red-area comparison-patches</monitor>
-    <note x="910" y="344" backgroundDark="0" fontSize="10" width="410" markdown="true" height="31" textColorDark="-1" textColorLight="-16777216" backgroundLight="0">---
-Veränderungen im Auswahlgebiet</note>
-    <note x="910" y="296" backgroundDark="0" fontSize="10" width="410" markdown="true" height="46" textColorDark="-1" textColorLight="-16777216" backgroundLight="0"><![CDATA[**Anteile der Hitzelastklassen der Aufenhaltsfläche:**<br> blau  <1 h | grün1–2.5 h | gelb 2.5–5 h | orange 5–6.5 h | rot > 6.5 h  
-
-Aufenhaltsflächen= Asphalt, Pflaster, Offenpflaster, Rasen, Sportbelag, Sand]]></note>
     <button x="720" y="355" height="40" disableUntilTicks="false" forever="false" kind="Observer" width="85" display="Sandplatz">toggle-sand</button>
     <note x="520" y="285" backgroundDark="0" fontSize="10" width="383" markdown="true" height="32" textColorDark="-1" textColorLight="-16777216" backgroundLight="0">---
 Versuch bearbeiten</note>
@@ -5713,7 +5708,6 @@ Versuch bearbeiten</note>
     <monitor x="910" precision="17" y="475" height="60" fontSize="11" width="415" display="Zusammenfassender Vergleich der Veränderungen">report-improvement-summary comparison-patches</monitor>
     <monitor x="1130" precision="17" y="420" height="60" fontSize="11" width="195" display="Unkritische Hitzeblastung">report-lowmid-area comparison-patches</monitor>
     <monitor x="1130" precision="17" y="368" height="60" fontSize="11" width="195" display="Fläche Kritischer Hitzbelastung">report-orange-area comparison-patches</monitor>
-    <monitor x="910" precision="1" y="235" height="60" fontSize="11" width="415" display="Hitzelast je Klasse  für alle Aufenthaltsflächen">hitzelast-legende-horizontal</monitor>
     <button x="525" y="240" height="40" disableUntilTicks="false" forever="false" kind="Observer" width="180" display="Legende an/aus">toggle-legende</button>
     <button x="525" y="195" height="40" disableUntilTicks="false" forever="true" kind="Observer" width="180" display="Karte aktualisieren">Kartenansicht-aktualisieren</button>
     <chooser x="715" y="220" height="60" variable="Kartenansicht" current="0" width="187" display="Kartenansicht">
@@ -5725,11 +5719,6 @@ Versuch bearbeiten</note>
       <choice type="string" value="Hitzelast Schulzeit"></choice>
       <choice type="string" value="Hitzelast Änderung"></choice>
     </chooser>
-    <plot x="910" autoPlotX="false" yMax="30.0" autoPlotY="false" yAxis="Luft-Temperatur [°C]" y="5" xMin="0.0" height="236" legend="true" xMax="24.0" yMin="8.0" width="415" xAxis="Uhrzeit [h]" display="Stationen Temperatur">
-      <setup>clear-plot</setup>
-      <update></update>
-    </plot>
-    <monitor x="1223" precision="0" y="5" height="60" fontSize="11" width="103" display="Uhrzeit">modell-uhr</monitor>
     <input x="725" multiline="false" y="5" height="65" variable="Versuchsname" type="string" width="180">Standard</input>
     <button x="725" y="75" height="40" disableUntilTicks="false" forever="false" kind="Observer" width="180" display="Versuch speichern">szenario-speichern</button>
     <note x="720" y="425" backgroundDark="0" fontSize="10" width="186" markdown="true" height="32" textColorDark="-1" textColorLight="-16777216" backgroundLight="0">---
@@ -5738,7 +5727,15 @@ Versuche vergleichen</note>
     <note x="725" y="120" backgroundDark="0" fontSize="10" width="175" markdown="true" height="18" textColorDark="-1" textColorLight="-16777216" backgroundLight="0">Verfügbare Versuche</note>
     <note x="525" y="185" backgroundDark="0" fontSize="11" width="380" markdown="true" height="35" textColorDark="-1" textColorLight="-16777216" backgroundLight="0">---
                                            Kartenansicht wählen</note>
-    <note x="910" y="10" backgroundDark="0" fontSize="8" width="166" markdown="true" height="31" textColorDark="-1" textColorLight="-16777216" backgroundLight="14868697">Punkte: Oberflächentemperatur
+    <monitor x="910" precision="1" y="285" height="60" fontSize="11" width="415" display="                                                                                                                                                                                   []">hitzelast-legende-horizontal</monitor>
+    <note x="910" y="286" backgroundDark="0" fontSize="8" width="410" markdown="true" height="25" textColorDark="-1" textColorLight="-16777216" backgroundLight="0"><![CDATA[**Hitzelastklassen [h] der Aufenhaltsfläche [%]:** |blau  <1|grün1–2.5|gelb 2.5–5|orange 5–6.5|rot > 6.5| <br>Aufenhaltsflächen= Asphalt, Pflaster, Offenpfl., Rasen, Sportbelag, Sand]]></note>
+    <note x="910" y="350" backgroundDark="0" fontSize="10" width="190" markdown="true" height="18" textColorDark="-1" textColorLight="-16777216" backgroundLight="0">Veränderungen im Auswahlgebiet</note>
+    <plot x="910" autoPlotX="false" yMax="30.0" autoPlotY="false" yAxis="Luft-Temperatur [°C]" y="0" xMin="0.0" height="275" legend="true" xMax="24.0" yMin="8.0" width="415" xAxis="Uhrzeit [h]" display="Stationen Temperatur">
+      <setup>clear-plot</setup>
+      <update></update>
+    </plot>
+    <monitor x="1220" precision="0" y="0" height="60" fontSize="11" width="103" display="Uhrzeit">modell-uhr</monitor>
+    <note x="910" y="5" backgroundDark="0" fontSize="8" width="166" markdown="true" height="25" textColorDark="-1" textColorLight="-16777216" backgroundLight="14868697">Punkte: Oberflächentemperatur
 Linie: Lufttemperatur
 </note>
   </widgets>
@@ -5879,7 +5876,7 @@ Darum ist es sinnvoll, mit klaren Vergleichsfragen zu arbeiten: vorher und nachh
 
 ## Copyright
 
-© 2026 Rieke Ammoneit und Chris Reudenbach, Version 1.0
+© 2024-2026 Rieke Ammoneit und Chris Reudenbach, Version 1.0
 
 Lizenz: **Creative Commons Attribution 4.0 International (CC BY 4.0)**. Das Material darf also geteilt und bearbeitet werden, solange die Urheber*innen genannt werden.
 
