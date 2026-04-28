@@ -4,7 +4,7 @@ subtitle: "Arktisches Meereis und Klimawandel – was passiert da wirklich?"
 author: "Rieke Ammoneit"
 date: "2026-04-28"
 order: 20
-title-block-banner: ../images/meereis.png
+title-block-banner: ../images/arctic.png
 title-block-banner-color: black
 #page-layout: full
 format-links: [html, pdf, docx]
