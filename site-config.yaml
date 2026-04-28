@@ -5,7 +5,7 @@
 course_code: "Schülerlabor-2026"                                      # Potentieller Code LV-yyyy-yyy wird nur auf der Index Seite eingetragen
 contact_email: "ammoneir@uni-koeln.de"                                 # kann abweichend oder gleich zu Impressum sein in der Regel Dozen*in wird nur auf der Index Seite eingetragen    
 site_title: "your title"                                     # Name der Seite in der Titelleiste
-org_name: "gisma spatial science ressources"                                # erscheint im Gegensatz zu chair_name etc im Footer  Header usw            
+org_name: "Geographiedidaktik - Schwerpunkt Physische Geographie"                                # erscheint im Gegensatz zu chair_name etc im Footer  Header usw            
 site_url: "https://OGERHub.github.io/KlimaCheck-Schulhof"
 repo_url: "https://github.com/OGERHub/KlimaCheck-Schulhof"    
 logo_path: "images/your-logo.png"                            # Logo obere Ecke Navbar

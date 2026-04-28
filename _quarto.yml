@@ -18,7 +18,7 @@ website:
   image: images/banner.png
   page-footer:
     center: |
-      gisma spatial science ressources (<span class="year"></span>) —
+      Geographiedidaktik - Schwerpunkt Physische Geographie (<span class="year"></span>) —
       <a class="impressum-link" href="base/impressum.html">Impressum</a>
 
   search:
