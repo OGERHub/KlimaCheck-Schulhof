@@ -1,50 +1,62 @@
 [
   {
-    "objectID": "KlimaCheck-Schulhof/sitzung-1-01.html",
-    "href": "KlimaCheck-Schulhof/sitzung-1-01.html",
-    "title": "Wo Hitze entsteht – und wie man sie wieder loswird",
+    "objectID": "01-Treibhaus-to-Go/sitzung-1-01.html",
+    "href": "01-Treibhaus-to-Go/sitzung-1-01.html",
+    "title": "Ein Gas schreibt Klimageschichte - Treibhausklima in der Flasche",
     "section": "",
-    "text": "KlimaCheck-Schulhof ist ein vereinfachtes, physikalisch basiertes Vergleichsmodell für das Klima auf einem Schulhof. Es zeigt, wie sich Flächen, Gebäude, Bäume, Schatten und Begrünung auf Wärme, Abkühlung und Hitzelast auswirken.\nDas Modell ist kein exaktes Vorhersagemodell. Es dient dazu, Unterschiede sichtbar zu machen: zum Beispiel zwischen Asphalt und Rasen, zwischen offenen und verschatteten Bereichen oder zwischen einem normalen Gebäude und einem begrünten Gebäude.\n Modell in eigenem Tab öffnen",
+    "text": "coming soon",
     "crumbs": [
       "Ilias",
-      "KlimaCheck Schulhof",
-      "Wo Hitze entsteht – und wie man sie wieder loswird"
+      "01 Treibhaus to Go",
+      "Ein Gas schreibt Klimageschichte - Treibhausklima in der Flasche"
     ]
   },
   {
-    "objectID": "KlimaCheck-Schulhof/sitzung-1-01.html#interaktives-modell",
-    "href": "KlimaCheck-Schulhof/sitzung-1-01.html#interaktives-modell",
-    "title": "Wo Hitze entsteht – und wie man sie wieder loswird",
-    "section": "",
-    "text": "KlimaCheck-Schulhof ist ein vereinfachtes, physikalisch basiertes Vergleichsmodell für das Klima auf einem Schulhof. Es zeigt, wie sich Flächen, Gebäude, Bäume, Schatten und Begrünung auf Wärme, Abkühlung und Hitzelast auswirken.\nDas Modell ist kein exaktes Vorhersagemodell. Es dient dazu, Unterschiede sichtbar zu machen: zum Beispiel zwischen Asphalt und Rasen, zwischen offenen und verschatteten Bereichen oder zwischen einem normalen Gebäude und einem begrünten Gebäude.\n Modell in eigenem Tab öffnen",
-    "crumbs": [
-      "Ilias",
-      "KlimaCheck Schulhof",
-      "Wo Hitze entsteht – und wie man sie wieder loswird"
-    ]
-  },
-  {
-    "objectID": "KlimaCheck-Schulhof/sitzung-1-01.html#arbeiten-mit-dem-modell",
-    "href": "KlimaCheck-Schulhof/sitzung-1-01.html#arbeiten-mit-dem-modell",
-    "title": "Wo Hitze entsteht – und wie man sie wieder loswird",
-    "section": "Arbeiten mit dem Modell",
-    "text": "Arbeiten mit dem Modell\nFür einen einfachen Vorher/Nachher-Vergleich wird zuerst der Ausgangszustand vollständig simuliert. Danach wird mit Massnahme aktivieren der Vergleichszustand vorbereitet. Anschließend kann eine Maßnahme gesetzt werden, zum Beispiel Rasen, Bäume, Hecken oder Gebäudebegrünung. Nach dem zweiten Tageslauf zeigt die Ansicht Hitzelast Änderung, wo sich die Belastung verbessert oder verschlechtert hat.\nMit Gebiet-auswählen kann zusätzlich eine konkrete Aufenthaltsfläche markiert werden. Der Button Auswahlgebiet vergleichen wertet dann nur diese Fläche aus.",
-    "crumbs": [
-      "Ilias",
-      "KlimaCheck Schulhof",
-      "Wo Hitze entsteht – und wie man sie wieder loswird"
-    ]
-  },
-  {
-    "objectID": "Arktik-Eis/sitzung-1-01.html",
-    "href": "Arktik-Eis/sitzung-1-01.html",
+    "objectID": "02-Arktik-Eis/sitzung-1-01.html",
+    "href": "02-Arktik-Eis/sitzung-1-01.html",
     "title": "Schwankt das noch – oder schmilzt das schon?",
     "section": "",
     "text": "coming soon",
     "crumbs": [
       "Ilias",
-      "Arktik Eis",
+      "02 Arktik Eis",
       "Schwankt das noch – oder schmilzt das schon?"
+    ]
+  },
+  {
+    "objectID": "03-KlimaCheck-Schulhof/sitzung-1-01.html",
+    "href": "03-KlimaCheck-Schulhof/sitzung-1-01.html",
+    "title": "Wo Hitze entsteht – und wie man sie wieder loswird",
+    "section": "",
+    "text": "KlimaCheck-Schulhof ist ein vereinfachtes, physikalisch basiertes Vergleichsmodell für das Klima auf einem Schulhof. Es zeigt, wie sich Flächen, Gebäude, Bäume, Schatten und Begrünung auf Wärme, Abkühlung und Hitzelast auswirken.\nDas Modell ist kein exaktes Vorhersagemodell. Es dient dazu, Unterschiede sichtbar zu machen: zum Beispiel zwischen Asphalt und Rasen, zwischen offenen und verschatteten Bereichen oder zwischen einem normalen Gebäude und einem begrünten Gebäude.\n Modell in eigenem Tab öffnen",
+    "crumbs": [
+      "Ilias",
+      "03 KlimaCheck Schulhof",
+      "Wo Hitze entsteht – und wie man sie wieder loswird"
+    ]
+  },
+  {
+    "objectID": "03-KlimaCheck-Schulhof/sitzung-1-01.html#interaktives-modell",
+    "href": "03-KlimaCheck-Schulhof/sitzung-1-01.html#interaktives-modell",
+    "title": "Wo Hitze entsteht – und wie man sie wieder loswird",
+    "section": "",
+    "text": "KlimaCheck-Schulhof ist ein vereinfachtes, physikalisch basiertes Vergleichsmodell für das Klima auf einem Schulhof. Es zeigt, wie sich Flächen, Gebäude, Bäume, Schatten und Begrünung auf Wärme, Abkühlung und Hitzelast auswirken.\nDas Modell ist kein exaktes Vorhersagemodell. Es dient dazu, Unterschiede sichtbar zu machen: zum Beispiel zwischen Asphalt und Rasen, zwischen offenen und verschatteten Bereichen oder zwischen einem normalen Gebäude und einem begrünten Gebäude.\n Modell in eigenem Tab öffnen",
+    "crumbs": [
+      "Ilias",
+      "03 KlimaCheck Schulhof",
+      "Wo Hitze entsteht – und wie man sie wieder loswird"
+    ]
+  },
+  {
+    "objectID": "03-KlimaCheck-Schulhof/sitzung-1-01.html#arbeiten-mit-dem-modell",
+    "href": "03-KlimaCheck-Schulhof/sitzung-1-01.html#arbeiten-mit-dem-modell",
+    "title": "Wo Hitze entsteht – und wie man sie wieder loswird",
+    "section": "Arbeiten mit dem Modell",
+    "text": "Arbeiten mit dem Modell\nFür einen einfachen Vorher/Nachher-Vergleich wird zuerst der Ausgangszustand vollständig simuliert. Danach wird mit Massnahme aktivieren der Vergleichszustand vorbereitet. Anschließend kann eine Maßnahme gesetzt werden, zum Beispiel Rasen, Bäume, Hecken oder Gebäudebegrünung. Nach dem zweiten Tageslauf zeigt die Ansicht Hitzelast Änderung, wo sich die Belastung verbessert oder verschlechtert hat.\nMit Gebiet-auswählen kann zusätzlich eine konkrete Aufenthaltsfläche markiert werden. Der Button Auswahlgebiet vergleichen wertet dann nur diese Fläche aus.",
+    "crumbs": [
+      "Ilias",
+      "03 KlimaCheck Schulhof",
+      "Wo Hitze entsteht – und wie man sie wieder loswird"
     ]
   },
   {
@@ -53,17 +65,5 @@
     "title": "Klimalab Schülerlabor 2026",
     "section": "",
     "text": "Willkommen zur Website Klimalab Schülerlabor 2026 - Geographiedidaktik mit dem Schwerpunkt Physische Geographie"
-  },
-  {
-    "objectID": "Treibhaus-to-Go/sitzung-1-01.html",
-    "href": "Treibhaus-to-Go/sitzung-1-01.html",
-    "title": "Ein Gas schreibt Klimageschichte - Treibhausklima in der Flasche",
-    "section": "",
-    "text": "coming soon",
-    "crumbs": [
-      "Ilias",
-      "Treibhaus to Go",
-      "Ein Gas schreibt Klimageschichte - Treibhausklima in der Flasche"
-    ]
   }
 ]
