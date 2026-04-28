@@ -1,0 +1,2778 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Rieke Ammoneit &amp; Chris Reudenbach">
+
+<title>Technische Dokumentation – Klimalab Schülerlabor 2026</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../Über/impressum.html" rel="next">
+<link href="../03-KlimaCheck-Schulhof/sitzung-3-01.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-fe31247d512dcc5f454b004c14ddb3d9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken",
+    "search-label": "Suchen"
+  }
+}</script>
+<style>
+
+      .quarto-title-block .quarto-title-banner h1,
+      .quarto-title-block .quarto-title-banner h2,
+      .quarto-title-block .quarto-title-banner h3,
+      .quarto-title-block .quarto-title-banner h4,
+      .quarto-title-block .quarto-title-banner h5,
+      .quarto-title-block .quarto-title-banner h6
+      {
+        color: black;
+      }
+
+      .quarto-title-block .quarto-title-banner {
+        color: black;
+background-image: url(../images/netlogo-sp.png);
+background-size: cover;
+      }
+</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../css/styles.css">
+<meta property="og:title" content="Technische Dokumentation – Klimalab Schülerlabor 2026">
+<meta property="og:description" content="Modellkonzept und Physik">
+<meta property="og:image" content="https://OGERHub.github.io/KlimaCheck-Schulhof/03-KlimaCheck-Schulhof/images/banner.png">
+<meta property="og:site_name" content="Klimalab Schülerlabor 2026">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../images/your-logo.png" alt="" class="navbar-logo light-content">
+    <img src="../images/your-logo.png" alt="" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Klimalab Schülerlabor 2026</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Suchen"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Navigation umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://www.ilias.uni-koeln.de/ilias/login.php?client_id=uk&amp;cmd=force_login&amp;lang=de"> <i class="bi bi-chat-left-text-fill" role="img">
+</i> 
+<span class="menu-text">Ilias</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <a class="flex-grow-1 no-decor" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+          <h1 class="quarto-secondary-nav-title">Technische Dokumentation</h1>
+        </a>     
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title d-none d-lg-block">Technische Dokumentation</h1>
+            <p class="subtitle lead">Modellkonzept und Physik</p>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta column-body">
+
+      <div>
+      <div class="quarto-title-meta-heading">Autor:in</div>
+      <div class="quarto-title-meta-contents">
+               <p>Rieke Ammoneit &amp; Chris Reudenbach </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">28. April 2026</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">01 Treibhaus to Go</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../01-Treibhaus-to-Go/sitzung-1-01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ein Gas schreibt Klimageschichte - Treibhausklima in der Flasche</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">02 Arktik Eis</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../02-Arktik-Eis/sitzung-2-01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schwankt das noch – oder schmilzt das schon?</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">03 KlimaCheck Schulhof</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../03-KlimaCheck-Schulhof/sitzung-3-00.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hitzebelastung auf dem Schulhof untersuchen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../03-KlimaCheck-Schulhof/sitzung-3-01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Interaktives Schulhofklima-Modell</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../03-KlimaCheck-Schulhof/sitzung-3-02-Dokumentation.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Technische Dokumentation</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Über</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Über/impressum.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Impressum</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Über/kontakt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kontakt</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Auf dieser Seite</h2>
+   
+  <ul>
+  <li><a href="#zweck-des-modells" id="toc-zweck-des-modells" class="nav-link active" data-scroll-target="#zweck-des-modells">Zweck des Modells</a></li>
+  <li><a href="#grundstruktur" id="toc-grundstruktur" class="nav-link" data-scroll-target="#grundstruktur">Grundstruktur</a>
+  <ul class="collapse">
+  <li><a href="#raum" id="toc-raum" class="nav-link" data-scroll-target="#raum">Raum</a></li>
+  <li><a href="#zeit" id="toc-zeit" class="nav-link" data-scroll-target="#zeit">Zeit</a></li>
+  <li><a href="#zustandslogik" id="toc-zustandslogik" class="nav-link" data-scroll-target="#zustandslogik">Zustandslogik</a></li>
+  </ul></li>
+  <li><a href="#patch-semantik" id="toc-patch-semantik" class="nav-link" data-scroll-target="#patch-semantik">Patch-Semantik</a>
+  <ul class="collapse">
+  <li><a href="#bodenklassen" id="toc-bodenklassen" class="nav-link" data-scroll-target="#bodenklassen">Bodenklassen</a></li>
+  <li><a href="#objektklassen" id="toc-objektklassen" class="nav-link" data-scroll-target="#objektklassen">Objektklassen</a></li>
+  </ul></li>
+  <li><a href="#materialparameter" id="toc-materialparameter" class="nav-link" data-scroll-target="#materialparameter">Materialparameter</a>
+  <ul class="collapse">
+  <li><a href="#bodenflächen" id="toc-bodenflächen" class="nav-link" data-scroll-target="#bodenflächen">Bodenflächen</a></li>
+  <li><a href="#dächer" id="toc-dächer" class="nav-link" data-scroll-target="#dächer">Dächer</a></li>
+  <li><a href="#vegetation" id="toc-vegetation" class="nav-link" data-scroll-target="#vegetation">Vegetation</a></li>
+  </ul></li>
+  <li><a href="#wasserhaushalt" id="toc-wasserhaushalt" class="nav-link" data-scroll-target="#wasserhaushalt">Wasserhaushalt</a>
+  <ul class="collapse">
+  <li><a href="#wasserspeicherparameter" id="toc-wasserspeicherparameter" class="nav-link" data-scroll-target="#wasserspeicherparameter">Wasserspeicherparameter</a></li>
+  <li><a href="#nachlieferung-aus-tieferem-boden" id="toc-nachlieferung-aus-tieferem-boden" class="nav-link" data-scroll-target="#nachlieferung-aus-tieferem-boden">Nachlieferung aus tieferem Boden</a></li>
+  </ul></li>
+  <li><a href="#meteorologischer-antrieb" id="toc-meteorologischer-antrieb" class="nav-link" data-scroll-target="#meteorologischer-antrieb">Meteorologischer Antrieb</a>
+  <ul class="collapse">
+  <li><a href="#jahreszeitliche-parameter" id="toc-jahreszeitliche-parameter" class="nav-link" data-scroll-target="#jahreszeitliche-parameter">Jahreszeitliche Parameter</a></li>
+  <li><a href="#sonnenaufgang-und-sonnenuntergang" id="toc-sonnenaufgang-und-sonnenuntergang" class="nav-link" data-scroll-target="#sonnenaufgang-und-sonnenuntergang">Sonnenaufgang und Sonnenuntergang</a></li>
+  <li><a href="#sonnenfaktor" id="toc-sonnenfaktor" class="nav-link" data-scroll-target="#sonnenfaktor">Sonnenfaktor</a></li>
+  <li><a href="#sonnenhöhe-und-azimut" id="toc-sonnenhöhe-und-azimut" class="nav-link" data-scroll-target="#sonnenhöhe-und-azimut">Sonnenhöhe und Azimut</a></li>
+  <li><a href="#hintergrundlufttemperatur" id="toc-hintergrundlufttemperatur" class="nav-link" data-scroll-target="#hintergrundlufttemperatur">Hintergrundlufttemperatur</a></li>
+  <li><a href="#relative-luftfeuchte" id="toc-relative-luftfeuchte" class="nav-link" data-scroll-target="#relative-luftfeuchte">Relative Luftfeuchte</a></li>
+  </ul></li>
+  <li><a href="#abgeleitete-räumliche-felder" id="toc-abgeleitete-räumliche-felder" class="nav-link" data-scroll-target="#abgeleitete-räumliche-felder">Abgeleitete räumliche Felder</a>
+  <ul class="collapse">
+  <li><a href="#vegetationseinfluss" id="toc-vegetationseinfluss" class="nav-link" data-scroll-target="#vegetationseinfluss">Vegetationseinfluss</a></li>
+  <li><a href="#wandkontext" id="toc-wandkontext" class="nav-link" data-scroll-target="#wandkontext">Wandkontext</a></li>
+  <li><a href="#wand-albedo-und-wandbegrünung" id="toc-wand-albedo-und-wandbegrünung" class="nav-link" data-scroll-target="#wand-albedo-und-wandbegrünung">Wand-Albedo und Wandbegrünung</a></li>
+  <li><a href="#einfassung" id="toc-einfassung" class="nav-link" data-scroll-target="#einfassung">Einfassung</a></li>
+  </ul></li>
+  <li><a href="#schattenmodell" id="toc-schattenmodell" class="nav-link" data-scroll-target="#schattenmodell">Schattenmodell</a>
+  <ul class="collapse">
+  <li><a href="#gebäudeschatten" id="toc-gebäudeschatten" class="nav-link" data-scroll-target="#gebäudeschatten">Gebäudeschatten</a></li>
+  <li><a href="#vegetationsschatten" id="toc-vegetationsschatten" class="nav-link" data-scroll-target="#vegetationsschatten">Vegetationsschatten</a></li>
+  </ul></li>
+  <li><a href="#oberflächenenergiebilanz" id="toc-oberflächenenergiebilanz" class="nav-link" data-scroll-target="#oberflächenenergiebilanz">Oberflächenenergiebilanz</a>
+  <ul class="collapse">
+  <li><a href="#solare-einstrahlung-auf-einen-patch" id="toc-solare-einstrahlung-auf-einen-patch" class="nav-link" data-scroll-target="#solare-einstrahlung-auf-einen-patch">Solare Einstrahlung auf einen Patch</a></li>
+  <li><a href="#absorbierte-kurzwellige-strahlung" id="toc-absorbierte-kurzwellige-strahlung" class="nav-link" data-scroll-target="#absorbierte-kurzwellige-strahlung">Absorbierte kurzwellige Strahlung</a></li>
+  <li><a href="#wandnahe-zusätzliche-strahlung" id="toc-wandnahe-zusätzliche-strahlung" class="nav-link" data-scroll-target="#wandnahe-zusätzliche-strahlung">Wandnahe zusätzliche Strahlung</a></li>
+  <li><a href="#langwellige-bilanz" id="toc-langwellige-bilanz" class="nav-link" data-scroll-target="#langwellige-bilanz">Langwellige Bilanz</a></li>
+  <li><a href="#fühlbarer-wärmefluss" id="toc-fühlbarer-wärmefluss" class="nav-link" data-scroll-target="#fühlbarer-wärmefluss">Fühlbarer Wärmefluss</a></li>
+  <li><a href="#effektive-oberflächenwärmekapazität" id="toc-effektive-oberflächenwärmekapazität" class="nav-link" data-scroll-target="#effektive-oberflächenwärmekapazität">Effektive Oberflächenwärmekapazität</a></li>
+  <li><a href="#substratkopplung" id="toc-substratkopplung" class="nav-link" data-scroll-target="#substratkopplung">Substratkopplung</a></li>
+  </ul></li>
+  <li><a href="#verdunstung-und-latenter-wärmefluss" id="toc-verdunstung-und-latenter-wärmefluss" class="nav-link" data-scroll-target="#verdunstung-und-latenter-wärmefluss">Verdunstung und latenter Wärmefluss</a>
+  <ul class="collapse">
+  <li><a href="#wasserverfügbarkeit" id="toc-wasserverfügbarkeit" class="nav-link" data-scroll-target="#wasserverfügbarkeit">Wasserverfügbarkeit</a></li>
+  <li><a href="#sättigungsdampfdruck" id="toc-sättigungsdampfdruck" class="nav-link" data-scroll-target="#sättigungsdampfdruck">Sättigungsdampfdruck</a></li>
+  <li><a href="#potenzielle-verdunstungsleistung" id="toc-potenzielle-verdunstungsleistung" class="nav-link" data-scroll-target="#potenzielle-verdunstungsleistung">Potenzielle Verdunstungsleistung</a></li>
+  <li><a href="#wasserlimit" id="toc-wasserlimit" class="nav-link" data-scroll-target="#wasserlimit">Wasserlimit</a></li>
+  </ul></li>
+  <li><a href="#änderung-der-oberflächentemperatur" id="toc-änderung-der-oberflächentemperatur" class="nav-link" data-scroll-target="#änderung-der-oberflächentemperatur">Änderung der Oberflächentemperatur</a>
+  <ul class="collapse">
+  <li><a href="#maximale-erwärmungsraten" id="toc-maximale-erwärmungsraten" class="nav-link" data-scroll-target="#maximale-erwärmungsraten">Maximale Erwärmungsraten</a></li>
+  <li><a href="#maximale-abkühlungsraten" id="toc-maximale-abkühlungsraten" class="nav-link" data-scroll-target="#maximale-abkühlungsraten">Maximale Abkühlungsraten</a></li>
+  </ul></li>
+  <li><a href="#bodennahes-luftfeld" id="toc-bodennahes-luftfeld" class="nav-link" data-scroll-target="#bodennahes-luftfeld">Bodennahes Luftfeld</a>
+  <ul class="collapse">
+  <li><a href="#oberflächen-footprint" id="toc-oberflächen-footprint" class="nav-link" data-scroll-target="#oberflächen-footprint">Oberflächen-Footprint</a></li>
+  <li><a href="#horizontale-luftmischung" id="toc-horizontale-luftmischung" class="nav-link" data-scroll-target="#horizontale-luftmischung">Horizontale Luftmischung</a></li>
+  <li><a href="#oberfläche-luft-kopplung" id="toc-oberfläche-luft-kopplung" class="nav-link" data-scroll-target="#oberfläche-luft-kopplung">Oberfläche-Luft-Kopplung</a></li>
+  <li><a href="#vertikale-mischung" id="toc-vertikale-mischung" class="nav-link" data-scroll-target="#vertikale-mischung">Vertikale Mischung</a></li>
+  <li><a href="#fassadenwärmelast" id="toc-fassadenwärmelast" class="nav-link" data-scroll-target="#fassadenwärmelast">Fassadenwärmelast</a></li>
+  <li><a href="#aktive-luftkühlung-durch-begrünte-fassaden" id="toc-aktive-luftkühlung-durch-begrünte-fassaden" class="nav-link" data-scroll-target="#aktive-luftkühlung-durch-begrünte-fassaden">Aktive Luftkühlung durch begrünte Fassaden</a></li>
+  <li><a href="#direkte-luftkühlung-durch-rasen" id="toc-direkte-luftkühlung-durch-rasen" class="nav-link" data-scroll-target="#direkte-luftkühlung-durch-rasen">Direkte Luftkühlung durch Rasen</a></li>
+  <li><a href="#gesamte-lufttemperaturänderung" id="toc-gesamte-lufttemperaturänderung" class="nav-link" data-scroll-target="#gesamte-lufttemperaturänderung">Gesamte Lufttemperaturänderung</a></li>
+  <li><a href="#maximale-lokale-luftänderung" id="toc-maximale-lokale-luftänderung" class="nav-link" data-scroll-target="#maximale-lokale-luftänderung">Maximale lokale Luftänderung</a></li>
+  </ul></li>
+  <li><a href="#aufenthaltsbelastung" id="toc-aufenthaltsbelastung" class="nav-link" data-scroll-target="#aufenthaltsbelastung">Aufenthaltsbelastung</a>
+  <ul class="collapse">
+  <li><a href="#direkte-sonne" id="toc-direkte-sonne" class="nav-link" data-scroll-target="#direkte-sonne">Direkte Sonne</a></li>
+  <li><a href="#langwellige-und-oberflächenbelastung" id="toc-langwellige-und-oberflächenbelastung" class="nav-link" data-scroll-target="#langwellige-und-oberflächenbelastung">Langwellige und Oberflächenbelastung</a></li>
+  <li><a href="#feuchtebelastung" id="toc-feuchtebelastung" class="nav-link" data-scroll-target="#feuchtebelastung">Feuchtebelastung</a></li>
+  <li><a href="#windentlastung" id="toc-windentlastung" class="nav-link" data-scroll-target="#windentlastung">Windentlastung</a></li>
+  <li><a href="#vegetationsentlastung" id="toc-vegetationsentlastung" class="nav-link" data-scroll-target="#vegetationsentlastung">Vegetationsentlastung</a></li>
+  <li><a href="#fassaden-et-entlastung-im-komfortindex" id="toc-fassaden-et-entlastung-im-komfortindex" class="nav-link" data-scroll-target="#fassaden-et-entlastung-im-komfortindex">Fassaden-ET-Entlastung im Komfortindex</a></li>
+  <li><a href="#gesamter-aufenthaltsindex" id="toc-gesamter-aufenthaltsindex" class="nav-link" data-scroll-target="#gesamter-aufenthaltsindex">Gesamter Aufenthaltsindex</a></li>
+  </ul></li>
+  <li><a href="#hitzelast-über-die-schulzeit" id="toc-hitzelast-über-die-schulzeit" class="nav-link" data-scroll-target="#hitzelast-über-die-schulzeit">Hitzelast über die Schulzeit</a>
+  <ul class="collapse">
+  <li><a href="#belastungsfaktor-sommer" id="toc-belastungsfaktor-sommer" class="nav-link" data-scroll-target="#belastungsfaktor-sommer">Belastungsfaktor Sommer</a></li>
+  <li><a href="#belastungsfaktor-frühlingherbst" id="toc-belastungsfaktor-frühlingherbst" class="nav-link" data-scroll-target="#belastungsfaktor-frühlingherbst">Belastungsfaktor Frühling/Herbst</a></li>
+  <li><a href="#belastungsfaktor-winter" id="toc-belastungsfaktor-winter" class="nav-link" data-scroll-target="#belastungsfaktor-winter">Belastungsfaktor Winter</a></li>
+  <li><a href="#dosisgrößen" id="toc-dosisgrößen" class="nav-link" data-scroll-target="#dosisgrößen">Dosisgrößen</a></li>
+  </ul></li>
+  <li><a href="#hitzelastklassen" id="toc-hitzelastklassen" class="nav-link" data-scroll-target="#hitzelastklassen">Hitzelastklassen</a></li>
+  <li><a href="#aufenthaltsflächen" id="toc-aufenthaltsflächen" class="nav-link" data-scroll-target="#aufenthaltsflächen">Aufenthaltsflächen</a></li>
+  <li><a href="#kartenansichten" id="toc-kartenansichten" class="nav-link" data-scroll-target="#kartenansichten">Kartenansichten</a>
+  <ul class="collapse">
+  <li><a href="#hitzelast-änderung" id="toc-hitzelast-änderung" class="nav-link" data-scroll-target="#hitzelast-änderung">Hitzelast Änderung</a></li>
+  </ul></li>
+  <li><a href="#vorhernachher-vergleich" id="toc-vorhernachher-vergleich" class="nav-link" data-scroll-target="#vorhernachher-vergleich">Vorher/Nachher-Vergleich</a>
+  <ul class="collapse">
+  <li><a href="#vergleichsmetriken" id="toc-vergleichsmetriken" class="nav-link" data-scroll-target="#vergleichsmetriken">Vergleichsmetriken</a></li>
+  </ul></li>
+  <li><a href="#web-version" id="toc-web-version" class="nav-link" data-scroll-target="#web-version">Web-Version</a></li>
+  <li><a href="#didaktische-interpretation" id="toc-didaktische-interpretation" class="nav-link" data-scroll-target="#didaktische-interpretation">Didaktische Interpretation</a></li>
+  <li><a href="#modellgrenzen" id="toc-modellgrenzen" class="nav-link" data-scroll-target="#modellgrenzen">Modellgrenzen</a></li>
+  <li><a href="#zentrale-prozeduren" id="toc-zentrale-prozeduren" class="nav-link" data-scroll-target="#zentrale-prozeduren">Zentrale Prozeduren</a></li>
+  <li><a href="#zusammenfassung-der-physikalischen-kernlogik" id="toc-zusammenfassung-der-physikalischen-kernlogik" class="nav-link" data-scroll-target="#zusammenfassung-der-physikalischen-kernlogik">Zusammenfassung der physikalischen Kernlogik</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Andere Formate</h2><ul><li><a href="sitzung-3-02-Dokumentation.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li><li><a href="sitzung-3-02-Dokumentation.docx"><i class="bi bi-file-word"></i>MS Word</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block column-body" id="quarto-document-content">
+
+
+
+
+
+<section id="zweck-des-modells" class="level1">
+<h1>Zweck des Modells</h1>
+<p><strong>KlimaCheck-Schulhof</strong> ist ein vereinfachtes, didaktisches Mikroklima-Modell für Schulhof-Workshops. Das Modell bildet keinen realen Schulhof prognostisch exakt ab. Es dient als <strong>physikalisch plausibles Vergleichsmodell</strong>, mit dem Schülerinnen und Schüler untersuchen können, wie Materialien, Gebäude, Schatten, Vegetation, Dachbegrünung und Fassadenbegrünung die thermische Belastung auf Aufenthaltsflächen verändern.</p>
+<p>Der zentrale Einsatzfall ist nicht die Vorhersage absoluter Temperaturen, sondern der Vergleich von Varianten:</p>
+<ul>
+<li>Ausgangszustand gegen Maßnahme</li>
+<li>Asphalt gegen Rasen</li>
+<li>normale Dächer gegen Gründächer</li>
+<li>normale Fassaden gegen begrünte Fassaden</li>
+<li>offene Flächen gegen verschattete oder vegetationsnahe Flächen</li>
+<li>flächige Maßnahmen gegen punktuelle Maßnahmen</li>
+</ul>
+<p>Das Modell arbeitet deshalb bewusst mit effektiven, didaktischen Parametern. Viele Größen sind nicht als direkt kalibrierte Messwerte zu lesen, sondern als modellinterne Wirkparameter, die typische physikalische Unterschiede sichtbar machen.</p>
+</section>
+<section id="grundstruktur" class="level1">
+<h1>Grundstruktur</h1>
+<section id="raum" class="level2">
+<h2 class="anchored" data-anchor-id="raum">Raum</h2>
+<p>Der Schulhof wird als zweidimensionales Raster aus NetLogo-Patches modelliert. In der aktuellen Version wird die Welt mit folgenden Einstellungen aufgebaut:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Eigenschaft</th>
+<th style="text-align: right;">Wert</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>x-Koordinaten</td>
+<td style="text-align: right;">-25 bis 25</td>
+</tr>
+<tr class="even">
+<td>y-Koordinaten</td>
+<td style="text-align: right;">-25 bis 25</td>
+</tr>
+<tr class="odd">
+<td>Rastergröße</td>
+<td style="text-align: right;">51 × 51 Patches</td>
+</tr>
+<tr class="even">
+<td>Patchgröße in der Anzeige</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr class="odd">
+<td>Anzahl Patches</td>
+<td style="text-align: right;">2601</td>
+</tr>
+</tbody>
+</table>
+<p>Jeder Patch repräsentiert eine kleine Fläche des Schulhofs. Die tatsächliche reale Kantenlänge eines Patches wird nicht als feste metrische Größe erzwungen. Für die didaktische Interpretation kann ein Patch als Rasterzelle eines vereinfachten Lageplans gelesen werden.</p>
+</section>
+<section id="zeit" class="level2">
+<h2 class="anchored" data-anchor-id="zeit">Zeit</h2>
+<p>Die Modellphysik läuft mit einem festen internen Zeitschritt:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Größe</th>
+<th style="text-align: right;">Wert</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>interner Zeitschritt</td>
+<td style="text-align: right;">0.25 h</td>
+</tr>
+<tr class="even">
+<td>Ausgabeintervall</td>
+<td style="text-align: right;">1 h</td>
+</tr>
+<tr class="odd">
+<td>Tageslauf</td>
+<td style="text-align: right;">0 bis 24 h</td>
+</tr>
+<tr class="even">
+<td>Schulzeit für Hitzelast</td>
+<td style="text-align: right;">07:00 bis 16:00 Uhr</td>
+</tr>
+</tbody>
+</table>
+<p>Der interne Zeitschritt von 0.25 h entspricht 15 Minuten. Viele Ausgaben und Protokolle werden nur zu vollen Stunden aktualisiert, die thermische Dynamik wird aber in 15-Minuten-Schritten berechnet.</p>
+</section>
+<section id="zustandslogik" class="level2">
+<h2 class="anchored" data-anchor-id="zustandslogik">Zustandslogik</h2>
+<p>Das Modell unterscheidet drei zentrale Ebenen:</p>
+<ol type="1">
+<li><strong>Oberfläche</strong>: Temperatur der Boden-, Dach-, Vegetations- oder Objektoberfläche.</li>
+<li><strong>Substrat</strong>: vereinfachter Wärmespeicher unter oder hinter der Oberfläche.</li>
+<li><strong>bodennahes Luftfeld</strong>: lokale Lufttemperatur über dem Patch.</li>
+</ol>
+<p>Diese Trennung ist didaktisch wichtig. Heiße Oberflächen und warme Luft sind nicht identisch. Asphalt kann deutlich heißer werden als die Luft darüber. Die Luft reagiert verzögert und wird zusätzlich durch Mischung, Wind, Vegetation und Fassaden beeinflusst.</p>
+</section>
+</section>
+<section id="patch-semantik" class="level1">
+<h1>Patch-Semantik</h1>
+<p>Jeder Patch besitzt zwei getrennte semantische Eigenschaften:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>ground-kind</code></td>
+<td>Bodenklasse des Patches</td>
+</tr>
+<tr class="even">
+<td><code>object-kind</code></td>
+<td>Objekt auf dem Patch</td>
+</tr>
+<tr class="odd">
+<td><code>roof-style</code></td>
+<td>Dachtyp bei Gebäuden</td>
+</tr>
+<tr class="even">
+<td><code>wall-style</code></td>
+<td>Wandtyp bei Gebäuden</td>
+</tr>
+</tbody>
+</table>
+<p>Diese Trennung verhindert, dass ein Baum einfach als grüner Boden behandelt wird. Ein Baum ist ein Objekt mit Schattenwurf, Vegetationshöhe und Verdunstung. Ein Gebäude ist ein Objekt mit Dach, Wand, Höhe, Schatten und Fassadenwirkung.</p>
+<section id="bodenklassen" class="level2">
+<h2 class="anchored" data-anchor-id="bodenklassen">Bodenklassen</h2>
+<p>Die Bodenklassen sind:</p>
+<ul>
+<li><code>Asphalt</code></li>
+<li><code>Pflaster</code></li>
+<li><code>Offenpflaster</code></li>
+<li><code>Sand</code></li>
+<li><code>Sportbelag</code></li>
+<li><code>Rasen</code></li>
+<li><code>none</code></li>
+</ul>
+<p><code>none</code> wird für Gebäudepatches verwendet, weil dort keine begehbare Bodenfläche modelliert wird.</p>
+</section>
+<section id="objektklassen" class="level2">
+<h2 class="anchored" data-anchor-id="objektklassen">Objektklassen</h2>
+<p>Die Objektklassen sind:</p>
+<ul>
+<li><code>none</code></li>
+<li><code>building</code></li>
+<li><code>tree</code></li>
+<li><code>hedge</code></li>
+</ul>
+<p>Gebäude besitzen eine Höhe, einen Dachstil und einen Wandstil. Bäume und Hecken besitzen eine Vegetationshöhe und werfen Schatten.</p>
+</section>
+</section>
+<section id="materialparameter" class="level1">
+<h1>Materialparameter</h1>
+<p>Die Materialparameter werden in <code>apply-ground-properties</code>, <code>apply-effective-roof-properties</code>, <code>apply-tree-properties</code> und <code>apply-hedge-properties</code> gesetzt.</p>
+<p>Die wichtigsten Parameter sind:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>albedo</code></td>
+<td>kurzwelliger Reflexionsanteil</td>
+</tr>
+<tr class="even">
+<td><code>emissivity</code></td>
+<td>langwellige Emissivität</td>
+</tr>
+<tr class="odd">
+<td><code>thermal-mass</code></td>
+<td>effektive thermische Trägheit</td>
+</tr>
+<tr class="even">
+<td><code>evap-factor</code></td>
+<td>Verdunstungsfähigkeit</td>
+</tr>
+</tbody>
+</table>
+<section id="bodenflächen" class="level2">
+<h2 class="anchored" data-anchor-id="bodenflächen">Bodenflächen</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Bodenklasse</th>
+<th style="text-align: right;">Albedo</th>
+<th style="text-align: right;">Emissivität</th>
+<th style="text-align: right;">thermische Masse</th>
+<th style="text-align: right;">Verdunstungsfaktor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Asphalt</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">0.95</td>
+<td style="text-align: right;">0.58</td>
+<td style="text-align: right;">0.00</td>
+</tr>
+<tr class="even">
+<td>Pflaster</td>
+<td style="text-align: right;">0.20</td>
+<td style="text-align: right;">0.94</td>
+<td style="text-align: right;">0.58</td>
+<td style="text-align: right;">0.00</td>
+</tr>
+<tr class="odd">
+<td>Offenpflaster</td>
+<td style="text-align: right;">0.24</td>
+<td style="text-align: right;">0.95</td>
+<td style="text-align: right;">0.62</td>
+<td style="text-align: right;">0.30</td>
+</tr>
+<tr class="even">
+<td>Sand</td>
+<td style="text-align: right;">0.35</td>
+<td style="text-align: right;">0.92</td>
+<td style="text-align: right;">0.40</td>
+<td style="text-align: right;">0.09</td>
+</tr>
+<tr class="odd">
+<td>Sportbelag</td>
+<td style="text-align: right;">0.14</td>
+<td style="text-align: right;">0.95</td>
+<td style="text-align: right;">0.48</td>
+<td style="text-align: right;">0.00</td>
+</tr>
+<tr class="even">
+<td>Rasen</td>
+<td style="text-align: right;">0.26</td>
+<td style="text-align: right;">0.98</td>
+<td style="text-align: right;">0.65</td>
+<td style="text-align: right;">1.00</td>
+</tr>
+<tr class="odd">
+<td>none</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.00</td>
+</tr>
+</tbody>
+</table>
+<p>Die Werte sind effektive Modellparameter. Asphalt ist dunkel und ohne Verdunstung. Pflaster ist heller als Asphalt, aber ebenfalls trocken. Offenpflaster erhält einen kleinen Verdunstungsanteil. Rasen erhält eine starke Verdunstungsfähigkeit, bleibt aber wasserlimitiert.</p>
+</section>
+<section id="dächer" class="level2">
+<h2 class="anchored" data-anchor-id="dächer">Dächer</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Dachtyp</th>
+<th style="text-align: right;">Albedo</th>
+<th style="text-align: right;">Emissivität</th>
+<th style="text-align: right;">thermische Masse</th>
+<th style="text-align: right;">Verdunstungsfaktor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>normales Dach</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">0.93</td>
+<td style="text-align: right;">0.35</td>
+<td style="text-align: right;">0.00</td>
+</tr>
+<tr class="even">
+<td>Gründach</td>
+<td style="text-align: right;">0.22</td>
+<td style="text-align: right;">0.96</td>
+<td style="text-align: right;">0.38</td>
+<td style="text-align: right;">0.30</td>
+</tr>
+</tbody>
+</table>
+<p>Das normale Dach wird als dunkles Bitumendach behandelt. Das Gründach wird als extensives Gründach modelliert: kühler als Bitumen, aber flacher, trockener und weniger leistungsfähig als bodengebundener Rasen.</p>
+</section>
+<section id="vegetation" class="level2">
+<h2 class="anchored" data-anchor-id="vegetation">Vegetation</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Objekt</th>
+<th style="text-align: right;">Albedo</th>
+<th style="text-align: right;">Emissivität</th>
+<th style="text-align: right;">thermische Masse</th>
+<th style="text-align: right;">Verdunstungsfaktor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Baum</td>
+<td style="text-align: right;">0.18</td>
+<td style="text-align: right;">0.98</td>
+<td style="text-align: right;">0.32</td>
+<td style="text-align: right;">1.15</td>
+</tr>
+<tr class="even">
+<td>Hecke</td>
+<td style="text-align: right;">0.18</td>
+<td style="text-align: right;">0.97</td>
+<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">1.10</td>
+</tr>
+</tbody>
+</table>
+<p>Bäume und Hecken wirken nicht nur über Materialparameter. Sie wirken zusätzlich über Schattenwurf, Vegetationsnähe, Wasserhaushalt und geringere direkte Strahlungsbelastung.</p>
+</section>
+</section>
+<section id="wasserhaushalt" class="level1">
+<h1>Wasserhaushalt</h1>
+<p>Der Wasserhaushalt wird über einen einfachen Speicher pro Patch abgebildet. Die Funktion <code>set-water-bucket</code> setzt drei Größen:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Größe</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>water-store-max</code></td>
+<td>maximale Wasserspeicherkapazität</td>
+</tr>
+<tr class="even">
+<td><code>wetness-factor</code></td>
+<td>Wirksamkeit feuchter Oberfläche</td>
+</tr>
+<tr class="odd">
+<td><code>water-store</code></td>
+<td>aktueller Wasserspeicher</td>
+</tr>
+</tbody>
+</table>
+<p>Die Anfangsfüllung wird als Anteil der maximalen Speicherkapazität gesetzt.</p>
+<section id="wasserspeicherparameter" class="level2">
+<h2 class="anchored" data-anchor-id="wasserspeicherparameter">Wasserspeicherparameter</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Fläche/Objekt</th>
+<th style="text-align: right;">Maximaler Speicher</th>
+<th style="text-align: right;">Feuchtefaktor</th>
+<th style="text-align: right;">Anfangsfüllung</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>normales Dach</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.00</td>
+</tr>
+<tr class="even">
+<td>Gründach</td>
+<td style="text-align: right;">10.0</td>
+<td style="text-align: right;">0.65</td>
+<td style="text-align: right;">0.70</td>
+</tr>
+<tr class="odd">
+<td>Baum</td>
+<td style="text-align: right;">30.0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">0.80</td>
+</tr>
+<tr class="even">
+<td>Hecke</td>
+<td style="text-align: right;">20.0</td>
+<td style="text-align: right;">0.90</td>
+<td style="text-align: right;">0.80</td>
+</tr>
+<tr class="odd">
+<td>Asphalt</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.00</td>
+</tr>
+<tr class="even">
+<td>Pflaster</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">0.03</td>
+<td style="text-align: right;">0.05</td>
+</tr>
+<tr class="odd">
+<td>Offenpflaster</td>
+<td style="text-align: right;">2.5</td>
+<td style="text-align: right;">0.20</td>
+<td style="text-align: right;">0.20</td>
+</tr>
+<tr class="even">
+<td>Sand</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">0.06</td>
+<td style="text-align: right;">0.10</td>
+</tr>
+<tr class="odd">
+<td>Sportbelag</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.00</td>
+</tr>
+<tr class="even">
+<td>Rasen</td>
+<td style="text-align: right;">24.0</td>
+<td style="text-align: right;">0.80</td>
+<td style="text-align: right;">0.70</td>
+</tr>
+</tbody>
+</table>
+<p>Die Speicherwerte sind didaktische Effektivwerte. Sie steuern, ob ein Patch Verdunstung liefern kann. Trockene, versiegelte Materialien erhalten praktisch keinen wirksamen Speicher.</p>
+</section>
+<section id="nachlieferung-aus-tieferem-boden" class="level2">
+<h2 class="anchored" data-anchor-id="nachlieferung-aus-tieferem-boden">Nachlieferung aus tieferem Boden</h2>
+<p>Die Modellversion enthält eine vereinfachte stündliche Nachlieferung für Vegetationsflächen:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Fläche/Objekt</th>
+<th style="text-align: right;">Nachlieferung pro Stunde</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Rasen</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="even">
+<td>Baum</td>
+<td style="text-align: right;">0.05</td>
+</tr>
+<tr class="odd">
+<td>Hecke</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+</tbody>
+</table>
+<p>Die Nachlieferung wird zusätzlich mit dem freien Speicherraum skaliert. Ist der Speicher voll, wird nichts nachgefüllt. Ist er leer, ist die Nachlieferung maximal.</p>
+</section>
+</section>
+<section id="meteorologischer-antrieb" class="level1">
+<h1>Meteorologischer Antrieb</h1>
+<p>Der meteorologische Tagesgang wird in <code>update-solar-geometry</code> erzeugt. Das Modell nutzt drei Jahreszeiten: Sommer, Frühling/Herbst und Winter.</p>
+<section id="jahreszeitliche-parameter" class="level2">
+<h2 class="anchored" data-anchor-id="jahreszeitliche-parameter">Jahreszeitliche Parameter</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Jahreszeit</th>
+<th style="text-align: right;">Tageslänge</th>
+<th style="text-align: right;">maximale Sonnenhöhe</th>
+<th style="text-align: right;">mittlere Lufttemperatur</th>
+<th style="text-align: right;">Tagesamplitude</th>
+<th style="text-align: right;">Stunde des Maximums</th>
+<th style="text-align: right;">maximale Kurzwellige Strahlung</th>
+<th style="text-align: right;">Tiefentemperatur</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Sommer</td>
+<td style="text-align: right;">14 h</td>
+<td style="text-align: right;">60°</td>
+<td style="text-align: right;">25 °C</td>
+<td style="text-align: right;">7 K</td>
+<td style="text-align: right;">16 Uhr</td>
+<td style="text-align: right;">850</td>
+<td style="text-align: right;">24 °C</td>
+</tr>
+<tr class="even">
+<td>Frühling/Herbst</td>
+<td style="text-align: right;">11 h</td>
+<td style="text-align: right;">45°</td>
+<td style="text-align: right;">16 °C</td>
+<td style="text-align: right;">7 K</td>
+<td style="text-align: right;">15 Uhr</td>
+<td style="text-align: right;">680</td>
+<td style="text-align: right;">15 °C</td>
+</tr>
+<tr class="odd">
+<td>Winter</td>
+<td style="text-align: right;">8 h</td>
+<td style="text-align: right;">22°</td>
+<td style="text-align: right;">5 °C</td>
+<td style="text-align: right;">5 K</td>
+<td style="text-align: right;">14 Uhr</td>
+<td style="text-align: right;">320</td>
+<td style="text-align: right;">4 °C</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="sonnenaufgang-und-sonnenuntergang" class="level2">
+<h2 class="anchored" data-anchor-id="sonnenaufgang-und-sonnenuntergang">Sonnenaufgang und Sonnenuntergang</h2>
+<p>Aus der Tageslänge werden Sonnenaufgang und Sonnenuntergang berechnet:</p>
+<p><span class="math display">\[
+t_\mathrm{rise} = 12 - \frac{\mathrm{daylight}}{2}
+\]</span></p>
+<p><span class="math display">\[
+t_\mathrm{set} = 12 + \frac{\mathrm{daylight}}{2}
+\]</span></p>
+<p>Außerhalb dieses Zeitraums ist der solare Antrieb null.</p>
+</section>
+<section id="sonnenfaktor" class="level2">
+<h2 class="anchored" data-anchor-id="sonnenfaktor">Sonnenfaktor</h2>
+<p>Während des Tages wird die relative Tagesposition berechnet:</p>
+<p><span class="math display">\[
+p = \frac{t - t_\mathrm{rise}}{\mathrm{daylight}}
+\]</span></p>
+<p>Der Sonnenfaktor folgt einer Sinuskurve:</p>
+<p><span class="math display">\[
+S = \max\left(0,\sin(180^\circ \cdot p)\right)
+\]</span></p>
+<p>In NetLogo werden trigonometrische Funktionen mit Gradwerten verwendet. Der Sonnenfaktor ist eine dimensionslose Größe zwischen 0 und 1.</p>
+</section>
+<section id="sonnenhöhe-und-azimut" class="level2">
+<h2 class="anchored" data-anchor-id="sonnenhöhe-und-azimut">Sonnenhöhe und Azimut</h2>
+<p>Die Sonnenhöhe wird aus dem Sonnenfaktor abgeleitet:</p>
+<p><span class="math display">\[
+\alpha = \alpha_\mathrm{max} \cdot S
+\]</span></p>
+<p>Der Sonnenazimut läuft vereinfacht von 90° bis 270°:</p>
+<p><span class="math display">\[
+A = 90^\circ + 180^\circ \cdot p
+\]</span></p>
+<p>Das ist keine astronomisch exakte Sonnenstandsberechnung, sondern eine vereinfachte didaktische Tagesbahn.</p>
+</section>
+<section id="hintergrundlufttemperatur" class="level2">
+<h2 class="anchored" data-anchor-id="hintergrundlufttemperatur">Hintergrundlufttemperatur</h2>
+<p>Die Hintergrundlufttemperatur wird als asymmetrischer Tagesgang berechnet:</p>
+<p><span class="math display">\[
+\phi = 360^\circ \cdot \frac{t - t_\mathrm{max}}{24}
+\]</span></p>
+<p><span class="math display">\[
+B = 0.82\cos(\phi) + 0.18\cos(2\phi - 35^\circ)
+\]</span></p>
+<p><span class="math display">\[
+T_\mathrm{air} = T_\mathrm{mean} + A_T \cdot B
+\]</span></p>
+<p>Der zweite Cosinus-Term verhindert einen vollständig symmetrischen Tagesgang. Dadurch fällt die Temperatur am Nachmittag und Abend nicht exakt spiegelbildlich zum Vormittag.</p>
+</section>
+<section id="relative-luftfeuchte" class="level2">
+<h2 class="anchored" data-anchor-id="relative-luftfeuchte">Relative Luftfeuchte</h2>
+<p>Die relative Luftfeuchte wird ebenfalls als Tagesgang gesetzt:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Jahreszeit</th>
+<th style="text-align: right;">mittlere relative Feuchte</th>
+<th style="text-align: right;">Amplitude</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Sommer</td>
+<td style="text-align: right;">58 %</td>
+<td style="text-align: right;">16</td>
+</tr>
+<tr class="even">
+<td>Frühling/Herbst</td>
+<td style="text-align: right;">68 %</td>
+<td style="text-align: right;">14</td>
+</tr>
+<tr class="odd">
+<td>Winter</td>
+<td style="text-align: right;">78 %</td>
+<td style="text-align: right;">10</td>
+</tr>
+</tbody>
+</table>
+<p>Die Formel lautet:</p>
+<p><span class="math display">\[
+RH = \max\left(25,\min\left(95,RH_\mathrm{mean} + RH_\mathrm{amp}\cos\left(360^\circ\cdot\frac{t-5}{24}\right)\right)\right)
+\]</span></p>
+</section>
+</section>
+<section id="abgeleitete-räumliche-felder" class="level1">
+<h1>Abgeleitete räumliche Felder</h1>
+<p>Vor jedem thermischen Update werden mehrere räumliche Kontextfelder neu berechnet:</p>
+<ul>
+<li>Vegetationseinfluss</li>
+<li>Wandkontext</li>
+<li>räumliche Einfassung</li>
+</ul>
+<p>Diese Felder werden nicht direkt eingezeichnet, beeinflussen aber Temperatur, Hitzelast und Luftaustausch.</p>
+<section id="vegetationseinfluss" class="level2">
+<h2 class="anchored" data-anchor-id="vegetationseinfluss">Vegetationseinfluss</h2>
+<p>Der Vegetationseinfluss <code>veg-nearby</code> wird aus nahen Bäumen und Hecken berechnet. Dafür werden Radien von 1.5 und 3.5 Patches genutzt.</p>
+<p><span class="math display">\[
+I_\mathrm{tree} = 0.55 \cdot N_\mathrm{tree,1.5} + 0.18 \cdot N_\mathrm{tree,3.5}
+\]</span></p>
+<p><span class="math display">\[
+I_\mathrm{hedge} = 0.35 \cdot N_\mathrm{hedge,1.5} + 0.12 \cdot N_\mathrm{hedge,3.5}
+\]</span></p>
+<p><span class="math display">\[
+veg\_nearby = \min\left(1,\frac{I_\mathrm{tree}+I_\mathrm{hedge}}{2.2}\right)
+\]</span></p>
+<p>Vegetation wirkt dadurch nicht nur auf dem Patch selbst, sondern auch in der Umgebung. Bäume werden stärker gewichtet als Hecken.</p>
+</section>
+<section id="wandkontext" class="level2">
+<h2 class="anchored" data-anchor-id="wandkontext">Wandkontext</h2>
+<p>Der Wandkontext wird für Nicht-Gebäudepatches berechnet. Direkt angrenzende Gebäude über <code>neighbors4</code> erzeugen volle Fassadenwirkung. Gebäudekanten im Radius 2 erzeugen eine abgeschwächte Nahbereichswirkung.</p>
+<p>Direkt an Gebäuden:</p>
+<p><span class="math display">\[
+wall\_exposure = \min\left(1,\frac{N_\mathrm{adjacent\ buildings}}{2}\right)
+\]</span></p>
+<p>Im Nahbereich ohne direkte Gebäudenachbarschaft:</p>
+<p><span class="math display">\[
+wall\_exposure = 0.35
+\]</span></p>
+<p>Die Fassadenbegrünung wird lokal als Mittelwert der angrenzenden oder nahen Gebäudekanten übernommen. Im Nahbereich wird sie abgeschwächt:</p>
+<p><span class="math display">\[
+wall\_green\_local = 0.55 \cdot \overline{wall\_green}
+\]</span></p>
+</section>
+<section id="wand-albedo-und-wandbegrünung" class="level2">
+<h2 class="anchored" data-anchor-id="wand-albedo-und-wandbegrünung">Wand-Albedo und Wandbegrünung</h2>
+<p>Der Wandstil wird über zwei Reporter umgesetzt:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Wandstil</th>
+<th style="text-align: right;">Wand-Albedo</th>
+<th style="text-align: right;">Begrünungswert</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>normale Wand</td>
+<td style="text-align: right;">0.35</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td>grüne Wand</td>
+<td style="text-align: right;">0.25</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+<p>Die grüne Wand reduziert Wandwärmelasten und erzeugt zusätzlich eine aktive evapotranspirative Entlastung.</p>
+</section>
+<section id="einfassung" class="level2">
+<h2 class="anchored" data-anchor-id="einfassung">Einfassung</h2>
+<p>Die räumliche Einfassung <code>enclosedness</code> wird aus Gebäuden und Hecken im Radius 3 berechnet:</p>
+<p><span class="math display">\[
+enclosedness = \min\left(1,\frac{N_\mathrm{building}+0.35N_\mathrm{hedge}}{N_\mathrm{total}}\right)
+\]</span></p>
+<p>Einfassung reduziert Luftaustausch und Windentlastung. Hecken zählen nur abgeschwächt, weil sie weniger massiv wirken als Gebäude.</p>
+</section>
+</section>
+<section id="schattenmodell" class="level1">
+<h1>Schattenmodell</h1>
+<p>Das Schattenmodell ist geometrisch vereinfacht. Es nutzt Sonnenhöhe, Sonnenazimut, Gebäudehöhe und Vegetationshöhe.</p>
+<section id="gebäudeschatten" class="level2">
+<h2 class="anchored" data-anchor-id="gebäudeschatten">Gebäudeschatten</h2>
+<p>Nur Gebäudekanten werfen Schatten. Ein Gebäudepatch gilt als Gebäudekante, wenn mindestens einer seiner vier direkten Nachbarn kein Gebäude ist.</p>
+<p>Die Schattenrichtung wird aus dem Sonnenazimut berechnet:</p>
+<p><span class="math display">\[
+d_x = -\sin(A)
+\]</span></p>
+<p><span class="math display">\[
+d_y = -\cos(A)
+\]</span></p>
+<p>Die Schattenlänge eines Gebäudes lautet:</p>
+<p><span class="math display">\[
+L_\mathrm{building} = \mathrm{round}\left(\frac{1.00 \cdot h_\mathrm{building}}{\max(0.18,\tan(\alpha))}\right)
+\]</span></p>
+<p>Die Schattenstärke von Gebäuden beträgt:</p>
+<p><span class="math display">\[
+shadow\_strength_\mathrm{building} = 0.96
+\]</span></p>
+<p>Gebäude verschatten keine anderen Gebäudepatches. Ziel ist die Wirkung auf Aufenthaltsflächen.</p>
+</section>
+<section id="vegetationsschatten" class="level2">
+<h2 class="anchored" data-anchor-id="vegetationsschatten">Vegetationsschatten</h2>
+<p>Bäume und Hecken werfen eigene Schatten.</p>
+<p>Für Bäume gilt:</p>
+<p><span class="math display">\[
+L_\mathrm{tree} = \mathrm{round}\left(\frac{1.15 \cdot h_\mathrm{veg}}{\max(0.18,\tan(\alpha))}\right)
+\]</span></p>
+<p><span class="math display">\[
+r_\mathrm{canopy} = \max\left(1,\mathrm{round}\left(\frac{h_\mathrm{veg}}{4}\right)\right)
+\]</span></p>
+<p><span class="math display">\[
+shadow\_strength_\mathrm{canopy} = 0.72
+\]</span></p>
+<p><span class="math display">\[
+tail\_decay = 0.035
+\]</span></p>
+<p>Für Hecken werden andere Parameter verwendet:</p>
+<p><span class="math display">\[
+L_\mathrm{hedge} = \mathrm{round}\left(\frac{0.75 \cdot h_\mathrm{veg}}{\max(0.18,\tan(\alpha))}\right)
+\]</span></p>
+<p><span class="math display">\[
+r_\mathrm{hedge} = \max\left(1,\mathrm{round}\left(\frac{h_\mathrm{veg}}{2}\right)\right)
+\]</span></p>
+<p><span class="math display">\[
+shadow\_strength_\mathrm{hedge} = 0.58
+\]</span></p>
+<p><span class="math display">\[
+tail\_decay_\mathrm{hedge} = 0.055
+\]</span></p>
+<p>Die Schattenstärke im Schattenschweif wird mit zunehmender Distanz reduziert:</p>
+<p><span class="math display">\[
+shadow\_level = \max\left(shadow\_level, \max(0.18, shadow\_strength - tail\_decay \cdot step)\right)
+\]</span></p>
+</section>
+</section>
+<section id="oberflächenenergiebilanz" class="level1">
+<h1>Oberflächenenergiebilanz</h1>
+<p>Die Oberflächentemperatur wird in <code>update-thermal-state</code> aus einer vereinfachten Energiebilanz berechnet.</p>
+<p>Die Energiebilanz enthält:</p>
+<ul>
+<li>absorbierte kurzwellige Strahlung</li>
+<li>zusätzliche Wandstrahlung</li>
+<li>langwellige Bilanz</li>
+<li>fühlbaren Wärmefluss</li>
+<li>latenten Wärmefluss</li>
+<li>Bodenwärmefluss</li>
+</ul>
+<section id="solare-einstrahlung-auf-einen-patch" class="level2">
+<h2 class="anchored" data-anchor-id="solare-einstrahlung-auf-einen-patch">Solare Einstrahlung auf einen Patch</h2>
+<p>Der direkte und diffuse Strahlungsanteil wird mit <code>diffuse-share = 0.18</code> berechnet:</p>
+<p><span class="math display">\[
+S_\mathrm{patch} = S \cdot \left(0.18 + (1 - 0.18)(1 - shadow\_level)\right)
+\]</span></p>
+<p>Bei Nacht oder ohne Sonne gilt:</p>
+<p><span class="math display">\[
+S_\mathrm{patch} = 0
+\]</span></p>
+</section>
+<section id="absorbierte-kurzwellige-strahlung" class="level2">
+<h2 class="anchored" data-anchor-id="absorbierte-kurzwellige-strahlung">Absorbierte kurzwellige Strahlung</h2>
+<p><span class="math display">\[
+Q_\mathrm{SW} = SW_\mathrm{max} \cdot S_\mathrm{patch} \cdot (1 - \alpha)
+\]</span></p>
+<p>Dabei ist <code>SW_max</code> die jahreszeitliche maximale kurzwellige Strahlung und <code>albedo</code> der Reflexionsanteil des Materials.</p>
+</section>
+<section id="wandnahe-zusätzliche-strahlung" class="level2">
+<h2 class="anchored" data-anchor-id="wandnahe-zusätzliche-strahlung">Wandnahe zusätzliche Strahlung</h2>
+<p>Die Wandbelastung wird als Zusatzterm modelliert:</p>
+<p><span class="math display">\[
+f_h = \min\left(1.2,\frac{wall\_height\_local}{8}\right)
+\]</span></p>
+<p><span class="math display">\[
+Q_\mathrm{wall} = 38 \cdot wall\_exposure \cdot S \cdot f_h \cdot (1 - wall\_albedo\_local) \cdot (1 - 0.75 \cdot wall\_green\_local)
+\]</span></p>
+<p>Für Nicht-Gebäudepatches wird dieser Term reduziert:</p>
+<p><span class="math display">\[
+Q_\mathrm{wall} = 0.65 \cdot Q_\mathrm{wall}
+\]</span></p>
+<p>Damit wird berücksichtigt, dass die Wand eine angrenzende Strahlungsquelle ist, aber nicht die ganze Patchoberfläche bildet.</p>
+</section>
+<section id="langwellige-bilanz" class="level2">
+<h2 class="anchored" data-anchor-id="langwellige-bilanz">Langwellige Bilanz</h2>
+<p>Der Himmel wird als effektive Strahlungstemperatur vereinfacht:</p>
+<p><span class="math display">\[
+T_\mathrm{sky,K} = T_\mathrm{air} + 273.15 - (18 - 10S)
+\]</span></p>
+<p>Die Oberfläche wird in Kelvin umgerechnet:</p>
+<p><span class="math display">\[
+T_\mathrm{surf,K} = T_\mathrm{surface} + 273.15
+\]</span></p>
+<p>Die Netto-Langwellenbilanz lautet:</p>
+<p><span class="math display">\[
+Q_\mathrm{LW} = \epsilon \sigma \left(T_\mathrm{sky,K}^4 - T_\mathrm{surf,K}^4\right)
+\]</span></p>
+<p>Dabei ist:</p>
+<p><span class="math display">\[
+\sigma = 5.67 \cdot 10^{-8}
+\]</span></p>
+<p><code>Q_LW</code> ist negativ, wenn die Oberfläche langwellig mehr Energie verliert als sie erhält.</p>
+</section>
+<section id="fühlbarer-wärmefluss" class="level2">
+<h2 class="anchored" data-anchor-id="fühlbarer-wärmefluss">Fühlbarer Wärmefluss</h2>
+<p>Der aerodynamische Austauschkoeffizient wird zunächst aus Windgeschwindigkeit berechnet:</p>
+<p><span class="math display">\[
+g_h = 0.0020 + 0.0015\sqrt{u + 0.2}
+\]</span></p>
+<p>Einfassung reduziert den Austausch:</p>
+<p><span class="math display">\[
+g_h = \frac{g_h}{1 + 0.55 \cdot enclosedness}
+\]</span></p>
+<p>Vegetation reduziert ihn weiter:</p>
+<p><span class="math display">\[
+g_h = 0.70 \cdot g_h
+\]</span></p>
+<p>Rasen reduziert ihn leicht:</p>
+<p><span class="math display">\[
+g_h = 0.85 \cdot g_h
+\]</span></p>
+<p>Der fühlbare Wärmefluss lautet:</p>
+<p><span class="math display">\[
+Q_H = \rho_\mathrm{air} c_p g_h (T_\mathrm{surface} - T_\mathrm{air,local})
+\]</span></p>
+<p>Mit:</p>
+<p><span class="math display">\[
+\rho_\mathrm{air} = 1.20
+\]</span></p>
+<p><span class="math display">\[
+c_p = 1005
+\]</span></p>
+</section>
+<section id="effektive-oberflächenwärmekapazität" class="level2">
+<h2 class="anchored" data-anchor-id="effektive-oberflächenwärmekapazität">Effektive Oberflächenwärmekapazität</h2>
+<p>Die Grundformel lautet:</p>
+<p><span class="math display">\[
+C_\mathrm{surface} = 180000 + 380000 \cdot thermal\_mass
+\]</span></p>
+<p>Danach werden Sonderfälle gesetzt:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Fläche/Objekt</th>
+<th style="text-align: right;">effektive Oberflächenwärmekapazität</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Asphalt</td>
+<td style="text-align: right;">340000</td>
+</tr>
+<tr class="even">
+<td>Pflaster</td>
+<td style="text-align: right;">360000</td>
+</tr>
+<tr class="odd">
+<td>Rasen</td>
+<td style="text-align: right;">300000</td>
+</tr>
+<tr class="even">
+<td>Baum/Hecke</td>
+<td style="text-align: right;">480000</td>
+</tr>
+<tr class="odd">
+<td>Gründach</td>
+<td style="text-align: right;">360000</td>
+</tr>
+</tbody>
+</table>
+<p>Die Einheit ist modelllogisch eine flächenbezogene Wärmekapazität:</p>
+<p><span class="math display">\[
+J \cdot m^{-2} \cdot K^{-1}
+\]</span></p>
+<p>Diese Werte steuern, wie schnell eine Oberfläche auf Energieflüsse reagiert. Rasen wird in der aktuellen Version schnell auskühlend modelliert. Baum und Hecke bleiben stärker gedämpft.</p>
+</section>
+<section id="substratkopplung" class="level2">
+<h2 class="anchored" data-anchor-id="substratkopplung">Substratkopplung</h2>
+<p>Die Grundformel für die Wärmekapazität des Substrats lautet:</p>
+<p><span class="math display">\[
+C_\mathrm{substrate} = 420000 + 620000 \cdot thermal\_mass
+\]</span></p>
+<p>Die Grundformel für die Kopplung zwischen Oberfläche und Substrat lautet:</p>
+<p><span class="math display">\[
+k_\mathrm{substrate} = 4 + 6 \cdot thermal\_mass
+\]</span></p>
+<p>Sonderfälle:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Fläche/Objekt</th>
+<th style="text-align: right;">Substratkopplung</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Asphalt</td>
+<td style="text-align: right;">5.0</td>
+</tr>
+<tr class="even">
+<td>Pflaster</td>
+<td style="text-align: right;">5.4</td>
+</tr>
+<tr class="odd">
+<td>Rasen</td>
+<td style="text-align: right;">3.8</td>
+</tr>
+<tr class="even">
+<td>Baum/Hecke</td>
+<td style="text-align: right;">8.5</td>
+</tr>
+<tr class="odd">
+<td>Gründach</td>
+<td style="text-align: right;">5.2</td>
+</tr>
+</tbody>
+</table>
+<p>Der Bodenwärmefluss lautet:</p>
+<p><span class="math display">\[
+Q_G = k_\mathrm{substrate}(T_\mathrm{surface} - T_\mathrm{substrate})
+\]</span></p>
+<p>Die Substrattemperatur wird zusätzlich langsam in Richtung Tiefentemperatur relaxiert:</p>
+<p><span class="math display">\[
+Q_\mathrm{relax} = \frac{C_\mathrm{substrate}(T_\mathrm{deep} - T_\mathrm{substrate})}{(30 + 52 \cdot thermal\_mass)\cdot 3600}
+\]</span></p>
+</section>
+</section>
+<section id="verdunstung-und-latenter-wärmefluss" class="level1">
+<h1>Verdunstung und latenter Wärmefluss</h1>
+<section id="wasserverfügbarkeit" class="level2">
+<h2 class="anchored" data-anchor-id="wasserverfügbarkeit">Wasserverfügbarkeit</h2>
+<p>Die Wasserverfügbarkeit wird aus der relativen Speicherfüllung berechnet:</p>
+<p><span class="math display">\[
+r_w = \frac{water\_store}{water\_store\_max}
+\]</span></p>
+<p><span class="math display">\[
+water\_availability = \max\left(0,\min\left(1,\frac{r_w - 0.05}{0.80}\right)\right)
+\]</span></p>
+<p>Unter 5 Prozent Speicherfüllung wird praktisch keine Verdunstung angenommen. Ab etwa 85 Prozent Speicherfüllung ist die Verdunstung nicht mehr wasserlimitiert.</p>
+</section>
+<section id="sättigungsdampfdruck" class="level2">
+<h2 class="anchored" data-anchor-id="sättigungsdampfdruck">Sättigungsdampfdruck</h2>
+<p>Das Modell nutzt eine Tetens-Formel:</p>
+<p><span class="math display">\[
+e_s(T) = 0.6108 \cdot \exp\left(\frac{17.27T}{T+237.3}\right)
+\]</span></p>
+<p>Die aktuelle Luftdampfdruckgröße lautet:</p>
+<p><span class="math display">\[
+e_a = \frac{RH}{100} \cdot e_s(T_\mathrm{air,local})
+\]</span></p>
+<p>Das Dampfdruckdefizit an der Oberfläche wird berechnet als:</p>
+<p><span class="math display">\[
+VPD = \max\left(0,e_s(T_\mathrm{surface}) - e_a\right)
+\]</span></p>
+</section>
+<section id="potenzielle-verdunstungsleistung" class="level2">
+<h2 class="anchored" data-anchor-id="potenzielle-verdunstungsleistung">Potenzielle Verdunstungsleistung</h2>
+<p>Die potenzielle aerodynamische Verdunstungsleistung lautet:</p>
+<p><span class="math display">\[
+E_\mathrm{aero} =
+(22 + 52\sqrt{u+0.2})
+\cdot evap\_factor
+\cdot wetness\_factor
+\cdot
+\left(0.30 + 0.70 \cdot \min\left(1,\frac{VPD}{1.6}\right)\right)
+\]</span></p>
+<p>Danach werden Oberflächentypen skaliert:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Fläche/Objekt</th>
+<th style="text-align: right;">Multiplikator</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Rasen</td>
+<td style="text-align: right;">1.95</td>
+</tr>
+<tr class="even">
+<td>Baum/Hecke</td>
+<td style="text-align: right;">1.25</td>
+</tr>
+<tr class="odd">
+<td>Gründach</td>
+<td style="text-align: right;">1.05</td>
+</tr>
+</tbody>
+</table>
+<p>Die potenzielle Verdunstung wird durch die verfügbare Strahlungsenergie begrenzt:</p>
+<p><span class="math display">\[
+Q_{LE,pot} = \min\left(0.92 \cdot Q_\mathrm{available}, E_\mathrm{aero}\right)
+\]</span></p>
+<p>Dabei gilt:</p>
+<p><span class="math display">\[
+Q_\mathrm{available} = \max(0,Q_\mathrm{SW} + Q_\mathrm{wall} + Q_\mathrm{LW})
+\]</span></p>
+<p>Bei sehr geringer Sonneneinstrahlung wird die potenzielle Verdunstung reduziert:</p>
+<p><span class="math display">\[
+Q_{LE,pot} = 0.35 \cdot Q_{LE,pot}
+\]</span></p>
+</section>
+<section id="wasserlimit" class="level2">
+<h2 class="anchored" data-anchor-id="wasserlimit">Wasserlimit</h2>
+<p>Der latente Fluss kann nicht mehr Wasser verdunsten, als im Speicher vorhanden ist:</p>
+<p><span class="math display">\[
+Q_{LE,water} = \frac{water\_store \cdot L_v}{\Delta t}
+\]</span></p>
+<p>Mit:</p>
+<p><span class="math display">\[
+L_v = 2.45 \cdot 10^6
+\]</span></p>
+<p>Der wirksame latente Fluss lautet:</p>
+<p><span class="math display">\[
+Q_{LE} = \min\left(Q_{LE,pot}\cdot water\_availability, Q_{LE,water}\right)
+\]</span></p>
+<p>Die Verdunstungsmenge wird berechnet als:</p>
+<p><span class="math display">\[
+evap\_mm = \frac{Q_{LE}\Delta t}{L_v}
+\]</span></p>
+<p>Der Wasserspeicher wird danach fortgeschrieben:</p>
+<p><span class="math display">\[
+water\_store =
+\max\left(0,\min\left(water\_store\_max,water\_store - evap\_mm + recharge\_mm\right)\right)
+\]</span></p>
+</section>
+</section>
+<section id="änderung-der-oberflächentemperatur" class="level1">
+<h1>Änderung der Oberflächentemperatur</h1>
+<p>Die Netto-Energiebilanz der Oberfläche lautet:</p>
+<p><span class="math display">\[
+Q_\mathrm{net} = Q_\mathrm{SW} + Q_\mathrm{wall} + Q_\mathrm{LW} - Q_H - Q_{LE} - Q_G
+\]</span></p>
+<p>Daraus folgt die ungekappte Temperaturänderung:</p>
+<p><span class="math display">\[
+\Delta T_\mathrm{surface} = \frac{Q_\mathrm{net}\Delta t}{C_\mathrm{surface}}
+\]</span></p>
+<p>Die Änderung wird materialabhängig begrenzt. Dabei wird zwischen Erwärmung und Abkühlung unterschieden.</p>
+<section id="maximale-erwärmungsraten" class="level2">
+<h2 class="anchored" data-anchor-id="maximale-erwärmungsraten">Maximale Erwärmungsraten</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Fläche/Objekt</th>
+<th style="text-align: right;">maximale Erwärmung in °C pro Stunde</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>normales Dach</td>
+<td style="text-align: right;">5.4</td>
+</tr>
+<tr class="even">
+<td>Gründach</td>
+<td style="text-align: right;">3.6</td>
+</tr>
+<tr class="odd">
+<td>Gebäude sonst</td>
+<td style="text-align: right;">4.0</td>
+</tr>
+<tr class="even">
+<td>Baum</td>
+<td style="text-align: right;">2.2</td>
+</tr>
+<tr class="odd">
+<td>Hecke</td>
+<td style="text-align: right;">2.5</td>
+</tr>
+<tr class="even">
+<td>Asphalt</td>
+<td style="text-align: right;">5.0</td>
+</tr>
+<tr class="odd">
+<td>Sportbelag</td>
+<td style="text-align: right;">4.6</td>
+</tr>
+<tr class="even">
+<td>Sand</td>
+<td style="text-align: right;">4.2</td>
+</tr>
+<tr class="odd">
+<td>Pflaster</td>
+<td style="text-align: right;">3.4</td>
+</tr>
+<tr class="even">
+<td>Offenpflaster</td>
+<td style="text-align: right;">3.1</td>
+</tr>
+<tr class="odd">
+<td>Rasen</td>
+<td style="text-align: right;">2.5</td>
+</tr>
+<tr class="even">
+<td>Standard</td>
+<td style="text-align: right;">3.8</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="maximale-abkühlungsraten" class="level2">
+<h2 class="anchored" data-anchor-id="maximale-abkühlungsraten">Maximale Abkühlungsraten</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Fläche/Objekt</th>
+<th style="text-align: right;">maximale Abkühlung in °C pro Stunde</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>normales Dach</td>
+<td style="text-align: right;">4.2</td>
+</tr>
+<tr class="even">
+<td>Gründach</td>
+<td style="text-align: right;">6.4</td>
+</tr>
+<tr class="odd">
+<td>Gebäude sonst</td>
+<td style="text-align: right;">4.0</td>
+</tr>
+<tr class="even">
+<td>Baum</td>
+<td style="text-align: right;">2.8</td>
+</tr>
+<tr class="odd">
+<td>Hecke</td>
+<td style="text-align: right;">3.0</td>
+</tr>
+<tr class="even">
+<td>Asphalt</td>
+<td style="text-align: right;">4.4</td>
+</tr>
+<tr class="odd">
+<td>Sportbelag</td>
+<td style="text-align: right;">4.0</td>
+</tr>
+<tr class="even">
+<td>Sand</td>
+<td style="text-align: right;">4.6</td>
+</tr>
+<tr class="odd">
+<td>Pflaster</td>
+<td style="text-align: right;">3.6</td>
+</tr>
+<tr class="even">
+<td>Offenpflaster</td>
+<td style="text-align: right;">3.8</td>
+</tr>
+<tr class="odd">
+<td>Rasen</td>
+<td style="text-align: right;">7.8</td>
+</tr>
+<tr class="even">
+<td>Standard</td>
+<td style="text-align: right;">3.8</td>
+</tr>
+</tbody>
+</table>
+<p>Diese asymmetrische Kappung ist wichtig. Rasen darf sich langsam erwärmen, aber schnell auskühlen. Dadurch bleibt die didaktisch gewünschte Dynamik erhalten: Rasen wird nicht wie ein starker Wärmespeicher behandelt.</p>
+</section>
+</section>
+<section id="bodennahes-luftfeld" class="level1">
+<h1>Bodennahes Luftfeld</h1>
+<p>Nach dem Oberflächenupdate wird die lokale Lufttemperatur berechnet.</p>
+<section id="oberflächen-footprint" class="level2">
+<h2 class="anchored" data-anchor-id="oberflächen-footprint">Oberflächen-Footprint</h2>
+<p>Zuerst wird ein lokaler Oberflächen-Footprint gebildet. Das eigene Patch wird am stärksten gewichtet, direkte Nachbarn mittel und diagonale Nachbarn schwächer:</p>
+<p><span class="math display">\[
+T_\mathrm{footprint} =
+\frac{3.2T_\mathrm{surface}
++0.9\overline{T}_\mathrm{axial}
++0.3\overline{T}_\mathrm{diagonal}}{4.4}
+\]</span></p>
+</section>
+<section id="horizontale-luftmischung" class="level2">
+<h2 class="anchored" data-anchor-id="horizontale-luftmischung">Horizontale Luftmischung</h2>
+<p>Die horizontale Mischung nutzt eine diskrete Nachbarschaftsdifferenz. Direkte Nachbarn werden voll, diagonale Nachbarn halb gewichtet.</p>
+<p>Der Mischungskoeffizient lautet:</p>
+<p><span class="math display">\[
+m_\mathrm{lat} = 0.010 + 0.006u
+\]</span></p>
+<p>Einfassung reduziert die Mischung:</p>
+<p><span class="math display">\[
+m_\mathrm{lat} = \frac{m_\mathrm{lat}}{1 + 0.30 \cdot enclosedness}
+\]</span></p>
+</section>
+<section id="oberfläche-luft-kopplung" class="level2">
+<h2 class="anchored" data-anchor-id="oberfläche-luft-kopplung">Oberfläche-Luft-Kopplung</h2>
+<p>Die Kopplung der lokalen Luft an die Oberfläche lautet:</p>
+<p><span class="math display">\[
+c_\mathrm{surf} = 0.095 + 0.030\sqrt{u+0.2}
+\]</span></p>
+<p>Einfassung reduziert die Kopplung:</p>
+<p><span class="math display">\[
+c_\mathrm{surf} = \frac{c_\mathrm{surf}}{1 + 0.40 \cdot enclosedness}
+\]</span></p>
+<p>Bäume und Hecken reduzieren sie weiter:</p>
+<p><span class="math display">\[
+c_\mathrm{surf} = 0.90 \cdot c_\mathrm{surf}
+\]</span></p>
+<p>Gebäude reduzieren sie ebenfalls:</p>
+<p><span class="math display">\[
+c_\mathrm{surf} = 0.85 \cdot c_\mathrm{surf}
+\]</span></p>
+<p>Die Oberflächenwirkung auf die Luft lautet:</p>
+<p><span class="math display">\[
+\Delta T_\mathrm{surface-air} =
+c_\mathrm{surf}
+(T_\mathrm{footprint} - T_\mathrm{air,local})
+\Delta t
+\]</span></p>
+</section>
+<section id="vertikale-mischung" class="level2">
+<h2 class="anchored" data-anchor-id="vertikale-mischung">Vertikale Mischung</h2>
+<p>Die vertikale Mischung gegen die Hintergrundluft lautet:</p>
+<p><span class="math display">\[
+m_\mathrm{vert} = 0.015 + 0.015S + 0.008\sqrt{u+0.2}
+\]</span></p>
+<p>Einfassung reduziert auch diesen Austausch:</p>
+<p><span class="math display">\[
+m_\mathrm{vert} = \frac{m_\mathrm{vert}}{1 + 0.45 \cdot enclosedness}
+\]</span></p>
+<p>Vegetation reduziert ihn:</p>
+<p><span class="math display">\[
+m_\mathrm{vert} = 0.85 \cdot m_\mathrm{vert}
+\]</span></p>
+<p>Die Wirkung der Hintergrundluft lautet:</p>
+<p><span class="math display">\[
+\Delta T_\mathrm{background} =
+m_\mathrm{vert}
+(T_\mathrm{air} - T_\mathrm{air,local})
+\Delta t
+\]</span></p>
+</section>
+<section id="fassadenwärmelast" class="level2">
+<h2 class="anchored" data-anchor-id="fassadenwärmelast">Fassadenwärmelast</h2>
+<p>Die lokale Luft erhält einen zusätzlichen Fassadenwärmeterm:</p>
+<p><span class="math display">\[
+L_\mathrm{wall-air}
+=
+0.25
+\cdot wall\_exposure
+\cdot S
+\cdot f_h
+\cdot (1 - 0.60 \cdot wall\_green\_local)
+\]</span></p>
+<p>Daraus wird:</p>
+<p><span class="math display">\[
+\Delta T_\mathrm{wall} = L_\mathrm{wall-air}\Delta t
+\]</span></p>
+</section>
+<section id="aktive-luftkühlung-durch-begrünte-fassaden" class="level2">
+<h2 class="anchored" data-anchor-id="aktive-luftkühlung-durch-begrünte-fassaden">Aktive Luftkühlung durch begrünte Fassaden</h2>
+<p>Begrünte Fassaden erhalten eine eigene evapotranspirative Luftkühlung. Dafür wird ein Dampfdruckdefizit auf Basis der lokalen Lufttemperatur berechnet:</p>
+<p><span class="math display">\[
+VPD_\mathrm{wall} =
+\max\left(0,e_s(T_\mathrm{air,local}) - \frac{RH}{100}e_s(T_\mathrm{air,local})\right)
+\]</span></p>
+<p>Der Faktor lautet:</p>
+<p><span class="math display">\[
+f_\mathrm{wall,ET} = \min\left(1,\frac{VPD_\mathrm{wall}}{1.6}\right)
+\]</span></p>
+<p>Die Kühlung lautet:</p>
+<p><span class="math display">\[
+C_\mathrm{wall-air}
+=
+0.55
+\cdot wall\_exposure
+\cdot wall\_green\_local
+\cdot S
+\cdot f_h
+\cdot
+\left(0.35 + 0.65f_\mathrm{wall,ET}\right)
+\]</span></p>
+<p>Die Temperaturwirkung ist negativ:</p>
+<p><span class="math display">\[
+\Delta T_\mathrm{wall-cooling} = -C_\mathrm{wall-air}\Delta t
+\]</span></p>
+</section>
+<section id="direkte-luftkühlung-durch-rasen" class="level2">
+<h2 class="anchored" data-anchor-id="direkte-luftkühlung-durch-rasen">Direkte Luftkühlung durch Rasen</h2>
+<p>Rasen erhält zusätzlich eine direkte lokale Luftkühlung durch ET:</p>
+<p><span class="math display">\[
+VPD_\mathrm{grass} =
+\max\left(0,e_s(T_\mathrm{air,local}) - \frac{RH}{100}e_s(T_\mathrm{air,local})\right)
+\]</span></p>
+<p><span class="math display">\[
+f_\mathrm{grass,ET} = \min\left(1,\frac{VPD_\mathrm{grass}}{1.6}\right)
+\]</span></p>
+<p><span class="math display">\[
+C_\mathrm{grass-air}
+=
+0.70
+\cdot water\_stress
+\cdot S
+\cdot
+\left(0.35 + 0.65f_\mathrm{grass,ET}\right)
+\]</span></p>
+<p>Im Code bezeichnet <code>water-stress</code> hier funktional die Wasserverfügbarkeit. Der Name ist missverständlich, weil höhere Werte mehr verfügbare Feuchte bedeuten.</p>
+<p>Die Temperaturwirkung ist:</p>
+<p><span class="math display">\[
+\Delta T_\mathrm{grass-cooling} = -C_\mathrm{grass-air}\Delta t
+\]</span></p>
+</section>
+<section id="gesamte-lufttemperaturänderung" class="level2">
+<h2 class="anchored" data-anchor-id="gesamte-lufttemperaturänderung">Gesamte Lufttemperaturänderung</h2>
+<p>Die gesamte lokale Lufttemperaturänderung lautet:</p>
+<p><span class="math display">\[
+\Delta T_\mathrm{air,local}
+=
+\Delta T_\mathrm{surface-air}
++
+\Delta T_\mathrm{lateral}
++
+\Delta T_\mathrm{background}
++
+\Delta T_\mathrm{wall}
++
+\Delta T_\mathrm{wall-cooling}
++
+\Delta T_\mathrm{grass-cooling}
+\]</span></p>
+<p>Die Änderung wird materialabhängig begrenzt.</p>
+</section>
+<section id="maximale-lokale-luftänderung" class="level2">
+<h2 class="anchored" data-anchor-id="maximale-lokale-luftänderung">Maximale lokale Luftänderung</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Fläche/Objekt</th>
+<th style="text-align: right;">maximale Änderung in °C pro Stunde</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>normales Dach</td>
+<td style="text-align: right;">2.4</td>
+</tr>
+<tr class="even">
+<td>Gründach</td>
+<td style="text-align: right;">1.6</td>
+</tr>
+<tr class="odd">
+<td>Gebäude sonst</td>
+<td style="text-align: right;">2.0</td>
+</tr>
+<tr class="even">
+<td>Baum</td>
+<td style="text-align: right;">1.4</td>
+</tr>
+<tr class="odd">
+<td>Hecke</td>
+<td style="text-align: right;">1.5</td>
+</tr>
+<tr class="even">
+<td>Asphalt</td>
+<td style="text-align: right;">3.2</td>
+</tr>
+<tr class="odd">
+<td>Sportbelag</td>
+<td style="text-align: right;">3.0</td>
+</tr>
+<tr class="even">
+<td>Sand</td>
+<td style="text-align: right;">2.6</td>
+</tr>
+<tr class="odd">
+<td>Pflaster</td>
+<td style="text-align: right;">2.9</td>
+</tr>
+<tr class="even">
+<td>Offenpflaster</td>
+<td style="text-align: right;">2.1</td>
+</tr>
+<tr class="odd">
+<td>Rasen</td>
+<td style="text-align: right;">1.8</td>
+</tr>
+<tr class="even">
+<td>Standard</td>
+<td style="text-align: right;">2.2</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="aufenthaltsbelastung" class="level1">
+<h1>Aufenthaltsbelastung</h1>
+<p>Die aktuelle Hitzelast wird über einen vereinfachten Aufenthaltsbelastungsindex <code>comfort-index</code> berechnet. Er kombiniert lokale Luft, direkte Sonne, Oberflächenwärme, Wandbelastung, Luftfeuchte, Windentlastung, Vegetationsentlastung und Fassaden-ET.</p>
+<p>Dieser Index ist kein medizinischer Hitzestressindex. Er ist ein didaktischer Proxy für Aufenthaltsbelastung.</p>
+<section id="direkte-sonne" class="level2">
+<h2 class="anchored" data-anchor-id="direkte-sonne">Direkte Sonne</h2>
+<p><span class="math display">\[
+S_\mathrm{direct} = S(1 - shadow\_level)
+\]</span></p>
+<p>Der kurzwellige Beitrag zum Menschen lautet:</p>
+<p><span class="math display">\[
+SW_\mathrm{eq} = 7.0 \cdot S_\mathrm{direct}
+\]</span></p>
+<p>Bei Bäumen und Hecken wird dieser Beitrag reduziert:</p>
+<p><span class="math display">\[
+SW_\mathrm{eq} = 0.65 \cdot SW_\mathrm{eq}
+\]</span></p>
+</section>
+<section id="langwellige-und-oberflächenbelastung" class="level2">
+<h2 class="anchored" data-anchor-id="langwellige-und-oberflächenbelastung">Langwellige und Oberflächenbelastung</h2>
+<p>Zunächst werden Temperaturüberschüsse berechnet:</p>
+<p><span class="math display">\[
+E_\mathrm{surface} = \max(0,T_\mathrm{surface} - T_\mathrm{air,local})
+\]</span></p>
+<p><span class="math display">\[
+E_\mathrm{axial} = \max(0,\overline{T}_\mathrm{axial} - T_\mathrm{air,local})
+\]</span></p>
+<p><span class="math display">\[
+E_\mathrm{diagonal} = \max(0,\overline{T}_\mathrm{diagonal} - T_\mathrm{air,local})
+\]</span></p>
+<p>Der langwellige Belastungsbeitrag lautet:</p>
+<p><span class="math display">\[
+LW_\mathrm{eq}
+=
+0.38E_\mathrm{surface}
++
+0.22E_\mathrm{axial}
++
+0.10E_\mathrm{diagonal}
++
+2.8
+\cdot wall\_exposure
+\cdot S
+\cdot f_h
+\cdot
+(1 - 0.80 \cdot wall\_green\_local)
+\]</span></p>
+</section>
+<section id="feuchtebelastung" class="level2">
+<h2 class="anchored" data-anchor-id="feuchtebelastung">Feuchtebelastung</h2>
+<p><span class="math display">\[
+H_\mathrm{humidity} = 0.03 \cdot \max(0,RH - 55)
+\]</span></p>
+</section>
+<section id="windentlastung" class="level2">
+<h2 class="anchored" data-anchor-id="windentlastung">Windentlastung</h2>
+<p><span class="math display">\[
+R_\mathrm{wind} = 0.9\sqrt{\max(0.5,u)}
+\]</span></p>
+<p>Einfassung reduziert die Windentlastung:</p>
+<p><span class="math display">\[
+R_\mathrm{wind} = R_\mathrm{wind}(1 - 0.20 \cdot enclosedness)
+\]</span></p>
+</section>
+<section id="vegetationsentlastung" class="level2">
+<h2 class="anchored" data-anchor-id="vegetationsentlastung">Vegetationsentlastung</h2>
+<p><span class="math display">\[
+R_\mathrm{veg} = 0.35 \cdot veg\_nearby
+\]</span></p>
+</section>
+<section id="fassaden-et-entlastung-im-komfortindex" class="level2">
+<h2 class="anchored" data-anchor-id="fassaden-et-entlastung-im-komfortindex">Fassaden-ET-Entlastung im Komfortindex</h2>
+<p>Die aktive Entlastung durch begrünte Fassaden lautet:</p>
+<p><span class="math display">\[
+R_\mathrm{wall,ET}
+=
+3.2
+\cdot wall\_exposure
+\cdot wall\_green\_local
+\cdot S
+\cdot
+(0.35 + 0.65 f_\mathrm{wall,ET})
+\]</span></p>
+</section>
+<section id="gesamter-aufenthaltsindex" class="level2">
+<h2 class="anchored" data-anchor-id="gesamter-aufenthaltsindex">Gesamter Aufenthaltsindex</h2>
+<p><span class="math display">\[
+comfort\_index =
+T_\mathrm{air,local}
++
+SW_\mathrm{eq}
++
+LW_\mathrm{eq}
++
+H_\mathrm{humidity}
+-
+R_\mathrm{wind}
+-
+R_\mathrm{veg}
+-
+R_\mathrm{wall,ET}
+\]</span></p>
+<p>Zusätzlich speichert das Modell die Einzelkomponenten <code>shortwave-human</code>, <code>longwave-human</code> und <code>exposure-temp</code>.</p>
+</section>
+</section>
+<section id="hitzelast-über-die-schulzeit" class="level1">
+<h1>Hitzelast über die Schulzeit</h1>
+<p>Die integrierte Hitzelast <code>heat-dose-comfort</code> wird nur während der Schulzeit fortgeschrieben:</p>
+<p><span class="math display">\[
+7 \leq t &lt; 16
+\]</span></p>
+<p>Für jeden Zeitschritt wird aus dem <code>comfort-index</code> ein Belastungsfaktor zwischen 0 und 1 berechnet.</p>
+<section id="belastungsfaktor-sommer" class="level2">
+<h2 class="anchored" data-anchor-id="belastungsfaktor-sommer">Belastungsfaktor Sommer</h2>
+<p>Für Sommer gilt:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Indexbereich</th>
+<th>Belastungsfaktor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>bis 24</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>24 bis 29</td>
+<td>linear von 0.08 bis 0.25</td>
+</tr>
+<tr class="odd">
+<td>29 bis 38</td>
+<td>linear von 0.25 bis 1.00</td>
+</tr>
+<tr class="even">
+<td>über 38</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>Formelbereiche:</p>
+<p><span class="math display">\[
+idx \leq 24 \Rightarrow score = 0
+\]</span></p>
+<p><span class="math display">\[
+24 &lt; idx \leq 29 \Rightarrow score = 0.08 + 0.17\frac{idx-24}{5}
+\]</span></p>
+<p><span class="math display">\[
+29 &lt; idx \leq 38 \Rightarrow score = 0.25 + 0.75\frac{idx-29}{9}
+\]</span></p>
+<p><span class="math display">\[
+idx &gt; 38 \Rightarrow score = 1
+\]</span></p>
+</section>
+<section id="belastungsfaktor-frühlingherbst" class="level2">
+<h2 class="anchored" data-anchor-id="belastungsfaktor-frühlingherbst">Belastungsfaktor Frühling/Herbst</h2>
+<p><span class="math display">\[
+idx \leq 18 \Rightarrow score = 0
+\]</span></p>
+<p><span class="math display">\[
+18 &lt; idx \leq 23 \Rightarrow score = 0.08 + 0.17\frac{idx-18}{5}
+\]</span></p>
+<p><span class="math display">\[
+23 &lt; idx \leq 31 \Rightarrow score = 0.25 + 0.75\frac{idx-23}{8}
+\]</span></p>
+<p><span class="math display">\[
+idx &gt; 31 \Rightarrow score = 1
+\]</span></p>
+</section>
+<section id="belastungsfaktor-winter" class="level2">
+<h2 class="anchored" data-anchor-id="belastungsfaktor-winter">Belastungsfaktor Winter</h2>
+<p><span class="math display">\[
+idx \leq 8 \Rightarrow score = 0
+\]</span></p>
+<p><span class="math display">\[
+8 &lt; idx \leq 12 \Rightarrow score = 0.08 + 0.17\frac{idx-8}{4}
+\]</span></p>
+<p><span class="math display">\[
+12 &lt; idx \leq 18 \Rightarrow score = 0.25 + 0.75\frac{idx-12}{6}
+\]</span></p>
+<p><span class="math display">\[
+idx &gt; 18 \Rightarrow score = 1
+\]</span></p>
+</section>
+<section id="dosisgrößen" class="level2">
+<h2 class="anchored" data-anchor-id="dosisgrößen">Dosisgrößen</h2>
+<p>Während der Schulzeit werden drei Dosisgrößen integriert:</p>
+<p><span class="math display">\[
+heat\_dose\_air
+=
+heat\_dose\_air
++
+\max(0,T_\mathrm{air,local}-28)\Delta t
+\]</span></p>
+<p><span class="math display">\[
+heat\_dose\_surface
+=
+heat\_dose\_surface
++
+\max(0,T_\mathrm{surface}-36)\Delta t
+\]</span></p>
+<p><span class="math display">\[
+heat\_dose\_comfort
+=
+heat\_dose\_comfort
++
+score\Delta t
+\]</span></p>
+<p>Die wichtigste Auswertung ist <code>heat-dose-comfort</code>. Sie wird als äquivalente Belastungsstunden während der Schulzeit gelesen.</p>
+</section>
+</section>
+<section id="hitzelastklassen" class="level1">
+<h1>Hitzelastklassen</h1>
+<p>Die aufsummierte Hitzelast wird in fünf Klassen übersetzt:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Klasse</th>
+<th>Farbe</th>
+<th>Bereich</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td>blau</td>
+<td>bis 1 h</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td>grün</td>
+<td>über 1 bis 2.5 h</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td>gelb</td>
+<td>über 2.5 bis 5 h</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td>orange</td>
+<td>über 5 bis 6.5 h</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td>rot</td>
+<td>über 6.5 h</td>
+</tr>
+</tbody>
+</table>
+<p>Die gleiche Klassifikation wird für Kartenansicht, Monitoring und Vorher/Nachher-Vergleich genutzt.</p>
+</section>
+<section id="aufenthaltsflächen" class="level1">
+<h1>Aufenthaltsflächen</h1>
+<p>Nicht alle Patches werden als Aufenthaltsflächen gezählt. Der Reporter <code>aufenthaltsflaechen</code> umfasst nur Patches mit <code>object-kind = "none"</code> und einer nutzbaren Bodenklasse:</p>
+<ul>
+<li>Asphalt</li>
+<li>Pflaster</li>
+<li>Offenpflaster</li>
+<li>Rasen</li>
+<li>Sportbelag</li>
+<li>Sand</li>
+</ul>
+<p>Gebäude, Bäume und Hecken werden nicht als Aufenthaltsfläche gezählt.</p>
+</section>
+<section id="kartenansichten" class="level1">
+<h1>Kartenansichten</h1>
+<p>Das Modell besitzt folgende Kartenansichten:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Kartenansicht</th>
+<th>dargestellte Größe</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Materialien &amp; Elemente</td>
+<td>Bodenklassen, Objekte, Dächer, Fassaden</td>
+</tr>
+<tr class="even">
+<td>Schatten aktuell</td>
+<td><code>shadow-level</code></td>
+</tr>
+<tr class="odd">
+<td>Oberflächentemperatur aktuell</td>
+<td><code>surface-temp</code></td>
+</tr>
+<tr class="even">
+<td>Lufttemperatur aktuell</td>
+<td><code>air-temp-local</code></td>
+</tr>
+<tr class="odd">
+<td>Hitzelast aktuell</td>
+<td><code>comfort-index</code></td>
+</tr>
+<tr class="even">
+<td>Hitzelast Schulzeit</td>
+<td><code>heat-dose-comfort</code></td>
+</tr>
+<tr class="odd">
+<td>Hitzelast Änderung</td>
+<td>Differenz zu gespeicherter Referenz</td>
+</tr>
+</tbody>
+</table>
+<section id="hitzelast-änderung" class="level2">
+<h2 class="anchored" data-anchor-id="hitzelast-änderung">Hitzelast Änderung</h2>
+<p>Die Hitzelaständerung wird als Differenz berechnet:</p>
+<p><span class="math display">\[
+\Delta H = heat\_dose\_comfort - ref\_heat\_dose\_comfort
+\]</span></p>
+<p>Negative Werte bedeuten Entlastung. Positive Werte bedeuten Verschlechterung.</p>
+<p>Die Farblogik lautet:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Differenz</th>
+<th>Farbe</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">bis -2.5</td>
+<td>blau</td>
+<td>stark besser</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">-2.5 bis -1.0</td>
+<td>grün</td>
+<td>besser</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">-1.0 bis 1.0</td>
+<td>grau</td>
+<td>kaum anders</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1.0 bis 2.5</td>
+<td>orange</td>
+<td>schlechter</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">ab 2.5</td>
+<td>rot</td>
+<td>stark schlechter</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="vorhernachher-vergleich" class="level1">
+<h1>Vorher/Nachher-Vergleich</h1>
+<p>Der Vergleich nutzt keine externe Datei. Die Referenz wird im laufenden Modellzustand in den Patch-Variablen gespeichert:</p>
+<ul>
+<li><code>ref-active?</code></li>
+<li><code>ref-heat-dose-comfort</code></li>
+<li><code>ref-heat-dose-air</code></li>
+<li><code>ref-heat-dose-surface</code></li>
+<li><code>ref-comfort-index</code></li>
+<li><code>ref-comfort-index-max</code></li>
+<li><code>ref-shadow-level</code></li>
+</ul>
+<p>Die Referenz gilt global für die gesamte Karte. Eine spätere Auswahl wird nur verwendet, um einen Teilbereich auszuwerten.</p>
+<section id="vergleichsmetriken" class="level2">
+<h2 class="anchored" data-anchor-id="vergleichsmetriken">Vergleichsmetriken</h2>
+<p>Für eine ausgewählte Fläche werden berechnet:</p>
+<ul>
+<li>mittlere Hitzelast vorher/nachher</li>
+<li>maximale Hitzelast vorher/nachher</li>
+<li>Schattenanteil vorher/nachher</li>
+<li>Luftwärmedosis vorher/nachher</li>
+<li>Oberflächenwärme vorher/nachher</li>
+<li>Anteil orange/rot</li>
+<li>Anteil rot</li>
+<li>Anteil blau/grün/gelb</li>
+<li>verbesserte Fläche</li>
+<li>mindestens eine Klasse besser</li>
+<li>mindestens zwei Klassen besser</li>
+<li>Klassenwanderungen aus kritischen Klassen</li>
+</ul>
+</section>
+</section>
+<section id="web-version" class="level1">
+<h1>Web-Version</h1>
+<p>Die Web-Version deaktiviert die lokale Szenario-Dateiverwaltung. Es werden keine lokalen Dateien geschrieben oder gelesen.</p>
+<p>Dauerhaftes Speichern von Szenarien ist in der Web-Version nicht Teil der Modelllogik. Der Vorher/Nachher-Vergleich funktioniert nur innerhalb der laufenden Simulation im Browser. Nach Neuladen der Seite oder nach <code>Modellstart /-reset</code> ist der Vergleichszustand verloren.</p>
+<p>Die Web-Version nutzt die fest im Modell gespeicherte Referenzgeometrie.</p>
+</section>
+<section id="didaktische-interpretation" class="level1">
+<h1>Didaktische Interpretation</h1>
+<p>Das Modell soll folgende Einsichten sichtbar machen:</p>
+<ul>
+<li>Heiße Oberflächen und warme Luft sind nicht dasselbe.</li>
+<li>Schatten reduziert die direkte Aufheizung und die Aufenthaltsbelastung.</li>
+<li>Vegetation wirkt über Schatten und Verdunstung.</li>
+<li>Rasen wirkt anders als Baum, weil Baum zusätzlich 3D-Schatten erzeugt.</li>
+<li>Fassadenbegrünung wirkt lokal stark in der Nähe von Gebäuden, vor allem über reduzierte Wandwärmelast und ET-Entlastung.</li>
+<li>Gründächer verbessern Dachflächen, sind aber nicht automatisch stärker als bodengebundener Rasen.</li>
+<li>Asphalt, Sportbelag und trockene harte Oberflächen erzeugen hohe Oberflächentemperaturen.</li>
+<li>Die entscheidende Frage ist nicht nur, wo es kurzzeitig heiß ist, sondern wo sich während der Schulzeit Hitzelast aufsummiert.</li>
+<li>Maßnahmen sollen dort gesetzt werden, wo sie die belasteten Aufenthaltsflächen tatsächlich verbessern.</li>
+</ul>
+</section>
+<section id="modellgrenzen" class="level1">
+<h1>Modellgrenzen</h1>
+<p>Das Modell ist bewusst vereinfacht. Es enthält keine vollständige mikrometeorologische Stadtklimaphysik. Insbesondere werden nicht abgebildet:</p>
+<ul>
+<li>echte 3D-Strömungsdynamik</li>
+<li>turbulente Energiebilanz mit stabilitätsabhängiger Schichtung</li>
+<li>echte Gebäudewandorientierungen</li>
+<li>reale Bodenfeuchteprofile</li>
+<li>echte Pflanzenphysiologie</li>
+<li>reale Wurzelräume</li>
+<li>Wolken, wechselnde Wetterlagen oder Niederschlagsereignisse</li>
+<li>Kalibrierung gegen Messdaten</li>
+<li>vollständige humanbiometeorologische Indizes wie UTCI oder PET</li>
+</ul>
+<p>Die Hitzelast ist deshalb kein medizinischer Grenzwert. Sie ist ein didaktischer Belastungsproxy.</p>
+</section>
+<section id="zentrale-prozeduren" class="level1">
+<h1>Zentrale Prozeduren</h1>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Prozedur</th>
+<th>Funktion</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>setup</code></td>
+<td>initialisiert Modell, Welt, Stationen, Temperaturen und Plots</td>
+</tr>
+<tr class="even">
+<td><code>simulieren</code></td>
+<td>führt den Tageslauf stundenweise fort</td>
+</tr>
+<tr class="odd">
+<td><code>lauf-neu-vorbereiten</code></td>
+<td>setzt dynamische Tageswerte zurück, erhält Geometrie und Referenz</td>
+</tr>
+<tr class="even">
+<td><code>update-solar-geometry</code></td>
+<td>berechnet Tagesgang, Sonne, Hintergrundluft und Feuchte</td>
+</tr>
+<tr class="odd">
+<td><code>cast-shadows</code></td>
+<td>berechnet Gebäude- und Vegetationsschatten</td>
+</tr>
+<tr class="even">
+<td><code>rebuild-derived-fields</code></td>
+<td>berechnet Vegetations-, Wand- und Einfassungsfelder</td>
+</tr>
+<tr class="odd">
+<td><code>update-thermal-state</code></td>
+<td>berechnet Oberfläche, Substrat, Wasser, Luft und Hitzedosis</td>
+</tr>
+<tr class="even">
+<td><code>compute-comfort-index</code></td>
+<td>berechnet aktuelle Aufenthaltsbelastung</td>
+</tr>
+<tr class="odd">
+<td><code>referenz-speichern</code></td>
+<td>merkt Vorher-Zustand in Patchvariablen</td>
+</tr>
+<tr class="even">
+<td><code>auswahl-vergleichen</code></td>
+<td>wertet Vergleich für Auswahlfläche aus</td>
+</tr>
+<tr class="odd">
+<td><code>recolor-world</code></td>
+<td>setzt Kartenansicht und Farblogik</td>
+</tr>
+<tr class="even">
+<td><code>handle-mouse-edit</code></td>
+<td>steuert interaktive Bearbeitung</td>
+</tr>
+<tr class="odd">
+<td><code>apply-Element</code></td>
+<td>setzt Boden, Objekt, Dach oder Wand</td>
+</tr>
+<tr class="even">
+<td><code>toggle-alle-daecher</code></td>
+<td>schaltet Dächer normal/begrünt</td>
+</tr>
+<tr class="odd">
+<td><code>toggle-alle-waende</code></td>
+<td>schaltet Wände normal/begrünt</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="zusammenfassung-der-physikalischen-kernlogik" class="level1">
+<h1>Zusammenfassung der physikalischen Kernlogik</h1>
+<p>Das Modell folgt dieser Kette:</p>
+<ol type="1">
+<li>Die Jahreszeit erzeugt Tageslänge, Sonnenhöhe, solaren Antrieb, Hintergrundtemperatur und Luftfeuchte.</li>
+<li>Gebäude und Vegetation werfen Schatten.</li>
+<li>Materialien bestimmen Absorption, langwellige Abstrahlung, thermische Trägheit und Verdunstungsfähigkeit.</li>
+<li>Wasserverfügbarkeit begrenzt die Verdunstung.</li>
+<li>Die Oberflächentemperatur entsteht aus kurzwelliger Strahlung, langwelliger Bilanz, fühlbarer Wärme, latenter Wärme und Substratwärmefluss.</li>
+<li>Die lokale Lufttemperatur reagiert auf Oberflächen, Nachbarschaftsmischung, Hintergrundluft, Fassadenwärme, Fassadenbegrünung und Rasen-ET.</li>
+<li>Die Aufenthaltsbelastung kombiniert Lufttemperatur, Sonne, heiße Oberflächen, Wandlast, Luftfeuchte, Windentlastung, Vegetation und Fassaden-ET.</li>
+<li>Während der Schulzeit wird aus der aktuellen Belastung eine Hitzedosis integriert.</li>
+<li>Diese Dosis wird in Hitzelastklassen und Vorher/Nachher-Differenzen übersetzt.</li>
+</ol>
+<p>Damit bildet das Modell keine exakte Realität nach, sondern eine transparente Wirklogik für schulische Klima- und Anpassungsfragen.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  // Jahr einsetzen
+  document.querySelectorAll('.year').forEach(function (el) {
+    el.textContent = new Date().getFullYear();
+  });
+
+  // Impressum-Link relativ zum Projekt-Root setzen
+  const offset = document.querySelector('meta[name="quarto:offset"]')?.getAttribute('content') || '';
+  document.querySelectorAll('a.impressum-link').forEach(function (a) {
+    a.setAttribute('href', offset + 'Über/impressum.html');
+  });
+});
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Kopiert");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Kopiert");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("^(?:http:|https:)//(OGERHub\.github\.io/KlimaCheck\-Schulhof|www\.quarto\.org/custom)");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            // default icon
+            link.classList.add("external");
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation column-body">
+  <div class="nav-page nav-page-previous">
+      <a href="../03-KlimaCheck-Schulhof/sitzung-3-01.html" class="pagination-link" aria-label="Interaktives Schulhofklima-Modell">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Interaktives Schulhofklima-Modell</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../Über/impressum.html" class="pagination-link" aria-label="Impressum">
+        <span class="nav-page-text">Impressum</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Geographiedidaktik - Schwerpunkt Physische Geographie (<span class="year"></span>) — <a class="impressum-link" href="../Über/impressum.html">Impressum</a></p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

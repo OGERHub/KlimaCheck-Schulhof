@@ -1,0 +1,1395 @@
+---
+title: "Technische Dokumentation"
+subtitle: "Modellkonzept und Physik"
+author: "Rieke Ammoneit & Chris Reudenbach"
+date: "2026-04-28"
+title-block-banner: ../images/netlogo-sp.png
+title-block-banner-color: black
+page-layout: full
+
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    code-fold: true
+    number-sections: false
+  pdf:
+    pdf-engine: lualatex
+  docx: default
+---
+
+# Zweck des Modells
+
+**KlimaCheck-Schulhof** ist ein vereinfachtes, didaktisches Mikroklima-Modell für Schulhof-Workshops. Das Modell bildet keinen realen Schulhof prognostisch exakt ab. Es dient als **physikalisch plausibles Vergleichsmodell**, mit dem Schülerinnen und Schüler untersuchen können, wie Materialien, Gebäude, Schatten, Vegetation, Dachbegrünung und Fassadenbegrünung die thermische Belastung auf Aufenthaltsflächen verändern.
+
+Der zentrale Einsatzfall ist nicht die Vorhersage absoluter Temperaturen, sondern der Vergleich von Varianten:
+
+- Ausgangszustand gegen Maßnahme
+- Asphalt gegen Rasen
+- normale Dächer gegen Gründächer
+- normale Fassaden gegen begrünte Fassaden
+- offene Flächen gegen verschattete oder vegetationsnahe Flächen
+- flächige Maßnahmen gegen punktuelle Maßnahmen
+
+Das Modell arbeitet deshalb bewusst mit effektiven, didaktischen Parametern. Viele Größen sind nicht als direkt kalibrierte Messwerte zu lesen, sondern als modellinterne Wirkparameter, die typische physikalische Unterschiede sichtbar machen.
+
+# Grundstruktur
+
+## Raum
+
+Der Schulhof wird als zweidimensionales Raster aus NetLogo-Patches modelliert. In der aktuellen Version wird die Welt mit folgenden Einstellungen aufgebaut:
+
+| Eigenschaft | Wert |
+|---|---:|
+| x-Koordinaten | -25 bis 25 |
+| y-Koordinaten | -25 bis 25 |
+| Rastergröße | 51 × 51 Patches |
+| Patchgröße in der Anzeige | 10 |
+| Anzahl Patches | 2601 |
+
+Jeder Patch repräsentiert eine kleine Fläche des Schulhofs. Die tatsächliche reale Kantenlänge eines Patches wird nicht als feste metrische Größe erzwungen. Für die didaktische Interpretation kann ein Patch als Rasterzelle eines vereinfachten Lageplans gelesen werden.
+
+## Zeit
+
+Die Modellphysik läuft mit einem festen internen Zeitschritt:
+
+| Größe | Wert |
+|---|---:|
+| interner Zeitschritt | 0.25 h |
+| Ausgabeintervall | 1 h |
+| Tageslauf | 0 bis 24 h |
+| Schulzeit für Hitzelast | 07:00 bis 16:00 Uhr |
+
+Der interne Zeitschritt von 0.25 h entspricht 15 Minuten. Viele Ausgaben und Protokolle werden nur zu vollen Stunden aktualisiert, die thermische Dynamik wird aber in 15-Minuten-Schritten berechnet.
+
+## Zustandslogik
+
+Das Modell unterscheidet drei zentrale Ebenen:
+
+1. **Oberfläche**: Temperatur der Boden-, Dach-, Vegetations- oder Objektoberfläche.
+2. **Substrat**: vereinfachter Wärmespeicher unter oder hinter der Oberfläche.
+3. **bodennahes Luftfeld**: lokale Lufttemperatur über dem Patch.
+
+Diese Trennung ist didaktisch wichtig. Heiße Oberflächen und warme Luft sind nicht identisch. Asphalt kann deutlich heißer werden als die Luft darüber. Die Luft reagiert verzögert und wird zusätzlich durch Mischung, Wind, Vegetation und Fassaden beeinflusst.
+
+# Patch-Semantik
+
+Jeder Patch besitzt zwei getrennte semantische Eigenschaften:
+
+| Variable | Bedeutung |
+|---|---|
+| `ground-kind` | Bodenklasse des Patches |
+| `object-kind` | Objekt auf dem Patch |
+| `roof-style` | Dachtyp bei Gebäuden |
+| `wall-style` | Wandtyp bei Gebäuden |
+
+Diese Trennung verhindert, dass ein Baum einfach als grüner Boden behandelt wird. Ein Baum ist ein Objekt mit Schattenwurf, Vegetationshöhe und Verdunstung. Ein Gebäude ist ein Objekt mit Dach, Wand, Höhe, Schatten und Fassadenwirkung.
+
+## Bodenklassen
+
+Die Bodenklassen sind:
+
+- `Asphalt`
+- `Pflaster`
+- `Offenpflaster`
+- `Sand`
+- `Sportbelag`
+- `Rasen`
+- `none`
+
+`none` wird für Gebäudepatches verwendet, weil dort keine begehbare Bodenfläche modelliert wird.
+
+## Objektklassen
+
+Die Objektklassen sind:
+
+- `none`
+- `building`
+- `tree`
+- `hedge`
+
+Gebäude besitzen eine Höhe, einen Dachstil und einen Wandstil. Bäume und Hecken besitzen eine Vegetationshöhe und werfen Schatten.
+
+# Materialparameter
+
+Die Materialparameter werden in `apply-ground-properties`, `apply-effective-roof-properties`, `apply-tree-properties` und `apply-hedge-properties` gesetzt.
+
+Die wichtigsten Parameter sind:
+
+| Parameter | Bedeutung |
+|---|---|
+| `albedo` | kurzwelliger Reflexionsanteil |
+| `emissivity` | langwellige Emissivität |
+| `thermal-mass` | effektive thermische Trägheit |
+| `evap-factor` | Verdunstungsfähigkeit |
+
+## Bodenflächen
+
+| Bodenklasse | Albedo | Emissivität | thermische Masse | Verdunstungsfaktor |
+|---|---:|---:|---:|---:|
+| Asphalt | 0.10 | 0.95 | 0.58 | 0.00 |
+| Pflaster | 0.20 | 0.94 | 0.58 | 0.00 |
+| Offenpflaster | 0.24 | 0.95 | 0.62 | 0.30 |
+| Sand | 0.35 | 0.92 | 0.40 | 0.09 |
+| Sportbelag | 0.14 | 0.95 | 0.48 | 0.00 |
+| Rasen | 0.26 | 0.98 | 0.65 | 1.00 |
+| none | 0.00 | 0.00 | 0.00 | 0.00 |
+
+Die Werte sind effektive Modellparameter. Asphalt ist dunkel und ohne Verdunstung. Pflaster ist heller als Asphalt, aber ebenfalls trocken. Offenpflaster erhält einen kleinen Verdunstungsanteil. Rasen erhält eine starke Verdunstungsfähigkeit, bleibt aber wasserlimitiert.
+
+## Dächer
+
+| Dachtyp | Albedo | Emissivität | thermische Masse | Verdunstungsfaktor |
+|---|---:|---:|---:|---:|
+| normales Dach | 0.10 | 0.93 | 0.35 | 0.00 |
+| Gründach | 0.22 | 0.96 | 0.38 | 0.30 |
+
+Das normale Dach wird als dunkles Bitumendach behandelt. Das Gründach wird als extensives Gründach modelliert: kühler als Bitumen, aber flacher, trockener und weniger leistungsfähig als bodengebundener Rasen.
+
+## Vegetation
+
+| Objekt | Albedo | Emissivität | thermische Masse | Verdunstungsfaktor |
+|---|---:|---:|---:|---:|
+| Baum | 0.18 | 0.98 | 0.32 | 1.15 |
+| Hecke | 0.18 | 0.97 | 0.30 | 1.10 |
+
+Bäume und Hecken wirken nicht nur über Materialparameter. Sie wirken zusätzlich über Schattenwurf, Vegetationsnähe, Wasserhaushalt und geringere direkte Strahlungsbelastung.
+
+# Wasserhaushalt
+
+Der Wasserhaushalt wird über einen einfachen Speicher pro Patch abgebildet. Die Funktion `set-water-bucket` setzt drei Größen:
+
+| Größe | Bedeutung |
+|---|---|
+| `water-store-max` | maximale Wasserspeicherkapazität |
+| `wetness-factor` | Wirksamkeit feuchter Oberfläche |
+| `water-store` | aktueller Wasserspeicher |
+
+Die Anfangsfüllung wird als Anteil der maximalen Speicherkapazität gesetzt.
+
+## Wasserspeicherparameter
+
+| Fläche/Objekt | Maximaler Speicher | Feuchtefaktor | Anfangsfüllung |
+|---|---:|---:|---:|
+| normales Dach | 0.05 | 0.01 | 0.00 |
+| Gründach | 10.0 | 0.65 | 0.70 |
+| Baum | 30.0 | 1.00 | 0.80 |
+| Hecke | 20.0 | 0.90 | 0.80 |
+| Asphalt | 0.02 | 0.01 | 0.00 |
+| Pflaster | 0.10 | 0.03 | 0.05 |
+| Offenpflaster | 2.5 | 0.20 | 0.20 |
+| Sand | 1.00 | 0.06 | 0.10 |
+| Sportbelag | 0.02 | 0.01 | 0.00 |
+| Rasen | 24.0 | 0.80 | 0.70 |
+
+Die Speicherwerte sind didaktische Effektivwerte. Sie steuern, ob ein Patch Verdunstung liefern kann. Trockene, versiegelte Materialien erhalten praktisch keinen wirksamen Speicher.
+
+## Nachlieferung aus tieferem Boden
+
+Die Modellversion enthält eine vereinfachte stündliche Nachlieferung für Vegetationsflächen:
+
+| Fläche/Objekt | Nachlieferung pro Stunde |
+|---|---:|
+| Rasen | 0.03 |
+| Baum | 0.05 |
+| Hecke | 0.04 |
+
+Die Nachlieferung wird zusätzlich mit dem freien Speicherraum skaliert. Ist der Speicher voll, wird nichts nachgefüllt. Ist er leer, ist die Nachlieferung maximal.
+
+# Meteorologischer Antrieb
+
+Der meteorologische Tagesgang wird in `update-solar-geometry` erzeugt. Das Modell nutzt drei Jahreszeiten: Sommer, Frühling/Herbst und Winter.
+
+## Jahreszeitliche Parameter
+
+| Jahreszeit | Tageslänge | maximale Sonnenhöhe | mittlere Lufttemperatur | Tagesamplitude | Stunde des Maximums | maximale Kurzwellige Strahlung | Tiefentemperatur |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Sommer | 14 h | 60° | 25 °C | 7 K | 16 Uhr | 850 | 24 °C |
+| Frühling/Herbst | 11 h | 45° | 16 °C | 7 K | 15 Uhr | 680 | 15 °C |
+| Winter | 8 h | 22° | 5 °C | 5 K | 14 Uhr | 320 | 4 °C |
+
+## Sonnenaufgang und Sonnenuntergang
+
+Aus der Tageslänge werden Sonnenaufgang und Sonnenuntergang berechnet:
+
+$$
+t_\mathrm{rise} = 12 - \frac{\mathrm{daylight}}{2}
+$$
+
+$$
+t_\mathrm{set} = 12 + \frac{\mathrm{daylight}}{2}
+$$
+
+Außerhalb dieses Zeitraums ist der solare Antrieb null.
+
+## Sonnenfaktor
+
+Während des Tages wird die relative Tagesposition berechnet:
+
+$$
+p = \frac{t - t_\mathrm{rise}}{\mathrm{daylight}}
+$$
+
+Der Sonnenfaktor folgt einer Sinuskurve:
+
+$$
+S = \max\left(0,\sin(180^\circ \cdot p)\right)
+$$
+
+In NetLogo werden trigonometrische Funktionen mit Gradwerten verwendet. Der Sonnenfaktor ist eine dimensionslose Größe zwischen 0 und 1.
+
+## Sonnenhöhe und Azimut
+
+Die Sonnenhöhe wird aus dem Sonnenfaktor abgeleitet:
+
+$$
+\alpha = \alpha_\mathrm{max} \cdot S
+$$
+
+Der Sonnenazimut läuft vereinfacht von 90° bis 270°:
+
+$$
+A = 90^\circ + 180^\circ \cdot p
+$$
+
+Das ist keine astronomisch exakte Sonnenstandsberechnung, sondern eine vereinfachte didaktische Tagesbahn.
+
+## Hintergrundlufttemperatur
+
+Die Hintergrundlufttemperatur wird als asymmetrischer Tagesgang berechnet:
+
+$$
+\phi = 360^\circ \cdot \frac{t - t_\mathrm{max}}{24}
+$$
+
+$$
+B = 0.82\cos(\phi) + 0.18\cos(2\phi - 35^\circ)
+$$
+
+$$
+T_\mathrm{air} = T_\mathrm{mean} + A_T \cdot B
+$$
+
+Der zweite Cosinus-Term verhindert einen vollständig symmetrischen Tagesgang. Dadurch fällt die Temperatur am Nachmittag und Abend nicht exakt spiegelbildlich zum Vormittag.
+
+## Relative Luftfeuchte
+
+Die relative Luftfeuchte wird ebenfalls als Tagesgang gesetzt:
+
+| Jahreszeit | mittlere relative Feuchte | Amplitude |
+|---|---:|---:|
+| Sommer | 58 % | 16 |
+| Frühling/Herbst | 68 % | 14 |
+| Winter | 78 % | 10 |
+
+Die Formel lautet:
+
+$$
+RH = \max\left(25,\min\left(95,RH_\mathrm{mean} + RH_\mathrm{amp}\cos\left(360^\circ\cdot\frac{t-5}{24}\right)\right)\right)
+$$
+
+# Abgeleitete räumliche Felder
+
+Vor jedem thermischen Update werden mehrere räumliche Kontextfelder neu berechnet:
+
+- Vegetationseinfluss
+- Wandkontext
+- räumliche Einfassung
+
+Diese Felder werden nicht direkt eingezeichnet, beeinflussen aber Temperatur, Hitzelast und Luftaustausch.
+
+## Vegetationseinfluss
+
+Der Vegetationseinfluss `veg-nearby` wird aus nahen Bäumen und Hecken berechnet. Dafür werden Radien von 1.5 und 3.5 Patches genutzt.
+
+$$
+I_\mathrm{tree} = 0.55 \cdot N_\mathrm{tree,1.5} + 0.18 \cdot N_\mathrm{tree,3.5}
+$$
+
+$$
+I_\mathrm{hedge} = 0.35 \cdot N_\mathrm{hedge,1.5} + 0.12 \cdot N_\mathrm{hedge,3.5}
+$$
+
+$$
+veg\_nearby = \min\left(1,\frac{I_\mathrm{tree}+I_\mathrm{hedge}}{2.2}\right)
+$$
+
+Vegetation wirkt dadurch nicht nur auf dem Patch selbst, sondern auch in der Umgebung. Bäume werden stärker gewichtet als Hecken.
+
+## Wandkontext
+
+Der Wandkontext wird für Nicht-Gebäudepatches berechnet. Direkt angrenzende Gebäude über `neighbors4` erzeugen volle Fassadenwirkung. Gebäudekanten im Radius 2 erzeugen eine abgeschwächte Nahbereichswirkung.
+
+Direkt an Gebäuden:
+
+$$
+wall\_exposure = \min\left(1,\frac{N_\mathrm{adjacent\ buildings}}{2}\right)
+$$
+
+Im Nahbereich ohne direkte Gebäudenachbarschaft:
+
+$$
+wall\_exposure = 0.35
+$$
+
+Die Fassadenbegrünung wird lokal als Mittelwert der angrenzenden oder nahen Gebäudekanten übernommen. Im Nahbereich wird sie abgeschwächt:
+
+$$
+wall\_green\_local = 0.55 \cdot \overline{wall\_green}
+$$
+
+## Wand-Albedo und Wandbegrünung
+
+Der Wandstil wird über zwei Reporter umgesetzt:
+
+| Wandstil | Wand-Albedo | Begrünungswert |
+|---|---:|---:|
+| normale Wand | 0.35 | 0 |
+| grüne Wand | 0.25 | 1 |
+
+Die grüne Wand reduziert Wandwärmelasten und erzeugt zusätzlich eine aktive evapotranspirative Entlastung.
+
+## Einfassung
+
+Die räumliche Einfassung `enclosedness` wird aus Gebäuden und Hecken im Radius 3 berechnet:
+
+$$
+enclosedness = \min\left(1,\frac{N_\mathrm{building}+0.35N_\mathrm{hedge}}{N_\mathrm{total}}\right)
+$$
+
+Einfassung reduziert Luftaustausch und Windentlastung. Hecken zählen nur abgeschwächt, weil sie weniger massiv wirken als Gebäude.
+
+# Schattenmodell
+
+Das Schattenmodell ist geometrisch vereinfacht. Es nutzt Sonnenhöhe, Sonnenazimut, Gebäudehöhe und Vegetationshöhe.
+
+## Gebäudeschatten
+
+Nur Gebäudekanten werfen Schatten. Ein Gebäudepatch gilt als Gebäudekante, wenn mindestens einer seiner vier direkten Nachbarn kein Gebäude ist.
+
+Die Schattenrichtung wird aus dem Sonnenazimut berechnet:
+
+$$
+d_x = -\sin(A)
+$$
+
+$$
+d_y = -\cos(A)
+$$
+
+Die Schattenlänge eines Gebäudes lautet:
+
+$$
+L_\mathrm{building} = \mathrm{round}\left(\frac{1.00 \cdot h_\mathrm{building}}{\max(0.18,\tan(\alpha))}\right)
+$$
+
+Die Schattenstärke von Gebäuden beträgt:
+
+$$
+shadow\_strength_\mathrm{building} = 0.96
+$$
+
+Gebäude verschatten keine anderen Gebäudepatches. Ziel ist die Wirkung auf Aufenthaltsflächen.
+
+## Vegetationsschatten
+
+Bäume und Hecken werfen eigene Schatten.
+
+Für Bäume gilt:
+
+$$
+L_\mathrm{tree} = \mathrm{round}\left(\frac{1.15 \cdot h_\mathrm{veg}}{\max(0.18,\tan(\alpha))}\right)
+$$
+
+$$
+r_\mathrm{canopy} = \max\left(1,\mathrm{round}\left(\frac{h_\mathrm{veg}}{4}\right)\right)
+$$
+
+$$
+shadow\_strength_\mathrm{canopy} = 0.72
+$$
+
+$$
+tail\_decay = 0.035
+$$
+
+Für Hecken werden andere Parameter verwendet:
+
+$$
+L_\mathrm{hedge} = \mathrm{round}\left(\frac{0.75 \cdot h_\mathrm{veg}}{\max(0.18,\tan(\alpha))}\right)
+$$
+
+$$
+r_\mathrm{hedge} = \max\left(1,\mathrm{round}\left(\frac{h_\mathrm{veg}}{2}\right)\right)
+$$
+
+$$
+shadow\_strength_\mathrm{hedge} = 0.58
+$$
+
+$$
+tail\_decay_\mathrm{hedge} = 0.055
+$$
+
+Die Schattenstärke im Schattenschweif wird mit zunehmender Distanz reduziert:
+
+$$
+shadow\_level = \max\left(shadow\_level, \max(0.18, shadow\_strength - tail\_decay \cdot step)\right)
+$$
+
+# Oberflächenenergiebilanz
+
+Die Oberflächentemperatur wird in `update-thermal-state` aus einer vereinfachten Energiebilanz berechnet.
+
+Die Energiebilanz enthält:
+
+- absorbierte kurzwellige Strahlung
+- zusätzliche Wandstrahlung
+- langwellige Bilanz
+- fühlbaren Wärmefluss
+- latenten Wärmefluss
+- Bodenwärmefluss
+
+## Solare Einstrahlung auf einen Patch
+
+Der direkte und diffuse Strahlungsanteil wird mit `diffuse-share = 0.18` berechnet:
+
+$$
+S_\mathrm{patch} = S \cdot \left(0.18 + (1 - 0.18)(1 - shadow\_level)\right)
+$$
+
+Bei Nacht oder ohne Sonne gilt:
+
+$$
+S_\mathrm{patch} = 0
+$$
+
+## Absorbierte kurzwellige Strahlung
+
+$$
+Q_\mathrm{SW} = SW_\mathrm{max} \cdot S_\mathrm{patch} \cdot (1 - \alpha)
+$$
+
+Dabei ist `SW_max` die jahreszeitliche maximale kurzwellige Strahlung und `albedo` der Reflexionsanteil des Materials.
+
+## Wandnahe zusätzliche Strahlung
+
+Die Wandbelastung wird als Zusatzterm modelliert:
+
+$$
+f_h = \min\left(1.2,\frac{wall\_height\_local}{8}\right)
+$$
+
+$$
+Q_\mathrm{wall} = 38 \cdot wall\_exposure \cdot S \cdot f_h \cdot (1 - wall\_albedo\_local) \cdot (1 - 0.75 \cdot wall\_green\_local)
+$$
+
+Für Nicht-Gebäudepatches wird dieser Term reduziert:
+
+$$
+Q_\mathrm{wall} = 0.65 \cdot Q_\mathrm{wall}
+$$
+
+Damit wird berücksichtigt, dass die Wand eine angrenzende Strahlungsquelle ist, aber nicht die ganze Patchoberfläche bildet.
+
+## Langwellige Bilanz
+
+Der Himmel wird als effektive Strahlungstemperatur vereinfacht:
+
+$$
+T_\mathrm{sky,K} = T_\mathrm{air} + 273.15 - (18 - 10S)
+$$
+
+Die Oberfläche wird in Kelvin umgerechnet:
+
+$$
+T_\mathrm{surf,K} = T_\mathrm{surface} + 273.15
+$$
+
+Die Netto-Langwellenbilanz lautet:
+
+$$
+Q_\mathrm{LW} = \epsilon \sigma \left(T_\mathrm{sky,K}^4 - T_\mathrm{surf,K}^4\right)
+$$
+
+Dabei ist:
+
+$$
+\sigma = 5.67 \cdot 10^{-8}
+$$
+
+`Q_LW` ist negativ, wenn die Oberfläche langwellig mehr Energie verliert als sie erhält.
+
+## Fühlbarer Wärmefluss
+
+Der aerodynamische Austauschkoeffizient wird zunächst aus Windgeschwindigkeit berechnet:
+
+$$
+g_h = 0.0020 + 0.0015\sqrt{u + 0.2}
+$$
+
+Einfassung reduziert den Austausch:
+
+$$
+g_h = \frac{g_h}{1 + 0.55 \cdot enclosedness}
+$$
+
+Vegetation reduziert ihn weiter:
+
+$$
+g_h = 0.70 \cdot g_h
+$$
+
+Rasen reduziert ihn leicht:
+
+$$
+g_h = 0.85 \cdot g_h
+$$
+
+Der fühlbare Wärmefluss lautet:
+
+$$
+Q_H = \rho_\mathrm{air} c_p g_h (T_\mathrm{surface} - T_\mathrm{air,local})
+$$
+
+Mit:
+
+$$
+\rho_\mathrm{air} = 1.20
+$$
+
+$$
+c_p = 1005
+$$
+
+## Effektive Oberflächenwärmekapazität
+
+Die Grundformel lautet:
+
+$$
+C_\mathrm{surface} = 180000 + 380000 \cdot thermal\_mass
+$$
+
+Danach werden Sonderfälle gesetzt:
+
+| Fläche/Objekt | effektive Oberflächenwärmekapazität |
+|---|---:|
+| Asphalt | 340000 |
+| Pflaster | 360000 |
+| Rasen | 300000 |
+| Baum/Hecke | 480000 |
+| Gründach | 360000 |
+
+Die Einheit ist modelllogisch eine flächenbezogene Wärmekapazität:
+
+$$
+J \cdot m^{-2} \cdot K^{-1}
+$$
+
+Diese Werte steuern, wie schnell eine Oberfläche auf Energieflüsse reagiert. Rasen wird in der aktuellen Version schnell auskühlend modelliert. Baum und Hecke bleiben stärker gedämpft.
+
+## Substratkopplung
+
+Die Grundformel für die Wärmekapazität des Substrats lautet:
+
+$$
+C_\mathrm{substrate} = 420000 + 620000 \cdot thermal\_mass
+$$
+
+Die Grundformel für die Kopplung zwischen Oberfläche und Substrat lautet:
+
+$$
+k_\mathrm{substrate} = 4 + 6 \cdot thermal\_mass
+$$
+
+Sonderfälle:
+
+| Fläche/Objekt | Substratkopplung |
+|---|---:|
+| Asphalt | 5.0 |
+| Pflaster | 5.4 |
+| Rasen | 3.8 |
+| Baum/Hecke | 8.5 |
+| Gründach | 5.2 |
+
+Der Bodenwärmefluss lautet:
+
+$$
+Q_G = k_\mathrm{substrate}(T_\mathrm{surface} - T_\mathrm{substrate})
+$$
+
+Die Substrattemperatur wird zusätzlich langsam in Richtung Tiefentemperatur relaxiert:
+
+$$
+Q_\mathrm{relax} = \frac{C_\mathrm{substrate}(T_\mathrm{deep} - T_\mathrm{substrate})}{(30 + 52 \cdot thermal\_mass)\cdot 3600}
+$$
+
+# Verdunstung und latenter Wärmefluss
+
+## Wasserverfügbarkeit
+
+Die Wasserverfügbarkeit wird aus der relativen Speicherfüllung berechnet:
+
+$$
+r_w = \frac{water\_store}{water\_store\_max}
+$$
+
+$$
+water\_availability = \max\left(0,\min\left(1,\frac{r_w - 0.05}{0.80}\right)\right)
+$$
+
+Unter 5 Prozent Speicherfüllung wird praktisch keine Verdunstung angenommen. Ab etwa 85 Prozent Speicherfüllung ist die Verdunstung nicht mehr wasserlimitiert.
+
+## Sättigungsdampfdruck
+
+Das Modell nutzt eine Tetens-Formel:
+
+$$
+e_s(T) = 0.6108 \cdot \exp\left(\frac{17.27T}{T+237.3}\right)
+$$
+
+Die aktuelle Luftdampfdruckgröße lautet:
+
+$$
+e_a = \frac{RH}{100} \cdot e_s(T_\mathrm{air,local})
+$$
+
+Das Dampfdruckdefizit an der Oberfläche wird berechnet als:
+
+$$
+VPD = \max\left(0,e_s(T_\mathrm{surface}) - e_a\right)
+$$
+
+## Potenzielle Verdunstungsleistung
+
+Die potenzielle aerodynamische Verdunstungsleistung lautet:
+
+$$
+E_\mathrm{aero} =
+(22 + 52\sqrt{u+0.2})
+\cdot evap\_factor
+\cdot wetness\_factor
+\cdot
+\left(0.30 + 0.70 \cdot \min\left(1,\frac{VPD}{1.6}\right)\right)
+$$
+
+Danach werden Oberflächentypen skaliert:
+
+| Fläche/Objekt | Multiplikator |
+|---|---:|
+| Rasen | 1.95 |
+| Baum/Hecke | 1.25 |
+| Gründach | 1.05 |
+
+Die potenzielle Verdunstung wird durch die verfügbare Strahlungsenergie begrenzt:
+
+$$
+Q_{LE,pot} = \min\left(0.92 \cdot Q_\mathrm{available}, E_\mathrm{aero}\right)
+$$
+
+Dabei gilt:
+
+$$
+Q_\mathrm{available} = \max(0,Q_\mathrm{SW} + Q_\mathrm{wall} + Q_\mathrm{LW})
+$$
+
+Bei sehr geringer Sonneneinstrahlung wird die potenzielle Verdunstung reduziert:
+
+$$
+Q_{LE,pot} = 0.35 \cdot Q_{LE,pot}
+$$
+
+## Wasserlimit
+
+Der latente Fluss kann nicht mehr Wasser verdunsten, als im Speicher vorhanden ist:
+
+$$
+Q_{LE,water} = \frac{water\_store \cdot L_v}{\Delta t}
+$$
+
+Mit:
+
+$$
+L_v = 2.45 \cdot 10^6
+$$
+
+Der wirksame latente Fluss lautet:
+
+$$
+Q_{LE} = \min\left(Q_{LE,pot}\cdot water\_availability, Q_{LE,water}\right)
+$$
+
+Die Verdunstungsmenge wird berechnet als:
+
+$$
+evap\_mm = \frac{Q_{LE}\Delta t}{L_v}
+$$
+
+Der Wasserspeicher wird danach fortgeschrieben:
+
+$$
+water\_store =
+\max\left(0,\min\left(water\_store\_max,water\_store - evap\_mm + recharge\_mm\right)\right)
+$$
+
+# Änderung der Oberflächentemperatur
+
+Die Netto-Energiebilanz der Oberfläche lautet:
+
+$$
+Q_\mathrm{net} = Q_\mathrm{SW} + Q_\mathrm{wall} + Q_\mathrm{LW} - Q_H - Q_{LE} - Q_G
+$$
+
+Daraus folgt die ungekappte Temperaturänderung:
+
+$$
+\Delta T_\mathrm{surface} = \frac{Q_\mathrm{net}\Delta t}{C_\mathrm{surface}}
+$$
+
+Die Änderung wird materialabhängig begrenzt. Dabei wird zwischen Erwärmung und Abkühlung unterschieden.
+
+## Maximale Erwärmungsraten
+
+| Fläche/Objekt | maximale Erwärmung in °C pro Stunde |
+|---|---:|
+| normales Dach | 5.4 |
+| Gründach | 3.6 |
+| Gebäude sonst | 4.0 |
+| Baum | 2.2 |
+| Hecke | 2.5 |
+| Asphalt | 5.0 |
+| Sportbelag | 4.6 |
+| Sand | 4.2 |
+| Pflaster | 3.4 |
+| Offenpflaster | 3.1 |
+| Rasen | 2.5 |
+| Standard | 3.8 |
+
+## Maximale Abkühlungsraten
+
+| Fläche/Objekt | maximale Abkühlung in °C pro Stunde |
+|---|---:|
+| normales Dach | 4.2 |
+| Gründach | 6.4 |
+| Gebäude sonst | 4.0 |
+| Baum | 2.8 |
+| Hecke | 3.0 |
+| Asphalt | 4.4 |
+| Sportbelag | 4.0 |
+| Sand | 4.6 |
+| Pflaster | 3.6 |
+| Offenpflaster | 3.8 |
+| Rasen | 7.8 |
+| Standard | 3.8 |
+
+Diese asymmetrische Kappung ist wichtig. Rasen darf sich langsam erwärmen, aber schnell auskühlen. Dadurch bleibt die didaktisch gewünschte Dynamik erhalten: Rasen wird nicht wie ein starker Wärmespeicher behandelt.
+
+# Bodennahes Luftfeld
+
+Nach dem Oberflächenupdate wird die lokale Lufttemperatur berechnet.
+
+## Oberflächen-Footprint
+
+Zuerst wird ein lokaler Oberflächen-Footprint gebildet. Das eigene Patch wird am stärksten gewichtet, direkte Nachbarn mittel und diagonale Nachbarn schwächer:
+
+$$
+T_\mathrm{footprint} =
+\frac{3.2T_\mathrm{surface}
++0.9\overline{T}_\mathrm{axial}
++0.3\overline{T}_\mathrm{diagonal}}{4.4}
+$$
+
+## Horizontale Luftmischung
+
+Die horizontale Mischung nutzt eine diskrete Nachbarschaftsdifferenz. Direkte Nachbarn werden voll, diagonale Nachbarn halb gewichtet.
+
+Der Mischungskoeffizient lautet:
+
+$$
+m_\mathrm{lat} = 0.010 + 0.006u
+$$
+
+Einfassung reduziert die Mischung:
+
+$$
+m_\mathrm{lat} = \frac{m_\mathrm{lat}}{1 + 0.30 \cdot enclosedness}
+$$
+
+## Oberfläche-Luft-Kopplung
+
+Die Kopplung der lokalen Luft an die Oberfläche lautet:
+
+$$
+c_\mathrm{surf} = 0.095 + 0.030\sqrt{u+0.2}
+$$
+
+Einfassung reduziert die Kopplung:
+
+$$
+c_\mathrm{surf} = \frac{c_\mathrm{surf}}{1 + 0.40 \cdot enclosedness}
+$$
+
+Bäume und Hecken reduzieren sie weiter:
+
+$$
+c_\mathrm{surf} = 0.90 \cdot c_\mathrm{surf}
+$$
+
+Gebäude reduzieren sie ebenfalls:
+
+$$
+c_\mathrm{surf} = 0.85 \cdot c_\mathrm{surf}
+$$
+
+Die Oberflächenwirkung auf die Luft lautet:
+
+$$
+\Delta T_\mathrm{surface-air} =
+c_\mathrm{surf}
+(T_\mathrm{footprint} - T_\mathrm{air,local})
+\Delta t
+$$
+
+## Vertikale Mischung
+
+Die vertikale Mischung gegen die Hintergrundluft lautet:
+
+$$
+m_\mathrm{vert} = 0.015 + 0.015S + 0.008\sqrt{u+0.2}
+$$
+
+Einfassung reduziert auch diesen Austausch:
+
+$$
+m_\mathrm{vert} = \frac{m_\mathrm{vert}}{1 + 0.45 \cdot enclosedness}
+$$
+
+Vegetation reduziert ihn:
+
+$$
+m_\mathrm{vert} = 0.85 \cdot m_\mathrm{vert}
+$$
+
+Die Wirkung der Hintergrundluft lautet:
+
+$$
+\Delta T_\mathrm{background} =
+m_\mathrm{vert}
+(T_\mathrm{air} - T_\mathrm{air,local})
+\Delta t
+$$
+
+## Fassadenwärmelast
+
+Die lokale Luft erhält einen zusätzlichen Fassadenwärmeterm:
+
+$$
+L_\mathrm{wall-air}
+=
+0.25
+\cdot wall\_exposure
+\cdot S
+\cdot f_h
+\cdot (1 - 0.60 \cdot wall\_green\_local)
+$$
+
+Daraus wird:
+
+$$
+\Delta T_\mathrm{wall} = L_\mathrm{wall-air}\Delta t
+$$
+
+## Aktive Luftkühlung durch begrünte Fassaden
+
+Begrünte Fassaden erhalten eine eigene evapotranspirative Luftkühlung. Dafür wird ein Dampfdruckdefizit auf Basis der lokalen Lufttemperatur berechnet:
+
+$$
+VPD_\mathrm{wall} =
+\max\left(0,e_s(T_\mathrm{air,local}) - \frac{RH}{100}e_s(T_\mathrm{air,local})\right)
+$$
+
+Der Faktor lautet:
+
+$$
+f_\mathrm{wall,ET} = \min\left(1,\frac{VPD_\mathrm{wall}}{1.6}\right)
+$$
+
+Die Kühlung lautet:
+
+$$
+C_\mathrm{wall-air}
+=
+0.55
+\cdot wall\_exposure
+\cdot wall\_green\_local
+\cdot S
+\cdot f_h
+\cdot
+\left(0.35 + 0.65f_\mathrm{wall,ET}\right)
+$$
+
+Die Temperaturwirkung ist negativ:
+
+$$
+\Delta T_\mathrm{wall-cooling} = -C_\mathrm{wall-air}\Delta t
+$$
+
+## Direkte Luftkühlung durch Rasen
+
+Rasen erhält zusätzlich eine direkte lokale Luftkühlung durch ET:
+
+$$
+VPD_\mathrm{grass} =
+\max\left(0,e_s(T_\mathrm{air,local}) - \frac{RH}{100}e_s(T_\mathrm{air,local})\right)
+$$
+
+$$
+f_\mathrm{grass,ET} = \min\left(1,\frac{VPD_\mathrm{grass}}{1.6}\right)
+$$
+
+$$
+C_\mathrm{grass-air}
+=
+0.70
+\cdot water\_stress
+\cdot S
+\cdot
+\left(0.35 + 0.65f_\mathrm{grass,ET}\right)
+$$
+
+Im Code bezeichnet `water-stress` hier funktional die Wasserverfügbarkeit. Der Name ist missverständlich, weil höhere Werte mehr verfügbare Feuchte bedeuten.
+
+Die Temperaturwirkung ist:
+
+$$
+\Delta T_\mathrm{grass-cooling} = -C_\mathrm{grass-air}\Delta t
+$$
+
+## Gesamte Lufttemperaturänderung
+
+Die gesamte lokale Lufttemperaturänderung lautet:
+
+$$
+\Delta T_\mathrm{air,local}
+=
+\Delta T_\mathrm{surface-air}
++
+\Delta T_\mathrm{lateral}
++
+\Delta T_\mathrm{background}
++
+\Delta T_\mathrm{wall}
++
+\Delta T_\mathrm{wall-cooling}
++
+\Delta T_\mathrm{grass-cooling}
+$$
+
+Die Änderung wird materialabhängig begrenzt.
+
+## Maximale lokale Luftänderung
+
+| Fläche/Objekt | maximale Änderung in °C pro Stunde |
+|---|---:|
+| normales Dach | 2.4 |
+| Gründach | 1.6 |
+| Gebäude sonst | 2.0 |
+| Baum | 1.4 |
+| Hecke | 1.5 |
+| Asphalt | 3.2 |
+| Sportbelag | 3.0 |
+| Sand | 2.6 |
+| Pflaster | 2.9 |
+| Offenpflaster | 2.1 |
+| Rasen | 1.8 |
+| Standard | 2.2 |
+
+# Aufenthaltsbelastung
+
+Die aktuelle Hitzelast wird über einen vereinfachten Aufenthaltsbelastungsindex `comfort-index` berechnet. Er kombiniert lokale Luft, direkte Sonne, Oberflächenwärme, Wandbelastung, Luftfeuchte, Windentlastung, Vegetationsentlastung und Fassaden-ET.
+
+Dieser Index ist kein medizinischer Hitzestressindex. Er ist ein didaktischer Proxy für Aufenthaltsbelastung.
+
+## Direkte Sonne
+
+$$
+S_\mathrm{direct} = S(1 - shadow\_level)
+$$
+
+Der kurzwellige Beitrag zum Menschen lautet:
+
+$$
+SW_\mathrm{eq} = 7.0 \cdot S_\mathrm{direct}
+$$
+
+Bei Bäumen und Hecken wird dieser Beitrag reduziert:
+
+$$
+SW_\mathrm{eq} = 0.65 \cdot SW_\mathrm{eq}
+$$
+
+## Langwellige und Oberflächenbelastung
+
+Zunächst werden Temperaturüberschüsse berechnet:
+
+$$
+E_\mathrm{surface} = \max(0,T_\mathrm{surface} - T_\mathrm{air,local})
+$$
+
+$$
+E_\mathrm{axial} = \max(0,\overline{T}_\mathrm{axial} - T_\mathrm{air,local})
+$$
+
+$$
+E_\mathrm{diagonal} = \max(0,\overline{T}_\mathrm{diagonal} - T_\mathrm{air,local})
+$$
+
+Der langwellige Belastungsbeitrag lautet:
+
+$$
+LW_\mathrm{eq}
+=
+0.38E_\mathrm{surface}
++
+0.22E_\mathrm{axial}
++
+0.10E_\mathrm{diagonal}
++
+2.8
+\cdot wall\_exposure
+\cdot S
+\cdot f_h
+\cdot
+(1 - 0.80 \cdot wall\_green\_local)
+$$
+
+## Feuchtebelastung
+
+$$
+H_\mathrm{humidity} = 0.03 \cdot \max(0,RH - 55)
+$$
+
+## Windentlastung
+
+$$
+R_\mathrm{wind} = 0.9\sqrt{\max(0.5,u)}
+$$
+
+Einfassung reduziert die Windentlastung:
+
+$$
+R_\mathrm{wind} = R_\mathrm{wind}(1 - 0.20 \cdot enclosedness)
+$$
+
+## Vegetationsentlastung
+
+$$
+R_\mathrm{veg} = 0.35 \cdot veg\_nearby
+$$
+
+## Fassaden-ET-Entlastung im Komfortindex
+
+Die aktive Entlastung durch begrünte Fassaden lautet:
+
+$$
+R_\mathrm{wall,ET}
+=
+3.2
+\cdot wall\_exposure
+\cdot wall\_green\_local
+\cdot S
+\cdot
+(0.35 + 0.65 f_\mathrm{wall,ET})
+$$
+
+## Gesamter Aufenthaltsindex
+
+$$
+comfort\_index =
+T_\mathrm{air,local}
++
+SW_\mathrm{eq}
++
+LW_\mathrm{eq}
++
+H_\mathrm{humidity}
+-
+R_\mathrm{wind}
+-
+R_\mathrm{veg}
+-
+R_\mathrm{wall,ET}
+$$
+
+Zusätzlich speichert das Modell die Einzelkomponenten `shortwave-human`, `longwave-human` und `exposure-temp`.
+
+# Hitzelast über die Schulzeit
+
+Die integrierte Hitzelast `heat-dose-comfort` wird nur während der Schulzeit fortgeschrieben:
+
+$$
+7 \leq t < 16
+$$
+
+Für jeden Zeitschritt wird aus dem `comfort-index` ein Belastungsfaktor zwischen 0 und 1 berechnet.
+
+## Belastungsfaktor Sommer
+
+Für Sommer gilt:
+
+| Indexbereich | Belastungsfaktor |
+|---|---|
+| bis 24 | 0 |
+| 24 bis 29 | linear von 0.08 bis 0.25 |
+| 29 bis 38 | linear von 0.25 bis 1.00 |
+| über 38 | 1 |
+
+Formelbereiche:
+
+$$
+idx \leq 24 \Rightarrow score = 0
+$$
+
+$$
+24 < idx \leq 29 \Rightarrow score = 0.08 + 0.17\frac{idx-24}{5}
+$$
+
+$$
+29 < idx \leq 38 \Rightarrow score = 0.25 + 0.75\frac{idx-29}{9}
+$$
+
+$$
+idx > 38 \Rightarrow score = 1
+$$
+
+## Belastungsfaktor Frühling/Herbst
+
+$$
+idx \leq 18 \Rightarrow score = 0
+$$
+
+$$
+18 < idx \leq 23 \Rightarrow score = 0.08 + 0.17\frac{idx-18}{5}
+$$
+
+$$
+23 < idx \leq 31 \Rightarrow score = 0.25 + 0.75\frac{idx-23}{8}
+$$
+
+$$
+idx > 31 \Rightarrow score = 1
+$$
+
+## Belastungsfaktor Winter
+
+$$
+idx \leq 8 \Rightarrow score = 0
+$$
+
+$$
+8 < idx \leq 12 \Rightarrow score = 0.08 + 0.17\frac{idx-8}{4}
+$$
+
+$$
+12 < idx \leq 18 \Rightarrow score = 0.25 + 0.75\frac{idx-12}{6}
+$$
+
+$$
+idx > 18 \Rightarrow score = 1
+$$
+
+## Dosisgrößen
+
+Während der Schulzeit werden drei Dosisgrößen integriert:
+
+$$
+heat\_dose\_air
+=
+heat\_dose\_air
++
+\max(0,T_\mathrm{air,local}-28)\Delta t
+$$
+
+$$
+heat\_dose\_surface
+=
+heat\_dose\_surface
++
+\max(0,T_\mathrm{surface}-36)\Delta t
+$$
+
+$$
+heat\_dose\_comfort
+=
+heat\_dose\_comfort
++
+score\Delta t
+$$
+
+Die wichtigste Auswertung ist `heat-dose-comfort`. Sie wird als äquivalente Belastungsstunden während der Schulzeit gelesen.
+
+# Hitzelastklassen
+
+Die aufsummierte Hitzelast wird in fünf Klassen übersetzt:
+
+| Klasse | Farbe | Bereich |
+|---:|---|---|
+| 1 | blau | bis 1 h |
+| 2 | grün | über 1 bis 2.5 h |
+| 3 | gelb | über 2.5 bis 5 h |
+| 4 | orange | über 5 bis 6.5 h |
+| 5 | rot | über 6.5 h |
+
+Die gleiche Klassifikation wird für Kartenansicht, Monitoring und Vorher/Nachher-Vergleich genutzt.
+
+# Aufenthaltsflächen
+
+Nicht alle Patches werden als Aufenthaltsflächen gezählt. Der Reporter `aufenthaltsflaechen` umfasst nur Patches mit `object-kind = "none"` und einer nutzbaren Bodenklasse:
+
+- Asphalt
+- Pflaster
+- Offenpflaster
+- Rasen
+- Sportbelag
+- Sand
+
+Gebäude, Bäume und Hecken werden nicht als Aufenthaltsfläche gezählt.
+
+# Kartenansichten
+
+Das Modell besitzt folgende Kartenansichten:
+
+| Kartenansicht | dargestellte Größe |
+|---|---|
+| Materialien & Elemente | Bodenklassen, Objekte, Dächer, Fassaden |
+| Schatten aktuell | `shadow-level` |
+| Oberflächentemperatur aktuell | `surface-temp` |
+| Lufttemperatur aktuell | `air-temp-local` |
+| Hitzelast aktuell | `comfort-index` |
+| Hitzelast Schulzeit | `heat-dose-comfort` |
+| Hitzelast Änderung | Differenz zu gespeicherter Referenz |
+
+## Hitzelast Änderung
+
+Die Hitzelaständerung wird als Differenz berechnet:
+
+$$
+\Delta H = heat\_dose\_comfort - ref\_heat\_dose\_comfort
+$$
+
+Negative Werte bedeuten Entlastung. Positive Werte bedeuten Verschlechterung.
+
+Die Farblogik lautet:
+
+| Differenz | Farbe | Bedeutung |
+|---:|---|---|
+| bis -2.5 | blau | stark besser |
+| -2.5 bis -1.0 | grün | besser |
+| -1.0 bis 1.0 | grau | kaum anders |
+| 1.0 bis 2.5 | orange | schlechter |
+| ab 2.5 | rot | stark schlechter |
+
+# Vorher/Nachher-Vergleich
+
+Der Vergleich nutzt keine externe Datei. Die Referenz wird im laufenden Modellzustand in den Patch-Variablen gespeichert:
+
+- `ref-active?`
+- `ref-heat-dose-comfort`
+- `ref-heat-dose-air`
+- `ref-heat-dose-surface`
+- `ref-comfort-index`
+- `ref-comfort-index-max`
+- `ref-shadow-level`
+
+Die Referenz gilt global für die gesamte Karte. Eine spätere Auswahl wird nur verwendet, um einen Teilbereich auszuwerten.
+
+## Vergleichsmetriken
+
+Für eine ausgewählte Fläche werden berechnet:
+
+- mittlere Hitzelast vorher/nachher
+- maximale Hitzelast vorher/nachher
+- Schattenanteil vorher/nachher
+- Luftwärmedosis vorher/nachher
+- Oberflächenwärme vorher/nachher
+- Anteil orange/rot
+- Anteil rot
+- Anteil blau/grün/gelb
+- verbesserte Fläche
+- mindestens eine Klasse besser
+- mindestens zwei Klassen besser
+- Klassenwanderungen aus kritischen Klassen
+
+# Web-Version
+
+Die Web-Version deaktiviert die lokale Szenario-Dateiverwaltung. Es werden keine lokalen Dateien geschrieben oder gelesen.
+
+Dauerhaftes Speichern von Szenarien ist in der Web-Version nicht Teil der Modelllogik. Der Vorher/Nachher-Vergleich funktioniert nur innerhalb der laufenden Simulation im Browser. Nach Neuladen der Seite oder nach `Modellstart /-reset` ist der Vergleichszustand verloren.
+
+Die Web-Version nutzt die fest im Modell gespeicherte Referenzgeometrie.
+
+# Didaktische Interpretation
+
+Das Modell soll folgende Einsichten sichtbar machen:
+
+- Heiße Oberflächen und warme Luft sind nicht dasselbe.
+- Schatten reduziert die direkte Aufheizung und die Aufenthaltsbelastung.
+- Vegetation wirkt über Schatten und Verdunstung.
+- Rasen wirkt anders als Baum, weil Baum zusätzlich 3D-Schatten erzeugt.
+- Fassadenbegrünung wirkt lokal stark in der Nähe von Gebäuden, vor allem über reduzierte Wandwärmelast und ET-Entlastung.
+- Gründächer verbessern Dachflächen, sind aber nicht automatisch stärker als bodengebundener Rasen.
+- Asphalt, Sportbelag und trockene harte Oberflächen erzeugen hohe Oberflächentemperaturen.
+- Die entscheidende Frage ist nicht nur, wo es kurzzeitig heiß ist, sondern wo sich während der Schulzeit Hitzelast aufsummiert.
+- Maßnahmen sollen dort gesetzt werden, wo sie die belasteten Aufenthaltsflächen tatsächlich verbessern.
+
+# Modellgrenzen
+
+Das Modell ist bewusst vereinfacht. Es enthält keine vollständige mikrometeorologische Stadtklimaphysik. Insbesondere werden nicht abgebildet:
+
+- echte 3D-Strömungsdynamik
+- turbulente Energiebilanz mit stabilitätsabhängiger Schichtung
+- echte Gebäudewandorientierungen
+- reale Bodenfeuchteprofile
+- echte Pflanzenphysiologie
+- reale Wurzelräume
+- Wolken, wechselnde Wetterlagen oder Niederschlagsereignisse
+- Kalibrierung gegen Messdaten
+- vollständige humanbiometeorologische Indizes wie UTCI oder PET
+
+Die Hitzelast ist deshalb kein medizinischer Grenzwert. Sie ist ein didaktischer Belastungsproxy.
+
+# Zentrale Prozeduren
+
+| Prozedur | Funktion |
+|---|---|
+| `setup` | initialisiert Modell, Welt, Stationen, Temperaturen und Plots |
+| `simulieren` | führt den Tageslauf stundenweise fort |
+| `lauf-neu-vorbereiten` | setzt dynamische Tageswerte zurück, erhält Geometrie und Referenz |
+| `update-solar-geometry` | berechnet Tagesgang, Sonne, Hintergrundluft und Feuchte |
+| `cast-shadows` | berechnet Gebäude- und Vegetationsschatten |
+| `rebuild-derived-fields` | berechnet Vegetations-, Wand- und Einfassungsfelder |
+| `update-thermal-state` | berechnet Oberfläche, Substrat, Wasser, Luft und Hitzedosis |
+| `compute-comfort-index` | berechnet aktuelle Aufenthaltsbelastung |
+| `referenz-speichern` | merkt Vorher-Zustand in Patchvariablen |
+| `auswahl-vergleichen` | wertet Vergleich für Auswahlfläche aus |
+| `recolor-world` | setzt Kartenansicht und Farblogik |
+| `handle-mouse-edit` | steuert interaktive Bearbeitung |
+| `apply-Element` | setzt Boden, Objekt, Dach oder Wand |
+| `toggle-alle-daecher` | schaltet Dächer normal/begrünt |
+| `toggle-alle-waende` | schaltet Wände normal/begrünt |
+
+# Zusammenfassung der physikalischen Kernlogik
+
+Das Modell folgt dieser Kette:
+
+1. Die Jahreszeit erzeugt Tageslänge, Sonnenhöhe, solaren Antrieb, Hintergrundtemperatur und Luftfeuchte.
+2. Gebäude und Vegetation werfen Schatten.
+3. Materialien bestimmen Absorption, langwellige Abstrahlung, thermische Trägheit und Verdunstungsfähigkeit.
+4. Wasserverfügbarkeit begrenzt die Verdunstung.
+5. Die Oberflächentemperatur entsteht aus kurzwelliger Strahlung, langwelliger Bilanz, fühlbarer Wärme, latenter Wärme und Substratwärmefluss.
+6. Die lokale Lufttemperatur reagiert auf Oberflächen, Nachbarschaftsmischung, Hintergrundluft, Fassadenwärme, Fassadenbegrünung und Rasen-ET.
+7. Die Aufenthaltsbelastung kombiniert Lufttemperatur, Sonne, heiße Oberflächen, Wandlast, Luftfeuchte, Windentlastung, Vegetation und Fassaden-ET.
+8. Während der Schulzeit wird aus der aktuellen Belastung eine Hitzedosis integriert.
+9. Diese Dosis wird in Hitzelastklassen und Vorher/Nachher-Differenzen übersetzt.
+
+Damit bildet das Modell keine exakte Realität nach, sondern eine transparente Wirklogik für schulische Klima- und Anpassungsfragen.
