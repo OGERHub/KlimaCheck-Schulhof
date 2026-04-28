@@ -1,5 +1,5 @@
 ---
-title: "KlimaCheck-Schulhof - Interaktives Schulhofklima-Modell"
+title: "Wo Hitze entsteht – und wie man sie wieder loswird"
 subtitle: "Interaktives Schulhofklima-Modell"
 author: "Rieke Ammoneit und Chris Reudenbach"
 date: "2026-04-28"

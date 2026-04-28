@@ -1,5 +1,5 @@
 ---
-title: "Schwanken oder Schmelzen"
+title: "Schwankt das noch – oder schmilzt das schon?"
 subtitle: ""
 author: "Rieke Ammoneit"
 date: "2026-04-28"
