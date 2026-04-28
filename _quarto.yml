@@ -39,7 +39,7 @@ website:
     align: center
     style: docked
     contents: auto
-    # collapse-level: 1
+    collapse-level: 1
     # contents:
     #   - section: "Willkommen"
     #     contents:
